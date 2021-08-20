@@ -1,0 +1,7 @@
+#BSUB -G SEAS-Lab-Garnett
+#BSUB -R "rusage[mem=10]"
+#BSUB -R '(!gpu)'
+#BSUB -o job.%J
+#BSUB -N
+#BSUB -J compute_nn
+matlab -nodesktop -nosplash -nodisplay -r "run('compute_nn_job.m'); exit;"

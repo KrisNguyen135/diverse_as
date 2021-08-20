@@ -1,0 +1,26 @@
+This is brief walk-through of how to use the code to for real active search.
+Since this code base was designed to experiment with active search algorithms
+using labeled datasets, it's not very suitable for real active search. I made
+simple changes to the original code to allow us to do real active search in a
+somewhat inconvenient way. The code needs to be optimized to be more user-friendly.
+
+The general steps are as follows (all paths shown are relative to current directory):
+- suppose we have a small labeled set L and a huge unlabeled set U
+- run process_labeled_data.py to compute the morgan features for L
+- run sample_unlabeled_smiles.py: sample 100k points from U, compute their features
+- run calculate_nearest_neighbors_include_unlabeled.m to compute the K nearest
+neighbors (knn) similarity matrix (K is parameter, e.g., k=100) for L and sample
+of U combined, and save as .mat file
+- modify util/load_data.m for loading the .mat data (if needed)
+- run choose_one_batch.m, specifying the policy, batch_size, k
+(as in knn, and k<=K), num_queries, savedir, savename etc. This will run one
+iteration of active search and save the indices of the chosen batch to
+savedir/savename as a text file
+- run get_the_batch_of_smiles.py to read the indices and smiles to extract the
+recommended batch of smiles strings
+
+When the labels of the last batch return, update L and U, and repeat this process
+to get the second batch, and so on
+
+The shell script run_demo.sh automate these processes, run
+$sh run_demo.sh
