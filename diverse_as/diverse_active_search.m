@@ -16,9 +16,7 @@ for i = 1:problem.num_queries
         fprintf('%sIteration %d: ', message_prefix, i);
     end
 
-    fprintf('here0\n');
     test_ind = selector(problem, train_ind, []);
-    fprintf('here1\n');
 
     if isempty(test_ind)
         warning('mf_active_search:no_points_selected', ...
@@ -31,7 +29,6 @@ for i = 1:problem.num_queries
         policy(problem, train_ind, train_labels, test_ind);
 
     chosen_label = labels(chosen_ind);
-
     train_ind    = [train_ind;      chosen_ind];
     train_labels = [train_labels; chosen_label];
 

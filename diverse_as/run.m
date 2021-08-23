@@ -1,7 +1,7 @@
 if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('data',    'var'), data    = 'citeseer'; end
 if ~exist('utility', 'var'), utility =      'log'; end
-if ~exist('policy',  'var'), policy  =   'greedy'; end
+if ~exist('policy',  'var'), policy  =   'round robin greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -42,36 +42,41 @@ case 'threshold'
     threshold        = 2;
     utility_function = get_utility_function(@threshold_utility, threshold);
 end
+problem.utility = utility;
 
-switch policy
+name = policy;
+switch name
 case 'greedy'
-    name = 'greedy';
+    policy = get_policy(@greedy, model, utility_function);
+case 'round robin greedy'
+    policy = get_policy(@round_robin_greedy, model);
 end
 
 if problem.verbose
-    train_ind
-    train_labels
-    utility_function
-    policy
+    disp(train_ind)
+    disp(train_labels)
+    disp(problem.utility)
+    disp(name)
 end
 
 %%% run experiment
-message_prefix = sprintf('Exp %d:', exp);
+message_prefix = sprintf('Exp %d: ', exp);
 
 [utilities, queries, queried_probs, computed, pruned] = diverse_active_search(...
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
+queried_probs
 
-result_dir = fullfile(data_dir, 'results', data, policy);
-if ~isdir(result_dir), mkdir(result_dir); end
-
-writematrix(utilities, ...
-    fullfile(result_dir, sprintf('%s__utilities__%d.csv',     policy, exp)));
-writematrix(queries, ...
-    fullfile(result_dir, sprintf('%s__queries__%d.csv',       policy, exp)));
-writematrix(queried_probs, ...
-    fullfile(result_dir, sprintf('%s__queried_probs__%d.csv', policy, exp)));
-writematrix(computed, ...
-    fullfile(result_dir, sprintf('%s__computed__%d.csv',      policy, exp)));
-writematrix(pruned, ...
-    fullfile(result_dir, sprintf('%s__pruned__%d.csv',        policy, exp)));
+% result_dir = fullfile(data_dir, 'results', data, policy);
+% if ~isdir(result_dir), mkdir(result_dir); end
+%
+% writematrix(utilities, ...
+%     fullfile(result_dir, sprintf('%s__utilities__%d.csv',     policy, exp)));
+% writematrix(queries, ...
+%     fullfile(result_dir, sprintf('%s__queries__%d.csv',       policy, exp)));
+% writematrix(queried_probs, ...
+%     fullfile(result_dir, sprintf('%s__queried_probs__%d.csv', policy, exp)));
+% writematrix(computed, ...
+%     fullfile(result_dir, sprintf('%s__computed__%d.csv',      policy, exp)));
+% writematrix(pruned, ...
+%     fullfile(result_dir, sprintf('%s__pruned__%d.csv',        policy, exp)));
