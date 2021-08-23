@@ -1,14 +1,14 @@
 if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('data',    'var'), data    = 'citeseer'; end
 if ~exist('utility', 'var'), utility =      'log'; end
-if ~exist('policy',  'var'), policy  =   'round robin greedy'; end
+if ~exist('policy',  'var'), policy  =   'greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 10;
+budget   = 500;
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
@@ -65,18 +65,17 @@ message_prefix = sprintf('Exp %d: ', exp);
 [utilities, queries, queried_probs, computed, pruned] = diverse_active_search(...
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
-queried_probs
 
-% result_dir = fullfile(data_dir, 'results', data, policy);
-% if ~isdir(result_dir), mkdir(result_dir); end
-%
-% writematrix(utilities, ...
-%     fullfile(result_dir, sprintf('%s__utilities__%d.csv',     policy, exp)));
-% writematrix(queries, ...
-%     fullfile(result_dir, sprintf('%s__queries__%d.csv',       policy, exp)));
-% writematrix(queried_probs, ...
-%     fullfile(result_dir, sprintf('%s__queried_probs__%d.csv', policy, exp)));
-% writematrix(computed, ...
-%     fullfile(result_dir, sprintf('%s__computed__%d.csv',      policy, exp)));
-% writematrix(pruned, ...
-%     fullfile(result_dir, sprintf('%s__pruned__%d.csv',        policy, exp)));
+result_dir = fullfile(data_dir, 'results', data, name);
+if ~isdir(result_dir), mkdir(result_dir); end
+
+writematrix(utilities, ...
+    fullfile(result_dir, sprintf('%s__utilities__%d.csv',     name, exp)));
+writematrix(queries, ...
+    fullfile(result_dir, sprintf('%s__queries__%d.csv',       name, exp)));
+writematrix(queried_probs, ...
+    fullfile(result_dir, sprintf('%s__queried_probs__%d.csv', name, exp)));
+writematrix(computed, ...
+    fullfile(result_dir, sprintf('%s__computed__%d.csv',      name, exp)));
+writematrix(pruned, ...
+    fullfile(result_dir, sprintf('%s__pruned__%d.csv',        name, exp)));

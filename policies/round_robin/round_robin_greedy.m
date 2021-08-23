@@ -1,4 +1,4 @@
-% queries the point that gives maximum probability of a positive class
+% queries the point that gives maximum probability of a given positive class
 % in a round robin manner
 function [chosen_ind, chosen_prob, num_computed, num_pruned] = round_robin_greedy( ...
     problem, train_ind, train_labels, test_ind, model)
