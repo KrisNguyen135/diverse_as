@@ -9,7 +9,7 @@ addpath(genpath('../active_search'));
 
 %%% high-level settings
 budget   = 500;
-verbose  = true;
+verbose  = false;
 data_dir = '../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
@@ -28,6 +28,7 @@ end
 
 %%% experiment details
 problem.verbose     = verbose;
+problem.num_initial = numel(train_ind);
 problem.num_queries = budget;
 problem.counts      = [0 ones(1, problem.num_classes - 1)];
 
