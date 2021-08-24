@@ -4,14 +4,14 @@ if ~exist('utility', 'var'), utility =      'log'; end
 
 if ~exist('policy', 'var'), policy = 'classical ens'; end
 
-addpath(genpath('../'));
-addpath(genpath('../active_learning'));
-addpath(genpath('../active_search'));
+addpath(genpath('../../'));
+addpath(genpath('../../active_learning'));
+addpath(genpath('../../active_search'));
 
 %%% high-level settings
 budget   = 500;
 verbose  = true;
-data_dir = '../data/';
+data_dir = '../../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
@@ -67,20 +67,25 @@ end
 %%% run experiment
 message_prefix = sprintf('Exp %d: ', exp);
 
-% [utilities, queries, queried_probs, computed, pruned] = diverse_active_search(...
-%     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
-%     message_prefix);
+test_ind = selector(problem, train_ind, []);
+[probs, n, d] = model(problem, train_ind, train_labels, test_ind);
+reverse_ind = zeros(problem.num_points, 1);
+num_test = numel(test_ind);
+reverse_ind(test_ind) = 1:num_test;
 
-% result_dir = fullfile(data_dir, 'results', data, name);
-% if ~isdir(result_dir), mkdir(result_dir); end
-%
-% writematrix(utilities, ...
-%     fullfile(result_dir, sprintf('%s__utilities__%d.csv',     name, exp)));
-% writematrix(queries, ...
-%     fullfile(result_dir, sprintf('%s__queries__%d.csv',       name, exp)));
-% writematrix(queried_probs, ...
-%     fullfile(result_dir, sprintf('%s__queried_probs__%d.csv', name, exp)));
-% writematrix(computed, ...
-%     fullfile(result_dir, sprintf('%s__computed__%d.csv',      name, exp)));
-% writematrix(pruned, ...
-%     fullfile(result_dir, sprintf('%s__pruned__%d.csv',        name, exp)));
+%%% test one point
+this_test_ind = 1865;
+i = find(test_ind == this_test_ind);
+
+fake_utilities = zeros(problem.num_classes, 1);
+fake_train_ind = [train_ind; this_test_ind];
+fake_test_ind = selector(problem, fake_train_ind, []);
+for fake_label = 1:problem.num_classes
+    [fake_probs, ~, ~] = model(problem, fake_train_ind, ...
+                               [train_labels; fake_label], fake_test_ind);
+
+    fake_utilities(fake_label) = sum(maxk(sum(fake_probs(:, 2:end), 2), 499));
+end
+
+p = probs(i, :);
+utility = p * fake_utilities + 1 - p(1)
