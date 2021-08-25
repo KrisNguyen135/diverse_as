@@ -30,9 +30,6 @@ for i = 1:numel(batch_ind)
             samples(1:i, sample_ind)   = [samples(1:(i - 1), j); fake_label];
             sample_weights(sample_ind) = sample_weights0(j) * ...
                                          tmp_probs(fake_label, j);
-            % fprintf('%d, %d, %d, %.4f, %.4f\n', i, j, fake_label, ...
-            %     sample_weights(sample_ind), tmp_probs(fake_label, j));
-            % disp(sample_weights(1:6)');
 
             labels_and_samples = [train_labels; samples(1:(i - 1), j); fake_label];
 
