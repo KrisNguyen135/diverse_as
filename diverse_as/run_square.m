@@ -24,7 +24,8 @@ train_labels = labels(train_ind);
 problem.verbose     = verbose;
 problem.num_initial = numel(train_ind);
 problem.num_queries = budget;
-problem.counts      = [0 ones(1, problem.num_classes - 1)];
+problem.counts      = zeros(1, problem.num_classes);
+problem.counts(train_labels) = 1;
 
 model        = get_model(@knn_model_new, weights, alpha);
 model_update = get_model_update(@knn_model_update, weights);
