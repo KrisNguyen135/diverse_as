@@ -1,6 +1,5 @@
 function [samples, sample_weights, sample_counts, utility] = exact( ...
-    problem, train_ind, train_labels, batch_ind, model, model_update, ...
-    weights, utility_function)
+    problem, train_ind, train_labels, batch_ind, model, weights, utility_function)
 
 weights(train_ind, :) = 0;
 
@@ -15,7 +14,7 @@ all_probs      = repmat(probs, 1, 1, num_samples);  % batch elements by classes 
 for i = 1:numel(batch_ind)
     chosen_ind             = batch_ind(i);
     weights(chosen_ind, :) = 0;
-    updating_ind           = find(weights(:, chosen_ind));
+    updating_ind           = find(weights(batch_ind, chosen_ind));
 
     train_and_selected_ind = [train_ind; batch_ind(1:(i - 1))];
     tmp_num_samples        = problem.num_classes ^ (i - 1);
@@ -30,12 +29,17 @@ for i = 1:numel(batch_ind)
             samples(1:i, sample_ind)   = [samples(1:(i - 1), j); fake_label];
             sample_weights(sample_ind) = sample_weights0(j) * ...
                                          tmp_probs(fake_label, j);
+            % if i == 2 && j == 1 && fake_label == 1
+            %     fprintf('%d, %d, %d, %.4f, %.4f\n', i, j, fake_label, ...
+            %         sample_weights(sample_ind), tmp_probs(fake_label, j));
+            %     disp(sample_weights');
+            % end
 
             labels_and_samples = [train_labels; samples(1:(i - 1), j); fake_label];
 
             [new_probs, ~, ~] = model( ...
                 problem, [train_and_selected_ind; batch_ind(i)], ...
-                labels_and_samples, updating_ind);
+                labels_and_samples, batch_ind(updating_ind));
             all_probs(:, :, sample_ind) = all_probs(:, :, j);
             all_probs(updating_ind, :, sample_ind) = new_probs;
         end

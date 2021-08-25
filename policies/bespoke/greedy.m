@@ -6,7 +6,7 @@ function [chosen_ind, chosen_prob, num_computed, num_pruned] = greedy( ...
 switch problem.utility
 case 'log'
     marginal_utility = probs(:, 2:end) * ...
-                       (log(problem.counts(2:end) + 1)' - log(problem.counts(2:end))');
+                       (log(problem.counts(2:end) + 2)' - log(problem.counts(2:end) + 1)');
 end
 
 [~, chosen_ind] = max(marginal_utility);
