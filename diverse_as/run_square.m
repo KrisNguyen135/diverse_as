@@ -3,7 +3,7 @@ data = 'square';
 if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('utility', 'var'), utility =      'log'; end
 
-if ~exist('policy', 'var'), policy = 'greedy'; end
+if ~exist('policy', 'var'), policy = 'round robin greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -17,7 +17,12 @@ data_dir = '../data/';
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
 rng(exp);
 
-train_ind    = [randsample(find(labels > 1), 1)];
+% randomly select a positive
+% train_ind    = [randsample(find(labels > 1), 1)];
+% train_labels = labels(train_ind);
+
+% randomly select a positive in the middle
+train_ind    = [randsample(find(labels == 1), 1)];
 train_labels = labels(train_ind);
 
 %%% experiment details
@@ -61,20 +66,20 @@ end
 %%% run experiment
 message_prefix = sprintf('Exp %d: ', exp);
 
-% [queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search(...
-%     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
-%     message_prefix);
+[queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search(...
+    problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
+    message_prefix);
 
-% result_dir = fullfile(data_dir, 'results', data, name);
-% if ~isdir(result_dir), mkdir(result_dir); end
-%
-% writematrix(queries, ...
-%     fullfile(result_dir, sprintf('%s__queries__%d.csv',        name, exp)));
-% writematrix(queried_labels, ...
-%     fullfile(result_dir, sprintf('%s__queried_labels__%d.csv', name, exp)));
-% writematrix(queried_probs, ...
-%     fullfile(result_dir, sprintf('%s__queried_probs__%d.csv',  name, exp)));
-% writematrix(computed, ...
-%     fullfile(result_dir, sprintf('%s__computed__%d.csv',       name, exp)));
-% writematrix(pruned, ...
-%     fullfile(result_dir, sprintf('%s__pruned__%d.csv',         name, exp)));
+result_dir = fullfile(data_dir, 'results', data, name);
+if ~isdir(result_dir), mkdir(result_dir); end
+
+writematrix(queries, ...
+    fullfile(result_dir, sprintf('%s__queries__%d.csv',        name, exp)));
+writematrix(queried_labels, ...
+    fullfile(result_dir, sprintf('%s__queried_labels__%d.csv', name, exp)));
+writematrix(queried_probs, ...
+    fullfile(result_dir, sprintf('%s__queried_probs__%d.csv',  name, exp)));
+writematrix(computed, ...
+    fullfile(result_dir, sprintf('%s__computed__%d.csv',       name, exp)));
+writematrix(pruned, ...
+    fullfile(result_dir, sprintf('%s__pruned__%d.csv',         name, exp)));

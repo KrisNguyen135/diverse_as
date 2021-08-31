@@ -9,7 +9,15 @@ case 'log'
                        (log(problem.counts(2:end) + 2)' - log(problem.counts(2:end) + 1)');
 end
 
-[~, chosen_ind] = max(marginal_utility);
+% [~, chosen_ind] = max(marginal_utility);
+maxu    = max(marginal_utility);
+indices = find(marginal_utility == maxu);
+if numel(indices) > 1
+    chosen_ind = randsample(indices, 1);
+else
+    chosen_ind = indices;
+end
+
 chosen_prob     = probs(chosen_ind, :);
 num_computed    = numel(test_ind);
 num_pruned      = [0 0];

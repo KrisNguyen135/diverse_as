@@ -7,7 +7,15 @@ function [chosen_ind, chosen_prob, num_computed, num_pruned] = round_robin_greed
 % the class to be targeted this round, between 2 and problem.num_classes
 target_class = mod(size(train_ind, 1), problem.num_classes - 1) + 2;
 
-[~, chosen_ind] = max(probs(:, target_class));
+% [~, chosen_ind] = max(probs(:, target_class));
+maxprob = max(probs(:, target_class));
+indices = find(probs(:, target_class) == maxprob);
+if numel(indices) > 1
+    chosen_ind = randsample(indices, 1);
+else
+    chosen_ind = indices;
+end
+
 chosen_prob     = probs(chosen_ind, :);
 num_computed    = numel(test_ind);
 num_pruned      = [0 0];
