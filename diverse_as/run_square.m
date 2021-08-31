@@ -3,7 +3,7 @@ data = 'square';
 if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('utility', 'var'), utility =      'log'; end
 
-if ~exist('policy', 'var'), policy = 'round robin greedy'; end
+if ~exist('policy', 'var'), policy = 'greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -22,7 +22,7 @@ rng(exp);
 % train_labels = labels(train_ind);
 
 % randomly select a positive in the middle
-train_ind    = [randsample(find(labels == 1), 1)];
+train_ind    = [randsample(find(labels == 2), 1)];
 train_labels = labels(train_ind);
 
 %%% experiment details

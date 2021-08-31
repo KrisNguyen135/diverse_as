@@ -1,5 +1,7 @@
-function [samples, sample_weights, sample_counts, utility] = exact( ...
-    problem, train_ind, train_labels, batch_ind, model, weights, utility_function)
+% function [samples, sample_weights, sample_counts, utility] = exact( ...
+%     problem, train_ind, train_labels, batch_ind, model, weights, utility_function)
+function utility = exact(problem, train_ind, train_labels, batch_ind, ...
+                         model, weights, utility_function)
 
 weights(train_ind, :) = 0;
 
@@ -11,7 +13,7 @@ sample_weights = ones(1, num_samples);
 [probs, ~, ~]  = model(problem, train_ind, train_labels, batch_ind);
 all_probs      = repmat(probs, 1, 1, num_samples);  % batch elements by classes by samples
 
-for i = 1:numel(batch_ind)
+for i = 1:batch_size
     chosen_ind             = batch_ind(i);
     weights(chosen_ind, :) = 0;
     updating_ind           = find(weights(batch_ind, chosen_ind));
