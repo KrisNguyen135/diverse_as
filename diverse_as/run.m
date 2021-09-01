@@ -19,15 +19,16 @@ end
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
 rng(exp);
 
-% train_ind    = [];
-% train_labels = [];
-% for i = 2:problem.num_classes
-%     pos_ind      = find(labels == i);
-%     train_ind    = [train_ind; randsample(pos_ind, 1)];
-%     train_labels = [train_labels; i];
-% end
-train_ind    = [randsample(find(labels > 1), 1)];
-train_labels = labels(train_ind);
+train_ind    = [];
+train_labels = [];
+for i = 2:problem.num_classes
+    pos_ind      = find(labels == i);
+    train_ind    = [train_ind; randsample(pos_ind, 1)];
+    train_labels = [train_labels; i];
+end
+
+% train_ind    = [randsample(find(labels > 1), 1)];
+% train_labels = labels(train_ind);
 
 %%% experiment details
 problem.verbose     = verbose;
@@ -54,6 +55,8 @@ case 'greedy'
     policy = get_policy(@greedy, model, utility_function);
 case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
+case 'classical greedy'
+    policy = get_policy(@classical_greedy, model);
 case 'classical ens'
     limit  = 10;
     policy = get_policy(@classical_ens, model, model_update, [], limit);

@@ -10,7 +10,7 @@ addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 200;
+budget   = 100;
 verbose  = true;
 data_dir = '../data/';
 
@@ -21,9 +21,17 @@ rng(exp);
 % train_ind    = [randsample(find(labels > 1), 1)];
 % train_labels = labels(train_ind);
 
-% randomly select a positive in the middle
-train_ind    = [randsample(find(labels == 2), 1)];
-train_labels = labels(train_ind);
+% % randomly select a positive in the middle
+% train_ind    = [randsample(find(labels == 2), 1)];
+% train_labels = labels(train_ind);
+
+train_ind    = [];
+train_labels = [];
+for i = 2:problem.num_classes
+    pos_ind      = find(labels == i);
+    train_ind    = [train_ind; randsample(pos_ind, 1)];
+    train_labels = [train_labels; i];
+end
 
 %%% experiment details
 problem.verbose     = verbose;

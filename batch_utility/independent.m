@@ -1,5 +1,7 @@
-function [samples, sample_weights, sample_counts, utility] = independent( ...
-    problem, train_ind, train_labels, batch_ind, model, utility_function)
+% function [samples, sample_weights, sample_counts, utility] = independent( ...
+%     problem, train_ind, train_labels, batch_ind, model, utility_function)
+function utility = independent(problem, train_ind, train_labels, batch_ind, ...
+                               model, utility_function)
 
 batch_size     = numel(batch_ind);
 num_samples    = problem.num_classes ^ batch_size;

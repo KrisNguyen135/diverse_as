@@ -1,5 +1,5 @@
 train_size = 50;
-batch_size = 
+batch_size = 50;
 num_exps   = 100;
 
 addpath(genpath('../../'));

@@ -7,9 +7,11 @@ probs       = [[0.1 0.2 0.7]; [0.6 0.2 0.2]];
 assert(numel(counts)  == num_classes, 'inconsistent number of classes');
 assert(size(probs, 2) == num_classes, 'inconsistent number of classes');
 
-indep_u  = independent_lite(probs, counts, num_classes);
-jensen_u = jensen_lite(probs, counts);
+indep_u  = independent_lite(probs, counts, num_classes)
+jensen_u = jensen_lite(probs, counts)
 
+num_samples = 9;
+indepmc_u   = indep_mc_lite(probs, counts, num_classes, num_samples)
 
 function utility = independent_lite(probs, counts, num_classes)
     batch_size     = size(probs, 1);
@@ -48,4 +50,30 @@ end
 
 function utility = jensen_lite(probs, counts)
     utility = sum(log(counts(2:end) + 1 + sum(probs(:, 2:end))));
+end
+
+function utility = indep_mc_lite(probs, counts, num_classes, num_samples)
+    batch_size     = size(probs, 1);
+    if num_samples >= num_classes ^ batch_size
+        utility = independent_lite(probs, counts, num_classes);
+        return;
+    end
+    onehot_samples = nan(batch_size, num_classes, num_samples);
+
+    for i = 1:num_samples
+        onehot_samples(:, :, i) = mnrnd(1, probs);
+    end
+
+    sample_weights = onehot_samples .* probs;
+    sample_weights = squeeze(sum(sample_weights, 2));
+    sample_weights = prod(sample_weights, 1);
+    sample_weights = sample_weights / sum(sample_weights);
+
+    sample_counts = reshape(sum(onehot_samples, 1), num_classes, num_samples);
+
+    utility = 0;
+    for i = 1:num_samples
+        tmp_counts = counts  + sample_counts(:, i)';
+        utility    = utility + sample_weights(i) * sum(log(tmp_counts(2:end) + 1));
+    end
 end
