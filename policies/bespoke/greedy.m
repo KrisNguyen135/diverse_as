@@ -18,7 +18,7 @@ else
     chosen_ind = indices;
 end
 
-chosen_prob     = probs(chosen_ind, :);
-num_computed    = numel(test_ind);
-num_pruned      = [0 0];
-chosen_ind      = test_ind(chosen_ind);
+chosen_prob  = probs(chosen_ind, :);
+num_computed = numel(test_ind);
+num_pruned   = [0 0];
+chosen_ind   = test_ind(chosen_ind);
