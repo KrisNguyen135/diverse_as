@@ -1,5 +1,6 @@
 function [chosen_ind, chosen_prob, num_computed, num_pruned] = ens_base( ...
-    problem, train_ind, train_labels, test_ind, model, batch_policy, limit)
+    problem, train_ind, train_labels, test_ind, model, ...
+    batch_policy, batch_utility_function, limit)
 
 if ~exist('limit', 'var'), limit = Inf; end
 
@@ -49,7 +50,7 @@ for i = 1:numel(test_ind)
     fake_train_ind     = [train_ind; this_test_ind];
     fake_unlabeled_ind = unlabeled_selector(problem, fake_train_ind, []);
 
-    fprintf('computing %d-th point %d:', i, this_test_ind);
+    % fprintf('computing %d-th point %d:', i, this_test_ind);
 
     fake_utilities = zeros(problem.num_classes, 1);
     for fake_label = 1:problem.num_classes
@@ -58,9 +59,11 @@ for i = 1:numel(test_ind)
         fake_train_labels          = [train_labels; fake_label];
         problem.counts(fake_label) = problem.counts(fake_label) + 1;
 
-        [batch_utility, batch_ind] = batch_policy( ...
-            problem, fake_train_ind, fake_train_labels, ...
-            fake_unlabeled_ind, remain_budget);
+        batch_ind = batch_policy(problem, fake_train_ind, fake_train_labels, ...
+                                 fake_unlabeled_ind, remain_budget);
+
+        batch_utility = batch_utility_function( ...
+            problem, fake_train_ind, fake_train_labels, batch_ind);
 
         fake_utilities(fake_label) = batch_utility;
         % fprintf('\n\tfake label %d, utility %.4f\n\t', fake_label, batch_utility);
@@ -70,7 +73,7 @@ for i = 1:numel(test_ind)
     end
 
     tmp_utility = probs(i, :) * fake_utilities;
-    fprintf('\tavg utility: %.4f\n', tmp_utility);
+    % fprintf('\tavg utility: %.4f\n', tmp_utility);
 
     if tmp_utility > best_utility
         best_utility = tmp_utility;

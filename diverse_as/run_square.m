@@ -2,16 +2,16 @@ data = 'square';
 
 if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('utility', 'var'), utility =      'log'; end
+if ~exist('verbose', 'var'), verbose =       true; end
 
-if ~exist('policy', 'var'), policy = 'greedy'; end
+if ~exist('policy', 'var'), policy = 'ens jensen greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 100;
-verbose  = true;
+budget   = 200;
 data_dir = '../data/';
 
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
@@ -62,6 +62,10 @@ case 'round robin greedy'
 case 'classical ens'
     limit  = 10;
     policy = get_policy(@classical_ens, model, model_update, [], limit);
+case 'ens jensen greedy'
+    batch_utility_function = get_batch_utility_function(@jensen, model);
+    batch_policy = get_batch_policy(@jensen_greedy, model);
+    policy = get_policy(@ens_base, model, batch_policy, batch_utility_function);
 end
 
 if problem.verbose

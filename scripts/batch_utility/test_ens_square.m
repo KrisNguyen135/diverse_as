@@ -11,7 +11,7 @@ addpath(genpath('../../active_learning'));
 addpath(genpath('../../active_search'));
 
 %%% high-level settings
-budget   = 5;
+budget   = 10;
 verbose  = true;
 data_dir = '../../data/';
 
@@ -41,10 +41,13 @@ case 'threshold'
 end
 problem.utility = utility;
 
-batch_utility_function = @(problem, train_ind, train_labels, batch_ind) ...
-    exact(problem, train_ind, train_labels, batch_ind, model, weights, utility_function);
-batch_policy = get_batch_policy(@classical, model, batch_utility_function);
-policy       = get_policy(@ens_base, model, batch_policy);
+% batch_utility_function = get_batch_utility_function(@exact, model, weights, utility_function);
+batch_utility_function = get_batch_utility_function(@jensen, model);
+
+% batch_policy = get_batch_policy(@classical, model);
+batch_policy = get_batch_policy(@jensen_greedy, model);
+
+policy = get_policy(@ens_base, model, batch_policy, batch_utility_function);
 
 if problem.verbose
     disp(train_ind);
