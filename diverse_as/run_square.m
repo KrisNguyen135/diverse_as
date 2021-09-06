@@ -21,12 +21,12 @@ end
 rng(exp);
 
 % % randomly select a positive
-train_ind    = [randsample(find(labels > 1), 1)];
-train_labels = labels(train_ind);
+% train_ind    = [randsample(find(labels > 1), 1)];
+% train_labels = labels(train_ind);
 
 % % randomly select a positive in the middle
-% train_ind    = [randsample(find(labels == 2), 1)];
-% train_labels = labels(train_ind);
+train_ind    = [randsample(find(labels == 2), 1)];
+train_labels = labels(train_ind);
 
 % % randomly select a positive for each class
 % train_ind    = [];
