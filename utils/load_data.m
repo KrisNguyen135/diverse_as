@@ -47,9 +47,10 @@ case {'toy_problem0', 'toy_problem1'}
     end
 
 case 'square'
-    load(fullfile(data_dir, 'square/square_nearest_neighbors.mat'));
+    load(fullfile(data_dir, 'square/square_nearest_neighbors_1.mat'));
     k     = size(similarities, 2);
-    alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
+    % alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
+    alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
 
     nearest_neighbors = double(nearest_neighbors)';
     similarities      = double(similarities)';
@@ -64,10 +65,10 @@ case 'square'
     problem.num_points  = num_points;
 
 case 'square_small'
-    load(fullfile(data_dir, 'square_small/square_small_nearest_neighbors.mat'));
+    load(fullfile(data_dir, 'square_small/square_small_nearest_neighbors_1.mat'));
     k     = size(similarities, 2);
-    % alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
-    alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
+    alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
+    % alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
 
     nearest_neighbors = double(nearest_neighbors)';
     similarities      = double(similarities)';
