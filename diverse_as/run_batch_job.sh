@@ -1,9 +1,8 @@
-export policy="ens jensen greedy"
-
 for exp in {1..2}
 do
   bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=10]" \
-  -o job_output/run.%J -J "run$exp" \
+  -o bjob_output/run.%J -J "run$exp" \
+  -m "mangosteen.engr.wustl.edu kumquat.engr.wustl.edu soursop.engr.wustl.edu rambutan.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp = $exp; run_square; exit;"
 done

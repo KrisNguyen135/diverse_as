@@ -1,10 +1,10 @@
 data = 'square';
 
-if ~exist('exp',     'var'), exp     =          1; end
-if ~exist('utility', 'var'), utility =      'log'; end
-if ~exist('verbose', 'var'), verbose =       true; end
+if ~exist('exp',     'var'), exp     =     1; end
+if ~exist('utility', 'var'), utility = 'log'; end
+if ~exist('verbose', 'var'), verbose =  true; end
 
-if ~exist('policy', 'var'), policy = 'round robin greedy'; end
+if ~exist('policy', 'var'), policy = 'ens jensen greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
