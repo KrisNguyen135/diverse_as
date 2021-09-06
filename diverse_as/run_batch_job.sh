@@ -1,4 +1,4 @@
-for exp in {1..2}
+for exp in {1..20}
 do
   bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=10]" \
   -o bjob_output/run.%J -J "run$exp" \
