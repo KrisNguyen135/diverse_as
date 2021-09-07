@@ -4,14 +4,14 @@ if ~exist('exp',     'var'), exp     =     1; end
 if ~exist('utility', 'var'), utility = 'log'; end
 if ~exist('verbose', 'var'), verbose =  true; end
 
-if ~exist('policy', 'var'), policy = 'round robin greedy'; end
+if ~exist('policy', 'var'), policy = 'ens jensen greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 200;
+budget   = 100;
 data_dir = '../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
@@ -20,15 +20,15 @@ end
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp);
 rng(exp);
 
-% % randomly select a positive
+% randomly select a positive
 % train_ind    = [randsample(find(labels > 1), 1)];
 % train_labels = labels(train_ind);
 
-% % randomly select a positive in the middle
-train_ind    = [randsample(find(labels == 2), 1)];
-train_labels = labels(train_ind);
+% randomly select a positive in the middle
+% train_ind    = [randsample(find(labels == 2), 1)];
+% train_labels = labels(train_ind);
 
-% % randomly select a positive for each class
+% randomly select a positive for each class
 % train_ind    = [];
 % train_labels = [];
 % for i = 2:problem.num_classes
@@ -36,6 +36,12 @@ train_labels = labels(train_ind);
 %     train_ind    = [train_ind; randsample(pos_ind, 1)];
 %     train_labels = [train_labels; i];
 % end
+
+% select the point closest to the center
+sq_dist      = sum((problem.points - [0.5 0.5]) .^ 2, 2);
+[~, min_ind] = min(sq_dist);
+train_ind    = [min_ind];
+train_labels = labels(train_ind);
 
 %%% experiment details
 problem.verbose     = verbose;
