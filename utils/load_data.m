@@ -1,5 +1,5 @@
 function [problem, labels, weights, alpha, nearest_neighbors, similarities] = ...
-  load_data(data_name, data_dir)
+  load_data(data_name, data_dir, exp)
 
 max_k = 500;
 if ~exist('data_dir', 'var')
@@ -47,7 +47,7 @@ case {'toy_problem0', 'toy_problem1'}
     end
 
 case 'square'
-    load(fullfile(data_dir, 'square/square_nearest_neighbors_1.mat'));
+    load(fullfile(data_dir, sprintf('square/square_nearest_neighbors_%d.mat', exp)));
     k     = size(similarities, 2);
     % alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
     alpha = [0.75 0.13 0.03 0.03 0.03 0.03];

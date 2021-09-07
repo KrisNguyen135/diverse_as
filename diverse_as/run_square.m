@@ -17,7 +17,7 @@ if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
 
-[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
+[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp);
 rng(exp);
 
 % % randomly select a positive
