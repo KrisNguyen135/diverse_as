@@ -49,8 +49,8 @@ case {'toy_problem0', 'toy_problem1'}
 case 'square'
     load(fullfile(data_dir, sprintf('square/square_nearest_neighbors_%d.mat', exp)));
     k     = size(similarities, 2);
-    % alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
-    alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
+    alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
+    % alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
 
     nearest_neighbors = double(nearest_neighbors)';
     similarities      = double(similarities)';
