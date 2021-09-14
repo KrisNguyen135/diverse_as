@@ -1,10 +1,10 @@
 train_size  = 50;
-batch_size  = 9;
-num_exps    = 100;
-num_samples = 1024;
+batch_size  = 500
+num_exps    = 5;
+num_samples = 2048;
 
 utility    = 'log';
-run_full   = batch_size <= 9;
+run_full   = batch_size <= 10;
 
 addpath(genpath('../../'));
 addpath(genpath('../../active_learning'));
@@ -12,6 +12,8 @@ addpath(genpath('../../active_search'));
 
 [problem, labels, weights, alpha, nns, sims] = load_data('citeseer', '../../data/');
 train_size = train_size * ones(1, problem.num_classes);
+
+problem
 
 problem.verbose     = true;
 problem.num_initial = sum(train_size);

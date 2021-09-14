@@ -84,6 +84,7 @@ case 'square_small'
 
 case 'citeseer'
     targets = [3 6 22 35];  % NeurIPS, ICML, UAI, JMLR
+    % targets = [3 6];  % NeurIPS, ICML
 
     data_dir  = fullfile(data_dir, 'citeseer');
     data_path = fullfile(data_dir, 'citeseer_data');

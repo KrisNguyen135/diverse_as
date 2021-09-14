@@ -4,11 +4,11 @@ function utility = indep_mc(problem, train_ind, train_labels, batch_ind, ...
                             model, utility_function, num_samples)
 
 batch_size = numel(batch_ind);
-if num_samples >= problem.num_classes ^ batch_size
-    utility = independent(problem, train_ind, train_labels, batch_ind, ...
-                          model, utility_function);
-    return;
-end
+% if num_samples >= problem.num_classes ^ batch_size
+%     utility = independent(problem, train_ind, train_labels, batch_ind, ...
+%                           model, utility_function);
+%     return;
+% end
 onehot_samples = nan(batch_size, problem.num_classes, num_samples);
 [probs, ~, ~]  = model(problem, train_ind, train_labels, batch_ind);
 
