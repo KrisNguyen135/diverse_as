@@ -1,5 +1,5 @@
-function batch_ind = classical(problem, train_ind, train_labels, test_ind, ...
-                               batch_size, model)
+function batch_ind = jensen_greedy(problem, train_ind, train_labels, test_ind, ...
+                                   batch_size, model)
 
 assert(strcmp(problem.utility, 'log'), 'only log utility is currently supported');
 

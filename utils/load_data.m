@@ -65,7 +65,7 @@ case 'square'
     problem.num_points  = num_points;
 
 case 'square_small'
-    load(fullfile(data_dir, 'square_small/square_small_nearest_neighbors_1.mat'));
+    load(fullfile(data_dir, 'square_small/square_small_nearest_neighbors.mat'));
     k     = size(similarities, 2);
     alpha = [0.6 0.2 0.05 0.05 0.05 0.05];
     % alpha = [0.75 0.13 0.03 0.03 0.03 0.03];
@@ -134,3 +134,5 @@ case 'citeseer'
 
     problem.num_classes = 1 + size(targets, 2);
 end
+
+problem.max_num_influence = max(sum(weights > 0, 1));  % used for pruning
