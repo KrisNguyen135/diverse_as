@@ -26,7 +26,10 @@ problem.verbose     = verbose;
 problem.num_initial = numel(train_ind);
 problem.num_queries = budget;
 problem.counts      = zeros(1, problem.num_classes);
-problem.counts(train_labels) = 1;
+for i = 1:numel(train_labels)
+    tmp_label                 = train_labels(i);
+    problem.counts(tmp_label) = problem.counts(tmp_label) + 1;
+end
 
 model        = get_model(@knn_model_new, weights, alpha);
 model_update = get_model_update(@knn_model_update, weights);
@@ -61,5 +64,5 @@ test_ind      = selector(problem, train_ind, []);
 % [queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search(...
 %     problem, train_ind, train_labels, labels, selector, utility_function, policy);
 
-bounds = knn_probability_bound_new(problem, train_ind, train_labels, test_ind, ...
-    n, d, budget, weights, nns', sims');
+bounds = jensen_upperbound(problem, train_ind, train_labels, test_ind, ...
+    probs, n, d, budget, weights, nns', sims');

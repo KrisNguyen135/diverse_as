@@ -1,7 +1,12 @@
 function [chosen_ind, chosen_prob, num_computed, num_pruned] = ens_base( ...
     problem, train_ind, train_labels, test_ind, model, ...
-    batch_policy, batch_utility_function, limit)
+    batch_policy, batch_utility_function, ...
+    utility_upperbound_function, pruning, limit)
 
+% don't do pruning unless everything is fully specified
+if ~exist('utility_upperbound_function', 'var') || ~exist('pruning', 'var')
+    pruning = false;
+end
 if ~exist('limit', 'var'), limit = Inf; end
 
 [probs, n, d] = model(problem, train_ind, train_labels, test_ind);
