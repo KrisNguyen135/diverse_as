@@ -10,7 +10,7 @@ addpath(genpath('../active_search'));
 
 %%% high-level settings
 budget   = 500;
-verbose  = false;
+verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
