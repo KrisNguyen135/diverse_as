@@ -2,7 +2,7 @@ if ~exist('exp',     'var'), exp     =          1; end
 if ~exist('data',    'var'), data    = 'citeseer'; end
 if ~exist('utility', 'var'), utility =      'log'; end
 
-if ~exist('policy', 'var'), policy = 'round robin greedy'; end
+if ~exist('policy', 'var'), policy = 'ens jensen greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -60,6 +60,13 @@ case 'classical greedy'
 case 'classical ens'
     limit  = 10;
     policy = get_policy(@classical_ens, model, model_update, [], limit);
+case 'ens jensen greedy'
+    batch_utility_function = get_batch_utility_function(@jensen, model);
+    batch_policy = get_batch_policy(@jensen_greedy, model);
+    utility_upperbound_function = get_utility_upperbound_function( ...
+        @jensen_upperbound, weights, nns', sims');
+    policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
+        utility_upperbound_function, false);
 end
 
 if problem.verbose
