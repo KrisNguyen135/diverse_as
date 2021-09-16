@@ -29,8 +29,8 @@ for i = 2:problem.num_classes
     updated_sigma_primes(i - 1) = sigma_prime;
 end
 
-sigma_primes
-updated_sigma_primes
+% sigma_primes
+% updated_sigma_primes
 
 % finally, compute the utility upper bounds
 bounds = nan(1, problem.num_classes);
@@ -38,6 +38,7 @@ bounds = nan(1, problem.num_classes);
 bounds(1) = sum(log(problem.counts(2:end) + 1 + sigma_primes));
 for i = 2:problem.num_classes
     % updated Σ's for the current positive class + Σ's for the other positive classes
-    bounds(i) = log(problem.counts(i) + 1 + updated_sigma_primes(i - 1)) ...
+    % adding 2 instead of 1 since we're conditioning on an add. positive of class i
+    bounds(i) = log(problem.counts(i) + 2 + updated_sigma_primes(i - 1)) ...
                 + bounds(1) - log(problem.counts(i) + 1 + sigma_primes(i - 1));
 end

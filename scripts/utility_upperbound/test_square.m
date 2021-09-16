@@ -50,7 +50,13 @@ batch_utility_function = get_batch_utility_function(@jensen, model);
 % batch_policy = get_batch_policy(@classical, model);
 batch_policy = get_batch_policy(@jensen_greedy, model);
 
-policy = get_policy(@ens_base, model, batch_policy, batch_utility_function);
+utility_upperbound_function = @(problem, train_ind, train_labels, test_ind, ...
+    probs, n, d, budget) ...
+    jensen_upperbound(problem, train_ind, train_labels, test_ind, ...
+        probs, n, d, budget, weights, nns', sims');
+
+policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
+    utility_upperbound_function, true);
 
 if problem.verbose
     disp(train_ind);
@@ -58,11 +64,11 @@ if problem.verbose
     fprintf('utility function: %s\n', problem.utility);
 end
 
-test_ind      = selector(problem, train_ind, []);
-[probs, n, d] = model(problem, train_ind, train_labels, test_ind);
+% test_ind      = selector(problem, train_ind, []);
+% [probs, n, d] = model(problem, train_ind, train_labels, test_ind);
 
-% [queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search(...
-%     problem, train_ind, train_labels, labels, selector, utility_function, policy);
+% bounds = jensen_upperbound(problem, train_ind, train_labels, test_ind, ...
+%     probs, n, d, budget, weights, nns', sims');
 
-bounds = jensen_upperbound(problem, train_ind, train_labels, test_ind, ...
-    probs, n, d, budget, weights, nns', sims');
+[queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search(...
+    problem, train_ind, train_labels, labels, selector, utility_function, policy);
