@@ -75,7 +75,10 @@ case 'classical ens'
 case 'ens jensen greedy'
     batch_utility_function = get_batch_utility_function(@jensen, model);
     batch_policy = get_batch_policy(@jensen_greedy, model);
-    policy = get_policy(@ens_base, model, batch_policy, batch_utility_function);
+    utility_upperbound_function = get_utility_upperbound_function( ...
+        @jensen_upperbound, weights, nns', sims');
+    policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
+        utility_upperbound_function, false);
 end
 
 if problem.verbose

@@ -43,5 +43,6 @@ for i = 1:problem.num_queries
     if verbose
         fprintf('(%d, %d) chosen. Took %.4f seconds.\n', ...
                 chosen_ind, chosen_label, toc);
+        disp(num_pruned);
     end
 end
