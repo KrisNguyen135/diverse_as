@@ -81,7 +81,7 @@ for i = 1:numel(test_ind)
     fake_train_ind     = [train_ind; this_test_ind];
     fake_unlabeled_ind = unlabeled_selector(problem, fake_train_ind, []);
 
-    fprintf('computing %d-th point %d:\n', i, this_test_ind);
+    % fprintf('computing %d-th point %d:\n', i, this_test_ind);
 
     % fake_utilities    = zeros(problem.num_classes, 1);
     running_utility = 0;
@@ -115,7 +115,7 @@ for i = 1:numel(test_ind)
             remain_bound = remain_bound - tmp_prob * bounds(fake_label);
 
             if running_utility + remain_bound <= best_utility
-                fprintf('\tpruned after label %d\n', fake_label);
+                % fprintf('\tpruned after label %d\n', fake_label);
                 pruned_on_the_fly          = true;
                 num_pruned(fake_label + 1) = num_pruned(fake_label + 1) + 1;
                 break;
@@ -125,7 +125,7 @@ for i = 1:numel(test_ind)
 
     if ~pruning || ~pruned_on_the_fly
         % running_utility = probs(i, :) * fake_utilities;
-        fprintf('\tavg utility: %.4f\n', running_utility);
+        % fprintf('\tavg utility: %.4f\n', running_utility);
 
         if pruning
             assert(running_utility <= upperbounds(i));
