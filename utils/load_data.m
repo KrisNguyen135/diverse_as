@@ -7,45 +7,6 @@ if ~exist('data_dir', 'var')
 end
 
 switch data_name
-case {'toy_problem0', 'toy_problem1'}
-    % toy 2D grid problem with deterministic(toy_problem0) or
-    % probabilistic(toy_problem1) labels
-    data_dir  = fullfile(data_dir, 'toy_problem');
-    data_path = fullfile(data_dir, data_name);
-    load(data_path(1:end-1));
-    % prior probabilities of the two classes
-    alpha               = [0.1 0.9];
-
-    nn_file  = sprintf('%s_nearest_neighbors.mat', data_name(1:end-1));
-    filename = fullfile(data_dir, nn_file);
-
-    if exist(filename, 'file')
-      load(filename);
-    else
-      [nearest_neighbors, distances] = ...
-        knnsearch(problem.points, problem.points, ...
-        'k', max_k + 1);
-      save(filename, 'nearest_neighbors', 'distances');
-    end
-    k = 50;
-    nearest_neighbors = nearest_neighbors(:, 2:(k + 1))';
-    distances = distances(:, 2:(k + 1))';
-    similarities = 1./distances; %exp(-distances.^2/2);
-
-    % precompute sparse weight matrix
-    num_points = problem.num_points;
-    row_index = kron((1:num_points)', ones(k, 1));
-    weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
-      num_points, num_points);
-
-    labels = 2*ones(problem.num_points, 1);
-    rand_label = (data_name(end) == '1');
-    if rand_label
-      labels(labels_random)        = 1;
-    else
-      labels(labels_deterministic) = 1;
-    end
-
 case 'square'
     load(fullfile(data_dir, sprintf('square/square_nearest_neighbors_%d.mat', exp)));
     k     = size(similarities, 2);
@@ -133,6 +94,47 @@ case 'citeseer'
     end
 
     problem.num_classes = 1 + size(targets, 2);
+otherwise   % drug discovery
+    % this needs to be the same as in
+    % `../active_virtual_screening/calculate_nearest_neighbors_multiclass`
+    group_size = 4;
+
+    alpha        = [1 0.001 * ones(1, group_size)];
+    num_inactive = 100000;
+
+    if contains(data_name, 'ecfp')
+        filename = sprintf('group_%s_ecfp4_nearest_neighbors_%d.mat', ...
+                           data_name(5:end), num_inactive);
+        fingerprint = 'ecfp4';
+    elseif contains(data_name, 'gpidaph')
+        filename = sprintf('group_%s_gpidaph3_nearest_neighbors_%d.mat', ...
+                           data_name(8:end), num_inactive);
+        fingerprint = 'gpidaph3';
+    else
+        error(sprintf('unrecognized data name %s\n', data_name));
+    end
+
+    data_dir  = fullfile(data_dir, 'drug/precomputed');
+    data_path = fullfile(data_dir, filename);
+    load(data_path);
+
+    labels     = this_labels;
+    num_points = numel(labels);
+
+    problem.num_points  = num_points;
+    problem.points      = (1:num_points)';
+    problem.num_classes = group_size + 1;
+
+    % limit to k-nearest neighbors
+    k = 100;
+    nearest_neighbors = nearest_neighbors(:, 1:k)';
+    similarities      = similarities(:, 1:k)';
+
+    % precompute sparse weight matrix
+    row_index = kron((1:num_points)', ones(k, 1));
+    weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+                     num_points, num_points);
+
 end
 
 problem.max_num_influence = max(sum(weights > 0, 1));  % used for pruning

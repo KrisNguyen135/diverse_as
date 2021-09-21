@@ -1,8 +1,7 @@
-if ~exist('exp',     'var'), exp     =          1; end
-if ~exist('data',    'var'), data    = 'citeseer'; end
-if ~exist('utility', 'var'), utility =      'log'; end
-
-if ~exist('policy', 'var'), policy = 'ens jensen greedy'; end
+if ~exist('exp',     'var'), exp     = 1; end
+if ~exist('data',    'var'), data    = 'ecfp1'; end
+if ~exist('utility', 'var'), utility = 'log'; end
+if ~exist('policy',  'var'), policy  = 'greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -19,13 +18,18 @@ end
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
 rng(exp);
 
-train_ind    = [];
-train_labels = [];
-for i = 2:problem.num_classes
-    pos_ind      = find(labels == i);
-    train_ind    = [train_ind; randsample(pos_ind, 1)];
-    train_labels = [train_labels; i];
-end
+% randomly select a positive
+train_ind    = [randsample(find(labels > 1), 1)];
+train_labels = labels(train_ind);
+
+% randomly select a positive for each class
+% train_ind    = [];
+% train_labels = [];
+% for i = 2:problem.num_classes
+%     pos_ind      = find(labels == i);
+%     train_ind    = [train_ind; randsample(pos_ind, 1)];
+%     train_labels = [train_labels; i];
+% end
 
 % train_ind    = [randsample(find(labels > 1), 1)];
 % train_labels = labels(train_ind);
