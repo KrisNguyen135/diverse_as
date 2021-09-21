@@ -53,10 +53,7 @@ for fingerprint = fingerprints
     fprintf('\tactive classes in group: %s\n', tmp_proteins_str(2:end));
 
     filename = sprintf('%sgroup_%i_%s_nearest_neighbors_%i.mat', ...
-                       precomputed_directory, ...
-                       group_ind, ...
-                       fingerprint{:}, ...
-                       num_inactive);
+                       precomputed_dir, group_ind, fingerprint{:}, num_inactive);
 
     if (exist(filename, 'file') > 0)
       fprintf('\tfile already exists!\n');
@@ -88,6 +85,12 @@ for fingerprint = fingerprints
     else
       fprintf('\tdone, took %0.1fm.\n', ceil(elapsed / 6) / 10);
     end
+
+    if group_ind > 2
+        break;
+    end
   end
+
+  break;
 
 end
