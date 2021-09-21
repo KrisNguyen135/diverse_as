@@ -4,13 +4,17 @@ group_size   = 4;       % number of positive classes in a problem
 
 rng('default');
 
-data_directory        = './../data/drug/processed/';
-precomputed_directory = './../data/drug/precomputed/';
+data_dir = './../data/';
+if ~isdir(data_dir)
+    data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
+end
+processed_dir   = fullfile(datea_dir, 'drug/processed/');
+precomputed_dir = fullfile(datea_dir, 'drug/precomputed/');
 
 fingerprints = {'ecfp4', 'gpidaph3'};
 
 % choose subset of data to use
-load([data_directory fingerprints{1} '/labels']);
+load([processed_dir fingerprints{1} '/labels']);
 
 inactive_class = max(labels);
 
@@ -30,10 +34,9 @@ assert(mod(num_proteins, group_size) == 0, ...
 for fingerprint = fingerprints
   fprintf('processing fingerprint %s ...\n', fingerprint{:});
 
-  load([data_directory fingerprint{:} '/features']);
+  load([processed_dir fingerprint{:} '/features']);
 
   features = sparse(features(:, 2), features(:, 1), 1);
-
   features = features(:, to_keep);
   % remove features that are always zero
   features = features(any(features, 2), :);
@@ -42,8 +45,12 @@ for fingerprint = fingerprints
 
   for group_ind = 1:(num_proteins / group_size)
     tic;
-    fprintf('\tcomputing nearest neighbors for protein group #%i/%i ... ', ...
+    fprintf('\tcomputing nearest neighbors for protein group #%i/%i\n', ...
             group_ind, num_proteins / group_size);
+    tmp_proteins = shuffled_proteins((group_ind * group_size - group_size + 1) ...
+                                     :(group_ind * group_size));
+    tmp_proteins_str = sprintf('-%d', tmp_proteins);
+    fprintf('\tactive classes in group: %s\n', tmp_proteins_str(2:end));
 
     filename = sprintf('%starget_%i_%s_nearest_neighbors_%i.mat', ...
                        precomputed_directory, ...
@@ -52,26 +59,34 @@ for fingerprint = fingerprints
                        num_inactive);
 
     if (exist(filename, 'file') > 0)
-      fprintf('file already exists!\n');
+      fprintf('\tfile already exists!\n');
       continue;
     end
 
+    % filter out the selected classes
     this_ind = (labels == inactive_class);
+    reverse_label = zeros(num_proteins + 1, 1);
+    reverse_label(inactive_class) = 1;
     for protein_ind = 1:group_size
-        this_ind = this_ind | (labels == shuffled_proteins(protein_ind));
+        this_ind = this_ind | (labels == tmp_proteins(protein_ind));
+        reverse_label(tmp_proteins(protein_ind)) = protein_ind + 1;
     end
     this_features = features(:, this_ind);
     this_features = this_features(any(this_features, 2), :);
 
+    this_labels = labels(this_ind, :);
+    this_labels = reverse_label(this_labels);
+    fprintf('\t%d inactives, %d actives\n', sum(this_labels == 1), sum(this_labels ~= 1));
+
     [nearest_neighbors, similarities] = jaccard_nn(this_features, k);
 
-    save(filename, 'nearest_neighbors', 'similarities');
+    save(filename, 'nearest_neighbors', 'similarities', 'this_labels');
 
     elapsed = toc;
     if (elapsed < 60)
-      fprintf('done, took %is.\n', ceil(elapsed));
+      fprintf('\tdone, took %is.\n', ceil(elapsed));
     else
-      fprintf('done, took %0.1fm.\n', ceil(elapsed / 6) / 10);
+      fprintf('\tdone, took %0.1fm.\n', ceil(elapsed / 6) / 10);
     end
   end
 
