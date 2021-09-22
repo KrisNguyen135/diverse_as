@@ -1,11 +1,9 @@
-function [queries, queried_labels, queried_probs, computed, pruned] = diverse_active_search( ...
+function [train_ind, train_labels, queried_probs, computed, pruned] = diverse_active_search( ...
     problem, train_ind, train_labels, labels, selector, utility_function, policy, message_prefix)
 
 if ~exist('message_prefix', 'var'), message_prefix = ''; end
 verbose = isfield(problem, 'verbose') && problem.verbose;
 
-queries        = [];
-queried_labels = [];
 queried_probs  = [];
 computed       = [];
 pruned         = [];
@@ -34,8 +32,6 @@ for i = 1:problem.num_queries
 
     problem.counts(chosen_label) = problem.counts(chosen_label) + 1;
 
-    queries        = [queries; chosen_ind];
-    queried_labels = [queried_labels; chosen_label];
     queried_probs  = [queried_probs; chosen_prob];
     computed       = [computed; num_computed];
     pruned         = [pruned; num_pruned];
