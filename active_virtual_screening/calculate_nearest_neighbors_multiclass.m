@@ -85,12 +85,5 @@ for fingerprint = fingerprints
     else
       fprintf('\tdone, took %0.1fm.\n', ceil(elapsed / 6) / 10);
     end
-
-    if group_ind > 2
-        break;
-    end
   end
-
-  break;
-
 end
