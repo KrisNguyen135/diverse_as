@@ -31,14 +31,14 @@ train_labels = labels(train_ind);
 %     train_labels = [train_labels; i];
 % end
 
-% train_ind    = [randsample(find(labels > 1), 1)];
-% train_labels = labels(train_ind);
-
 %%% experiment details
 problem.verbose     = verbose;
 problem.num_initial = numel(train_ind);
 problem.num_queries = budget;
-problem.counts      = [0 ones(1, problem.num_classes - 1)];
+problem.counts      = zeros(1, problem.num_classes);
+for i = 1:numel(train_labels)
+    problem.counts(train_labels(i)) = problem.counts(train_labels(i)) + 1;
+end
 
 model        = get_model(@knn_model_new, weights, alpha);
 model_update = get_model_update(@knn_model_update, weights);
