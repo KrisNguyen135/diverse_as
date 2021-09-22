@@ -154,7 +154,9 @@ end
 
 % get the exact number of `num_pruned(1)` as there might be pruned candidates
 % that have been left out of the count when there's a computational limit
-num_pruned(1) = num_pruned(1) + sum(pruned(i:end));
+if pruning
+    num_pruned(1) = num_pruned(1) + sum(pruned(i:end));
+end
 
 if i < numel(test_ind) && sample_limit > 0
     candidates = (i:numel(test_ind));
