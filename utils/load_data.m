@@ -1,10 +1,8 @@
 function [problem, labels, weights, alpha, nearest_neighbors, similarities] = ...
-  load_data(data_name, data_dir, exp)
+  load_data(data_name, data_dir, exp, group_size)
 
 max_k = 500;
-if ~exist('data_dir', 'var')
-  data_dir = './data';
-end
+if ~exist('data_dir', 'var'), data_dir = './data'; end
 
 switch data_name
 case 'square'
@@ -97,7 +95,7 @@ case 'citeseer'
 otherwise   % drug discovery
     % this needs to be the same as in
     % `../active_virtual_screening/calculate_nearest_neighbors_multiclass`
-    group_size = 4;
+    if ~exist('group_size', 'var'), group_size = 4; end
 
     alpha        = [1 0.001 * ones(1, group_size)];
     num_inactive = 100000;
@@ -114,7 +112,7 @@ otherwise   % drug discovery
         error(sprintf('unrecognized data name %s\n', data_name));
     end
 
-    data_dir  = fullfile(data_dir, 'drug/precomputed');
+    data_dir  = fullfile(data_dir, 'drug/precomputed', sprintf('%d', group_size));
     data_path = fullfile(data_dir, filename);
     load(data_path);
 

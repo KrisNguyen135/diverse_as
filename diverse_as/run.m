@@ -1,7 +1,8 @@
-if ~exist('exp',     'var'), exp     = 1; end
-if ~exist('data',    'var'), data    = 'citeseer'; end
-if ~exist('utility', 'var'), utility = 'log'; end
-if ~exist('policy',  'var'), policy  = 'ens jensen greedy'; end
+if ~exist('exp',        'var'), exp        = 1; end
+if ~exist('group_size', 'var'), group_size = 4; end
+if ~exist('data',       'var'), data       = 'ecfp1'; end
+if ~exist('utility',    'var'), utility    = 'log'; end
+if ~exist('policy',     'var'), policy     = 'greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -15,7 +16,7 @@ if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
 
-[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir);
+[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp, group_size);
 rng(exp);
 
 % randomly select a positive
