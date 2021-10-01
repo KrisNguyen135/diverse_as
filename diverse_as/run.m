@@ -9,7 +9,12 @@ addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 500;
+exp
+group_size
+data
+policy
+
+budget   = 500
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
