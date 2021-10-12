@@ -1,10 +1,10 @@
 train_size  = 50;
-batch_size  = 500
-num_exps    = 5;
-num_samples = 2048;
+batch_size  = 300
+num_exps    = 10;
+num_samples = [2^10, 2^15];
 
 utility    = 'log';
-run_full   = batch_size <= 10;
+run_full   = false;
 
 addpath(genpath('../../'));
 addpath(genpath('../../active_learning'));
@@ -33,11 +33,11 @@ end
 problem.utility = utility;
 
 indep_u   = nan(1, num_exps);
-indepmc_u = nan(1, num_exps);
+indepmc_u = nan(numel(num_samples), num_exps);
 jensen_u  = nan(1, num_exps);
 
 indep_t   = nan(1, num_exps);
-indepmc_t = nan(1, num_exps);
+indepmc_t = nan(numel(num_samples), num_exps);
 jensen_t  = nan(1, num_exps);
 
 for exp = 1:num_exps
@@ -62,34 +62,27 @@ for exp = 1:num_exps
         indep_t(exp) = toc;
     end
 
-    tic;
-    indepmc_u(exp) = indep_mc(problem, train_ind, train_labels, batch_ind, ...
-                              model, utility_function, num_samples);
-    indepmc_t(exp) = toc;
+    for mc_ind = 1:numel(num_samples)
+        tic;
+        indepmc_u(mc_ind, exp) = indep_mc(problem, train_ind, train_labels, ...
+                                          batch_ind, model, utility_function, ...
+                                          num_samples(mc_ind));
+        indepmc_t(mc_ind, exp) = toc;
+    end
 
     tic;
     jensen_u(exp)  = jensen(problem, train_ind, train_labels, batch_ind, model);
     jensen_t(exp)  = toc;
 end
 
-%%% format printed output
-columns = {'time', 'rmse'};
-
 if run_full
     results = [mean(indep_t)];
-    errors  = [zeros(1, num_exps);
-               indepmc_u - indep_u;
-               jensen_u  - indep_u];
-    rows    = {'indep', 'indep mc', 'jensen'};
+    errors  = [indep_u; indepmc_u; jensen_u] - indep_u;
 else
     results = [];
-    errors  = [zeros(1, num_exps);
-               jensen_u - indepmc_u];
-    rows    = {'indep mc', 'jensen'};
+    errors  = [indepmc_u; jensen_u] - indepmc_u(end, :);
 end
 
 rmse    = sqrt(mean(errors.^2, 2));
-results = [results; mean(indepmc_t); mean(jensen_t)];
-results = [results, rmse];
-
-array2table(results, 'RowNames', rows, 'VariableNames', columns)
+results = [results; mean(indepmc_t, 2); mean(jensen_t)];
+results = [results, rmse]

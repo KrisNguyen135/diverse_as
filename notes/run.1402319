@@ -1,0 +1,1559 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+              R2020a Update 2 (9.8.0.1380330) 64-bit (glnxa64)
+                                May 5, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+      101277
+
+     5
+
+utility function: log
+policy: ens jensen greedy
+Exp 2: Iteration 1: (100502, 5) chosen. Took 555.6640 seconds.
+      102884           0           0           0           0
+
+Exp 2: Iteration 2: (100425, 5) chosen. Took 2251.5480 seconds.
+      102732           0           0           0           0
+
+Exp 2: Iteration 3: (100501, 5) chosen. Took 5309.1107 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 4: (12196, 1) chosen. Took 5288.7112 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 5: (49294, 1) chosen. Took 5233.0289 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 6: (41282, 1) chosen. Took 5131.8833 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 7: (35911, 1) chosen. Took 5347.4259 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 8: (91613, 1) chosen. Took 4933.9134 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 9: (34248, 1) chosen. Took 4528.5203 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 10: (96671, 1) chosen. Took 4513.2752 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 11: (4754, 1) chosen. Took 4345.2388 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 12: (11432, 1) chosen. Took 4531.6715 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 13: (7639, 1) chosen. Took 4599.0550 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 14: (47493, 1) chosen. Took 4315.6337 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 15: (20095, 1) chosen. Took 4148.6333 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 16: (30916, 1) chosen. Took 4188.4629 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 17: (88147, 1) chosen. Took 4200.3439 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 18: (82514, 1) chosen. Took 4226.1164 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 19: (101373, 5) chosen. Took 4204.1311 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 20: (101126, 5) chosen. Took 3994.8456 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 21: (100875, 5) chosen. Took 4207.2284 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 22: (100887, 5) chosen. Took 4031.8390 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 23: (88193, 1) chosen. Took 3940.4526 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 24: (100489, 5) chosen. Took 3898.7353 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 25: (100500, 5) chosen. Took 3890.1428 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 26: (100298, 5) chosen. Took 4378.7180 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 27: (101208, 5) chosen. Took 3775.9209 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 28: (100916, 5) chosen. Took 3857.6383 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 29: (92130, 1) chosen. Took 3918.5860 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 30: (13737, 1) chosen. Took 3715.6794 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 31: (62433, 1) chosen. Took 3694.7575 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 32: (1837, 1) chosen. Took 3769.5438 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 33: (83958, 1) chosen. Took 3903.7931 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 34: (100264, 5) chosen. Took 4100.3814 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 35: (100407, 5) chosen. Took 3538.0314 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 36: (14200, 1) chosen. Took 3726.2366 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 37: (53880, 1) chosen. Took 3677.9999 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 38: (40133, 1) chosen. Took 3418.0225 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 39: (5159, 1) chosen. Took 4003.8533 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 40: (7267, 1) chosen. Took 3856.8463 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 41: (82037, 1) chosen. Took 3513.8769 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 42: (89972, 1) chosen. Took 3540.2724 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 43: (16809, 1) chosen. Took 3510.4388 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 44: (100709, 5) chosen. Took 3447.8271 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 45: (34871, 1) chosen. Took 3572.8117 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 46: (24881, 1) chosen. Took 3709.3885 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 47: (100830, 5) chosen. Took 3829.6374 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 48: (101352, 5) chosen. Took 3653.4981 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 49: (100414, 5) chosen. Took 3954.3895 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 50: (100366, 5) chosen. Took 3586.9509 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 51: (66123, 1) chosen. Took 3739.8985 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 52: (100301, 5) chosen. Took 3543.2851 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 53: (15621, 1) chosen. Took 3957.9969 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 54: (100506, 5) chosen. Took 3622.8354 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 55: (100737, 5) chosen. Took 3519.9189 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 56: (101263, 5) chosen. Took 3567.6926 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 57: (101177, 5) chosen. Took 3448.2294 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 58: (39505, 1) chosen. Took 3630.1493 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 59: (320, 1) chosen. Took 3808.7138 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 60: (100545, 5) chosen. Took 3903.9886 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 61: (78249, 1) chosen. Took 3824.7230 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 62: (101073, 5) chosen. Took 3997.5294 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 63: (2443, 1) chosen. Took 3708.6440 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 64: (64217, 1) chosen. Took 3740.2382 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 65: (82732, 1) chosen. Took 3477.8612 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 66: (93568, 1) chosen. Took 3555.9828 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 67: (101399, 5) chosen. Took 3548.7552 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 68: (100460, 5) chosen. Took 3445.5394 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 69: (17490, 1) chosen. Took 3501.9210 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 70: (102282, 4) chosen. Took 3469.6443 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 71: (13200, 1) chosen. Took 3408.4577 seconds.
+     0     0     0     0    10
+
+Exp 2: Iteration 72: (102264, 4) chosen. Took 3564.8534 seconds.
+     0     0     0     0    13
+
+Exp 2: Iteration 73: (33621, 1) chosen. Took 3594.4671 seconds.
+     0     0     0     0    83
+
+Exp 2: Iteration 74: (62983, 1) chosen. Took 2932.1295 seconds.
+     0     0     0     0    83
+
+Exp 2: Iteration 75: (102224, 4) chosen. Took 3487.8021 seconds.
+     0     0     0     0    85
+
+Exp 2: Iteration 76: (102085, 4) chosen. Took 3434.1135 seconds.
+     0     0     0     0   130
+
+Exp 2: Iteration 77: (102088, 4) chosen. Took 3330.6262 seconds.
+     0     0     0     0   204
+
+Exp 2: Iteration 78: (24800, 1) chosen. Took 3199.1160 seconds.
+     0     0     0     0   201
+
+Exp 2: Iteration 79: (35016, 1) chosen. Took 3071.4105 seconds.
+     0     0     0     0   200
+
+Exp 2: Iteration 80: (100266, 5) chosen. Took 3087.1968 seconds.
+     0     0     0     0   199
+
+Exp 2: Iteration 81: (78734, 1) chosen. Took 3127.4323 seconds.
+     0     0     0     0   178
+
+Exp 2: Iteration 82: (102083, 4) chosen. Took 3504.4852 seconds.
+     0     0     0     0   178
+
+Exp 2: Iteration 83: (102082, 4) chosen. Took 3185.0839 seconds.
+     0     0     0     0   210
+
+Exp 2: Iteration 84: (102562, 4) chosen. Took 3118.9902 seconds.
+     0     0     0     0   211
+
+Exp 2: Iteration 85: (102563, 4) chosen. Took 2945.6609 seconds.
+     0     0     0     0   247
+
+Exp 2: Iteration 86: (102557, 4) chosen. Took 3362.9260 seconds.
+     0     0     0     0   248
+
+Exp 2: Iteration 87: (102553, 4) chosen. Took 3050.3749 seconds.
+     0     0     0     0   255
+
+Exp 2: Iteration 88: (102568, 4) chosen. Took 3077.0216 seconds.
+     0     0     0     0   254
+
+Exp 2: Iteration 89: (100499, 5) chosen. Took 2962.5491 seconds.
+     0     0     0     0   267
+
+Exp 2: Iteration 90: (100480, 5) chosen. Took 3193.6343 seconds.
+     0     0     0     0   266
+
+Exp 2: Iteration 91: (102564, 4) chosen. Took 3272.1481 seconds.
+     0     0     0     0   267
+
+Exp 2: Iteration 92: (25858, 1) chosen. Took 3294.1840 seconds.
+     0     0     0     0   278
+
+Exp 2: Iteration 93: (100405, 5) chosen. Took 3244.2084 seconds.
+     0     0     0     0   279
+
+Exp 2: Iteration 94: (102552, 4) chosen. Took 3036.1150 seconds.
+     0     0     0     0   272
+
+Exp 2: Iteration 95: (102153, 4) chosen. Took 2913.7998 seconds.
+     0     0     0     0   300
+
+Exp 2: Iteration 96: (102248, 4) chosen. Took 3054.6597 seconds.
+     0     0     0     0   295
+
+Exp 2: Iteration 97: (102263, 4) chosen. Took 3047.2987 seconds.
+     0     0     0     0   326
+
+Exp 2: Iteration 98: (102273, 4) chosen. Took 3016.0751 seconds.
+     0     0     0     0   331
+
+Exp 2: Iteration 99: (102222, 4) chosen. Took 2685.5657 seconds.
+     0     0     0     0   323
+
+Exp 2: Iteration 100: (100960, 5) chosen. Took 2854.2104 seconds.
+     0     0     0     0   312
+
+Exp 2: Iteration 101: (101129, 5) chosen. Took 3185.5984 seconds.
+     0     0     0     0   322
+
+Exp 2: Iteration 102: (102268, 4) chosen. Took 3155.0144 seconds.
+     0     0     0     0   332
+
+Exp 2: Iteration 103: (100285, 5) chosen. Took 3127.6040 seconds.
+     0     0     0     0   325
+
+Exp 2: Iteration 104: (47649, 1) chosen. Took 2757.5352 seconds.
+     0     0     0     0   327
+
+Exp 2: Iteration 105: (87823, 1) chosen. Took 2734.8871 seconds.
+     0     0     0     0   326
+
+Exp 2: Iteration 106: (102274, 4) chosen. Took 3175.1675 seconds.
+     0     0     0     0   322
+
+Exp 2: Iteration 107: (101836, 4) chosen. Took 3163.8289 seconds.
+     0     0     0     0   320
+
+Exp 2: Iteration 108: (102052, 4) chosen. Took 2977.1660 seconds.
+     0     0     0     0   329
+
+Exp 2: Iteration 109: (101127, 5) chosen. Took 2557.9322 seconds.
+     0     0     0     0   320
+
+Exp 2: Iteration 110: (101131, 5) chosen. Took 2750.7158 seconds.
+     0     0     0     0   327
+
+Exp 2: Iteration 111: (102283, 4) chosen. Took 2776.3520 seconds.
+     0     0     0     0   330
+
+Exp 2: Iteration 112: (101374, 5) chosen. Took 2912.7894 seconds.
+     0     0     0     0   320
+
+Exp 2: Iteration 113: (102565, 4) chosen. Took 3206.4065 seconds.
+     0     0     0     0   306
+
+Exp 2: Iteration 114: (55252, 1) chosen. Took 2997.1148 seconds.
+     0     0     0     0   287
+
+Exp 2: Iteration 115: (102556, 4) chosen. Took 3017.1422 seconds.
+     0     0     0     0   294
+
+Exp 2: Iteration 116: (102225, 4) chosen. Took 2908.6423 seconds.
+     0     0     0     0   292
+
+Exp 2: Iteration 117: (83877, 1) chosen. Took 2770.3085 seconds.
+     0     0     0     0   289
+
+Exp 2: Iteration 118: (62769, 1) chosen. Took 2795.3277 seconds.
+     0     0     0     0   289
+
+Exp 2: Iteration 119: (45688, 1) chosen. Took 2819.0867 seconds.
+     0     0     0     0   285
+
+Exp 2: Iteration 120: (102212, 4) chosen. Took 3210.5320 seconds.
+     0     0     0     0   282
+
+Exp 2: Iteration 121: (100905, 5) chosen. Took 2742.1023 seconds.
+     0     0     0     0   282
+
+Exp 2: Iteration 122: (101305, 5) chosen. Took 2788.8053 seconds.
+     0     0     0     0   282
+
+Exp 2: Iteration 123: (42396, 1) chosen. Took 2833.3143 seconds.
+     0     0     0     0   279
+
+Exp 2: Iteration 124: (4810, 1) chosen. Took 2988.3910 seconds.
+     0     0     0     0   278
+
+Exp 2: Iteration 125: (97003, 1) chosen. Took 3156.1273 seconds.
+     0     0     0     0   282
+
+Exp 2: Iteration 126: (67054, 1) chosen. Took 3045.8227 seconds.
+     0     0     0     0   287
+
+Exp 2: Iteration 127: (101072, 5) chosen. Took 3018.8400 seconds.
+     0     0     0     0   290
+
+Exp 2: Iteration 128: (78129, 1) chosen. Took 2922.9290 seconds.
+     0     0     0     0   283
+
+Exp 2: Iteration 129: (43406, 1) chosen. Took 2965.4926 seconds.
+     0     0     0     0   290
+
+Exp 2: Iteration 130: (64899, 1) chosen. Took 2904.9050 seconds.
+     0     0     0     0   286
+
+Exp 2: Iteration 131: (102560, 4) chosen. Took 2713.1350 seconds.
+     0     0     0     0   286
+
+Exp 2: Iteration 132: (100912, 5) chosen. Took 2463.1391 seconds.
+     0     0     0     0   286
+
+Exp 2: Iteration 133: (56634, 1) chosen. Took 2884.8947 seconds.
+     0     0     0     0   288
+
+Exp 2: Iteration 134: (87535, 1) chosen. Took 3005.4733 seconds.
+     0     0     0     0   292
+
+Exp 2: Iteration 135: (102874, 4) chosen. Took 2819.5334 seconds.
+     0     0     0     0   292
+
+Exp 2: Iteration 136: (102872, 4) chosen. Took 3073.1153 seconds.
+     0     0     0     0   298
+
+Exp 2: Iteration 137: (102868, 4) chosen. Took 2928.3731 seconds.
+     0     0     0     0   338
+
+Exp 2: Iteration 138: (102506, 4) chosen. Took 2819.8537 seconds.
+     0     0     0     0   335
+
+Exp 2: Iteration 139: (102121, 4) chosen. Took 3070.5511 seconds.
+     0     0     0     0   322
+
+Exp 2: Iteration 140: (100492, 5) chosen. Took 2923.4461 seconds.
+     0     0     0     0   302
+
+Exp 2: Iteration 141: (102053, 4) chosen. Took 2642.3299 seconds.
+     0     0     0     0   325
+
+Exp 2: Iteration 142: (100565, 5) chosen. Took 2791.5266 seconds.
+     0     0     0     0   311
+
+Exp 2: Iteration 143: (101847, 4) chosen. Took 2853.2727 seconds.
+     0     0     0     0   327
+
+Exp 2: Iteration 144: (102620, 4) chosen. Took 2556.5905 seconds.
+     0     0     0     0   425
+
+Exp 2: Iteration 145: (102919, 4) chosen. Took 2441.2212 seconds.
+     0     0     0     0   452
+
+Exp 2: Iteration 146: (102038, 4) chosen. Took 2606.8093 seconds.
+     0     0     0     0   424
+
+Exp 2: Iteration 147: (101143, 5) chosen. Took 2734.4254 seconds.
+     0     0     0     0   349
+
+Exp 2: Iteration 148: (101150, 5) chosen. Took 2603.7609 seconds.
+     0     0     0     0   355
+
+Exp 2: Iteration 149: (101145, 5) chosen. Took 2733.3147 seconds.
+     0     0     0     0   359
+
+Exp 2: Iteration 150: (102609, 4) chosen. Took 2638.2175 seconds.
+     0     0     0     0   369
+
+Exp 2: Iteration 151: (102622, 4) chosen. Took 2662.4209 seconds.
+     0     0     0     0   400
+
+Exp 2: Iteration 152: (102030, 4) chosen. Took 2594.4154 seconds.
+     0     0     0     0   398
+
+Exp 2: Iteration 153: (102616, 4) chosen. Took 2606.0160 seconds.
+     0     0     0     0   345
+
+Exp 2: Iteration 154: (102701, 4) chosen. Took 2621.8169 seconds.
+     0     0     0     0   323
+
+Exp 2: Iteration 155: (100929, 5) chosen. Took 2644.2667 seconds.
+     0     0     0     0   332
+
+Exp 2: Iteration 156: (101173, 5) chosen. Took 2663.1426 seconds.
+     0     0     0     0   344
+
+Exp 2: Iteration 157: (101850, 4) chosen. Took 2641.5725 seconds.
+     0     0     0     0   357
+
+Exp 2: Iteration 158: (102201, 4) chosen. Took 2518.9483 seconds.
+     0     0     0     0   344
+
+Exp 2: Iteration 159: (102695, 4) chosen. Took 2605.4903 seconds.
+     0     0     0     0   298
+
+Exp 2: Iteration 160: (100754, 5) chosen. Took 2589.3439 seconds.
+     0     0     0     0   320
+
+Exp 2: Iteration 161: (100571, 5) chosen. Took 2575.3666 seconds.
+     0     0     0     0   340
+
+Exp 2: Iteration 162: (100919, 5) chosen. Took 2485.6800 seconds.
+     0     0     0     0   350
+
+Exp 2: Iteration 163: (102928, 4) chosen. Took 2457.5471 seconds.
+     0     0     0     0   357
+
+Exp 2: Iteration 164: (101181, 5) chosen. Took 2490.5236 seconds.
+     0     0     0     0   287
+
+Exp 2: Iteration 165: (100561, 5) chosen. Took 2602.6180 seconds.
+     0     0     0     0   303
+
+Exp 2: Iteration 166: (102688, 4) chosen. Took 2596.9009 seconds.
+     0     0     0     0   315
+
+Exp 2: Iteration 167: (100744, 5) chosen. Took 2737.3062 seconds.
+     0     0     0     0   246
+
+Exp 2: Iteration 168: (101141, 5) chosen. Took 2669.9642 seconds.
+     0     0     0     0   246
+
+Exp 2: Iteration 169: (75063, 1) chosen. Took 2591.4906 seconds.
+     0     0     0     0   254
+
+Exp 2: Iteration 170: (83910, 1) chosen. Took 2640.0077 seconds.
+     0     0     0     0   260
+
+Exp 2: Iteration 171: (100930, 5) chosen. Took 2631.0022 seconds.
+     0     0     0     0   260
+
+Exp 2: Iteration 172: (100785, 5) chosen. Took 2510.8448 seconds.
+     0     0     0     0   268
+
+Exp 2: Iteration 173: (101824, 4) chosen. Took 2676.6108 seconds.
+     0     0     0     0   279
+
+Exp 2: Iteration 174: (102367, 4) chosen. Took 2615.4083 seconds.
+     0     0     0     0   278
+
+Exp 2: Iteration 175: (102369, 4) chosen. Took 2773.5214 seconds.
+     0     0     0     0   287
+
+Exp 2: Iteration 176: (102064, 4) chosen. Took 2464.3521 seconds.
+     0     0     0     0   288
+
+Exp 2: Iteration 177: (102607, 4) chosen. Took 2459.4954 seconds.
+     0     0     0     0   274
+
+Exp 2: Iteration 178: (102470, 4) chosen. Took 2840.8510 seconds.
+     0     0     0     0   266
+
+Exp 2: Iteration 179: (102471, 4) chosen. Took 2648.9762 seconds.
+     0     0     0     0   268
+
+Exp 2: Iteration 180: (101848, 4) chosen. Took 2471.5414 seconds.
+     0     0     0     0   321
+
+Exp 2: Iteration 181: (102700, 4) chosen. Took 2551.5948 seconds.
+     0     0     0     0   323
+
+Exp 2: Iteration 182: (100888, 5) chosen. Took 2503.2467 seconds.
+     0     0     0     0   249
+
+Exp 2: Iteration 183: (34136, 1) chosen. Took 2742.5449 seconds.
+     0     0     0     0   254
+
+Exp 2: Iteration 184: (102463, 4) chosen. Took 2858.1766 seconds.
+     0     0     0     0   250
+
+Exp 2: Iteration 185: (102028, 4) chosen. Took 2552.2268 seconds.
+     0     0     0     0   338
+
+Exp 2: Iteration 186: (100802, 5) chosen. Took 2831.2803 seconds.
+     0     0     0     0   229
+
+Exp 2: Iteration 187: (102378, 4) chosen. Took 2574.6834 seconds.
+     0     0     0     0   247
+
+Exp 2: Iteration 188: (102060, 4) chosen. Took 2818.8470 seconds.
+     0     0     0     0   247
+
+Exp 2: Iteration 189: (102385, 4) chosen. Took 2543.2386 seconds.
+     0     0     0     0   244
+
+Exp 2: Iteration 190: (102501, 4) chosen. Took 2841.3049 seconds.
+     0     0     0     0   201
+
+Exp 2: Iteration 191: (102381, 4) chosen. Took 2963.7149 seconds.
+     0     0     0     0   146
+
+Exp 2: Iteration 192: (102035, 4) chosen. Took 3044.8929 seconds.
+     0     0     0     0    73
+
+Exp 2: Iteration 193: (100261, 5) chosen. Took 3089.9874 seconds.
+     0     0     0     0    17
+
+Exp 2: Iteration 194: (102062, 4) chosen. Took 3035.8749 seconds.
+     0     0     0     0    57
+
+Exp 2: Iteration 195: (102032, 4) chosen. Took 3035.6016 seconds.
+     0     0     0     0     8
+
+Exp 2: Iteration 196: (100291, 5) chosen. Took 3137.1210 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 197: (100954, 5) chosen. Took 3110.6837 seconds.
+     0     0     0     0     6
+
+Exp 2: Iteration 198: (100566, 5) chosen. Took 2872.5898 seconds.
+     0     0     0     0    12
+
+Exp 2: Iteration 199: (100570, 5) chosen. Took 2936.7978 seconds.
+     0     0     0     0    22
+
+Exp 2: Iteration 200: (102477, 4) chosen. Took 2896.8793 seconds.
+     0     0     0     0    67
+
+Exp 2: Iteration 201: (79563, 1) chosen. Took 2553.3568 seconds.
+     0     0     0     0    17
+
+Exp 2: Iteration 202: (102781, 4) chosen. Took 2693.3728 seconds.
+     0     0     0     0     7
+
+Exp 2: Iteration 203: (100934, 5) chosen. Took 2546.9752 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 204: (100558, 5) chosen. Took 2538.7412 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 205: (100562, 5) chosen. Took 2514.0917 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 206: (101851, 4) chosen. Took 2464.3194 seconds.
+     0     0     0     0     9
+
+Exp 2: Iteration 207: (101230, 5) chosen. Took 2508.3984 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 208: (59817, 1) chosen. Took 2551.4044 seconds.
+     0     0     0     0     5
+
+Exp 2: Iteration 209: (100564, 5) chosen. Took 2453.8189 seconds.
+     0     0     0     0     1
+
+Exp 2: Iteration 210: (102498, 4) chosen. Took 2460.5489 seconds.
+     0     0     0     0    15
+
+Exp 2: Iteration 211: (101017, 5) chosen. Took 2475.0150 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 212: (100323, 5) chosen. Took 2487.4213 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 213: (102023, 4) chosen. Took 2351.1027 seconds.
+     0     0     0     0    39
+
+Exp 2: Iteration 214: (101180, 5) chosen. Took 2374.9512 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 215: (101089, 5) chosen. Took 2358.2257 seconds.
+     0     0     0     0    24
+
+Exp 2: Iteration 216: (21518, 1) chosen. Took 2366.3720 seconds.
+     0     0     0     0    66
+
+Exp 2: Iteration 217: (100764, 5) chosen. Took 2353.6526 seconds.
+     0     0     0     0    39
+
+Exp 2: Iteration 218: (100495, 5) chosen. Took 2412.8935 seconds.
+     0     0     0     0    52
+
+Exp 2: Iteration 219: (102484, 4) chosen. Took 2283.4619 seconds.
+     0     0     0     0    78
+
+Exp 2: Iteration 220: (2136, 1) chosen. Took 2327.3746 seconds.
+     0     0     0     0    25
+
+Exp 2: Iteration 221: (37269, 1) chosen. Took 2331.0612 seconds.
+     0     0     0     0    27
+
+Exp 2: Iteration 222: (17676, 1) chosen. Took 2345.3928 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 223: (101138, 5) chosen. Took 2384.7906 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 224: (54019, 1) chosen. Took 2271.8311 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 225: (100784, 5) chosen. Took 2252.8314 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 226: (100559, 5) chosen. Took 2421.8282 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 227: (97056, 1) chosen. Took 2309.1966 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 228: (100759, 5) chosen. Took 2363.4407 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 229: (100885, 5) chosen. Took 2075.9645 seconds.
+     0     0     0     0    20
+
+Exp 2: Iteration 230: (101149, 5) chosen. Took 1986.1785 seconds.
+     0     0     0     0    24
+
+Exp 2: Iteration 231: (102031, 4) chosen. Took 1927.8445 seconds.
+     0     0     0     0    35
+
+Exp 2: Iteration 232: (96182, 1) chosen. Took 2024.5858 seconds.
+     0     0     0     0     5
+
+Exp 2: Iteration 233: (19193, 1) chosen. Took 2329.2507 seconds.
+     0     0     0     0     4
+
+Exp 2: Iteration 234: (78748, 1) chosen. Took 2106.9109 seconds.
+     0     0     0     0     2
+
+Exp 2: Iteration 235: (101316, 5) chosen. Took 2200.9509 seconds.
+     0     0     0     0     2
+
+Exp 2: Iteration 236: (100467, 5) chosen. Took 2178.5656 seconds.
+     0     0     0     0    25
+
+Exp 2: Iteration 237: (101465, 5) chosen. Took 1911.9905 seconds.
+     0     0     0     0    15
+
+Exp 2: Iteration 238: (101319, 5) chosen. Took 2073.0480 seconds.
+     0     0     0     0    15
+
+Exp 2: Iteration 239: (8699, 1) chosen. Took 1993.2303 seconds.
+     0     0     0     0    28
+
+Exp 2: Iteration 240: (100749, 5) chosen. Took 2009.8392 seconds.
+     0     0     0     0    27
+
+Exp 2: Iteration 241: (102482, 4) chosen. Took 2029.9851 seconds.
+     0     0     0     0    55
+
+Exp 2: Iteration 242: (100765, 5) chosen. Took 1964.6104 seconds.
+     0     0     0     0    24
+
+Exp 2: Iteration 243: (102024, 4) chosen. Took 2074.9903 seconds.
+     0     0     0     0    54
+
+Exp 2: Iteration 244: (79547, 1) chosen. Took 1953.1467 seconds.
+     0     0     0     0     5
+
+Exp 2: Iteration 245: (101202, 5) chosen. Took 2142.7066 seconds.
+     0     0     0     0     4
+
+Exp 2: Iteration 246: (73496, 1) chosen. Took 1969.0936 seconds.
+     0     0     0     0    21
+
+Exp 2: Iteration 247: (6650, 1) chosen. Took 1934.9130 seconds.
+     0     0     0     0    23
+
+Exp 2: Iteration 248: (101315, 5) chosen. Took 1895.8783 seconds.
+     0     0     0     0    16
+
+Exp 2: Iteration 249: (101318, 5) chosen. Took 1886.5529 seconds.
+     0     0     0     0    51
+
+Exp 2: Iteration 250: (100943, 5) chosen. Took 1816.4530 seconds.
+     0     0     0     0    84
+
+Exp 2: Iteration 251: (102921, 4) chosen. Took 1879.4306 seconds.
+     0     0     0     0    82
+
+Exp 2: Iteration 252: (100745, 5) chosen. Took 1802.3110 seconds.
+     0     0     0     0    71
+
+Exp 2: Iteration 253: (100314, 5) chosen. Took 1863.0122 seconds.
+     0     0     0     0   113
+
+Exp 2: Iteration 254: (21139, 1) chosen. Took 1817.7002 seconds.
+     0     0     0     0   113
+
+Exp 2: Iteration 255: (102046, 4) chosen. Took 1895.3278 seconds.
+     0     0     0     0   206
+
+Exp 2: Iteration 256: (100729, 5) chosen. Took 1878.9222 seconds.
+     0     0     0     0   137
+
+Exp 2: Iteration 257: (100800, 5) chosen. Took 1852.1027 seconds.
+     0     0     0     0   147
+
+Exp 2: Iteration 258: (102454, 4) chosen. Took 1715.3289 seconds.
+     0     0     0     0   144
+
+Exp 2: Iteration 259: (102063, 4) chosen. Took 1799.6350 seconds.
+     0     0     0     0    95
+
+Exp 2: Iteration 260: (39271, 1) chosen. Took 1833.8420 seconds.
+     0     0     0     0   104
+
+Exp 2: Iteration 261: (102619, 4) chosen. Took 1858.4511 seconds.
+     0     0     0     0    57
+
+Exp 2: Iteration 262: (11710, 1) chosen. Took 1921.1161 seconds.
+     0     0     0     0    17
+
+Exp 2: Iteration 263: (36919, 1) chosen. Took 1826.3989 seconds.
+     0     0     0     0    11
+
+Exp 2: Iteration 264: (53897, 1) chosen. Took 1945.7476 seconds.
+     0     0     0     0     8
+
+Exp 2: Iteration 265: (75953, 1) chosen. Took 1948.6098 seconds.
+     0     0     0     0     5
+
+Exp 2: Iteration 266: (2975, 1) chosen. Took 1773.4598 seconds.
+     0     0     0     0     1
+
+Exp 2: Iteration 267: (59097, 1) chosen. Took 1742.8824 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 268: (86802, 1) chosen. Took 1843.4705 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 269: (45541, 1) chosen. Took 1948.8114 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 270: (2860, 1) chosen. Took 1850.3045 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 271: (31286, 1) chosen. Took 1868.8123 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 272: (63059, 1) chosen. Took 1879.0224 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 273: (101025, 5) chosen. Took 1897.6714 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 274: (101233, 5) chosen. Took 1926.3675 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 275: (100287, 5) chosen. Took 1870.0382 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 276: (55294, 1) chosen. Took 1836.6177 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 277: (100607, 5) chosen. Took 1863.5446 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 278: (100597, 5) chosen. Took 1818.8638 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 279: (100603, 5) chosen. Took 1798.9138 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 280: (100621, 5) chosen. Took 1797.7566 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 281: (100625, 5) chosen. Took 1830.7665 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 282: (100924, 5) chosen. Took 1857.2976 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 283: (102612, 4) chosen. Took 1833.4624 seconds.
+     0     0     0     0    10
+
+Exp 2: Iteration 284: (100277, 5) chosen. Took 1868.4880 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 285: (77324, 1) chosen. Took 1759.4807 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 286: (100763, 5) chosen. Took 1783.9097 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 287: (102611, 4) chosen. Took 1718.2787 seconds.
+     0     0     0     0     3
+
+Exp 2: Iteration 288: (68465, 1) chosen. Took 1616.2244 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 289: (100270, 5) chosen. Took 1785.3546 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 290: (101026, 5) chosen. Took 1544.2938 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 291: (102072, 4) chosen. Took 1499.7278 seconds.
+     0     0     0     0    14
+
+Exp 2: Iteration 292: (96566, 1) chosen. Took 1610.8924 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 293: (36702, 1) chosen. Took 1702.2687 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 294: (36155, 1) chosen. Took 1675.4785 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 295: (101183, 5) chosen. Took 1726.8450 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 296: (9506, 1) chosen. Took 1713.3386 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 297: (67119, 1) chosen. Took 1543.2246 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 298: (100322, 5) chosen. Took 1747.8093 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 299: (48339, 1) chosen. Took 1593.9233 seconds.
+     0     0     0     0    35
+
+Exp 2: Iteration 300: (102916, 4) chosen. Took 1545.8054 seconds.
+     0     0     0     0    16
+
+Exp 2: Iteration 301: (5176, 1) chosen. Took 1573.0309 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 302: (77164, 1) chosen. Took 1659.7982 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 303: (43026, 1) chosen. Took 1687.4197 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 304: (4884, 1) chosen. Took 1700.1896 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 305: (36593, 1) chosen. Took 1685.6016 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 306: (62233, 1) chosen. Took 1665.9190 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 307: (14493, 1) chosen. Took 1597.4224 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 308: (27761, 1) chosen. Took 1489.7460 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 309: (31746, 1) chosen. Took 1500.7874 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 310: (100688, 5) chosen. Took 1671.3232 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 311: (9668, 1) chosen. Took 1610.3554 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 312: (57778, 1) chosen. Took 1584.1090 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 313: (29914, 1) chosen. Took 1382.1888 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 314: (10946, 1) chosen. Took 1375.8270 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 315: (85299, 1) chosen. Took 1393.4357 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 316: (83114, 1) chosen. Took 1400.8445 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 317: (68590, 1) chosen. Took 1425.7690 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 318: (13881, 1) chosen. Took 1368.3855 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 319: (100901, 5) chosen. Took 1378.2837 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 320: (100926, 5) chosen. Took 1396.2787 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 321: (102029, 4) chosen. Took 1099.8203 seconds.
+     0     0     0     0    15
+
+Exp 2: Iteration 322: (50473, 1) chosen. Took 1082.3519 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 323: (15281, 1) chosen. Took 1119.9412 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 324: (86903, 1) chosen. Took 1069.2775 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 325: (66803, 1) chosen. Took 1059.1818 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 326: (3504, 1) chosen. Took 1059.7093 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 327: (6450, 1) chosen. Took 1059.9517 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 328: (25458, 1) chosen. Took 1072.9659 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 329: (83027, 1) chosen. Took 1057.4496 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 330: (74567, 1) chosen. Took 1069.7558 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 331: (40790, 1) chosen. Took 1057.9535 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 332: (53057, 1) chosen. Took 1071.4061 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 333: (10323, 1) chosen. Took 1098.8313 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 334: (20891, 1) chosen. Took 1046.8076 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 335: (93400, 1) chosen. Took 1044.8837 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 336: (100937, 5) chosen. Took 1052.8479 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 337: (41364, 1) chosen. Took 1023.1823 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 338: (59923, 1) chosen. Took 1021.4953 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 339: (37354, 1) chosen. Took 1008.0934 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 340: (102461, 4) chosen. Took 992.5897 seconds.
+     0     0     0     0     5
+
+Exp 2: Iteration 341: (2185, 1) chosen. Took 999.0175 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 342: (24184, 1) chosen. Took 1087.2242 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 343: (85283, 1) chosen. Took 1157.2797 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 344: (100874, 5) chosen. Took 1128.3238 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 345: (10118, 1) chosen. Took 1154.4519 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 346: (100915, 5) chosen. Took 1157.1733 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 347: (78425, 1) chosen. Took 1137.7967 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 348: (101356, 5) chosen. Took 1111.8369 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 349: (513, 1) chosen. Took 1043.9153 seconds.
+     0     0     0    43   119
+
+Exp 2: Iteration 350: (39, 1) chosen. Took 1017.1801 seconds.
+     0     0     0    42   119
+
+Exp 2: Iteration 351: (101980, 4) chosen. Took 868.9189 seconds.
+     0     0     0     0   450
+
+Exp 2: Iteration 352: (77, 1) chosen. Took 1013.3673 seconds.
+     0     0     0    43   118
+
+Exp 2: Iteration 353: (617, 1) chosen. Took 1008.1709 seconds.
+     0     0     0    39   112
+
+Exp 2: Iteration 354: (28, 1) chosen. Took 1015.1994 seconds.
+     0     0     0    40   116
+
+Exp 2: Iteration 355: (541, 1) chosen. Took 1006.5317 seconds.
+     0     0     0    38   106
+
+Exp 2: Iteration 356: (58, 1) chosen. Took 981.4176 seconds.
+     0     0     0    38   103
+
+Exp 2: Iteration 357: (340, 1) chosen. Took 1001.7146 seconds.
+     0     0     0    38   100
+
+Exp 2: Iteration 358: (336, 1) chosen. Took 994.1610 seconds.
+     0     0     0    39   100
+
+Exp 2: Iteration 359: (442, 1) chosen. Took 966.6004 seconds.
+     0     0     0    39    94
+
+Exp 2: Iteration 360: (434, 1) chosen. Took 965.8068 seconds.
+     0     0     0    39    94
+
+Exp 2: Iteration 361: (412, 1) chosen. Took 926.6492 seconds.
+     0     0     0    38    96
+
+Exp 2: Iteration 362: (156, 1) chosen. Took 973.3969 seconds.
+     0     0     0    38    97
+
+Exp 2: Iteration 363: (582, 1) chosen. Took 979.7609 seconds.
+     0     0     0    38    94
+
+Exp 2: Iteration 364: (388, 1) chosen. Took 969.4487 seconds.
+     0     0     0    38    95
+
+Exp 2: Iteration 365: (206, 1) chosen. Took 916.3951 seconds.
+     0     0     0    39    95
+
+Exp 2: Iteration 366: (101984, 4) chosen. Took 866.6897 seconds.
+     0     0     0     0   439
+
+Exp 2: Iteration 367: (157, 1) chosen. Took 950.8099 seconds.
+     0     0     0    40    96
+
+Exp 2: Iteration 368: (136, 1) chosen. Took 870.0909 seconds.
+     0     0     0    40    95
+
+Exp 2: Iteration 369: (29, 1) chosen. Took 763.1898 seconds.
+     0     0     0    41    95
+
+Exp 2: Iteration 370: (460, 1) chosen. Took 745.4495 seconds.
+     0     0     0    41    91
+
+Exp 2: Iteration 371: (684, 1) chosen. Took 784.2814 seconds.
+     0     0     0    41    91
+
+Exp 2: Iteration 372: (32, 1) chosen. Took 824.7957 seconds.
+     0     0     0    41    89
+
+Exp 2: Iteration 373: (47, 1) chosen. Took 836.5406 seconds.
+     0     0     0    41    88
+
+Exp 2: Iteration 374: (499, 1) chosen. Took 879.4365 seconds.
+     0     0     0    42    86
+
+Exp 2: Iteration 375: (551, 1) chosen. Took 825.8863 seconds.
+     0     0     0    42    86
+
+Exp 2: Iteration 376: (606, 1) chosen. Took 811.7998 seconds.
+     0     0     0    43    88
+
+Exp 2: Iteration 377: (102370, 4) chosen. Took 672.0948 seconds.
+     0     0     0     0   432
+
+Exp 2: Iteration 378: (290, 1) chosen. Took 700.2142 seconds.
+     0     0     0    44    90
+
+Exp 2: Iteration 379: (535, 1) chosen. Took 684.7032 seconds.
+     0     0     0    45    90
+
+Exp 2: Iteration 380: (168, 1) chosen. Took 683.8180 seconds.
+     0     0     0    46    90
+
+Exp 2: Iteration 381: (657, 1) chosen. Took 681.5963 seconds.
+     0     0     0    46    90
+
+Exp 2: Iteration 382: (34, 1) chosen. Took 668.8871 seconds.
+     0     0     0    47    89
+
+Exp 2: Iteration 383: (285, 1) chosen. Took 665.5315 seconds.
+     0     0     0    47    89
+
+Exp 2: Iteration 384: (520, 1) chosen. Took 668.2244 seconds.
+     0     0     0    47    88
+
+Exp 2: Iteration 385: (80, 1) chosen. Took 653.2663 seconds.
+     0     0     0    47    88
+
+Exp 2: Iteration 386: (4, 1) chosen. Took 672.3272 seconds.
+     0     0     0    47    86
+
+Exp 2: Iteration 387: (102027, 4) chosen. Took 580.1466 seconds.
+     0     0     0     0   473
+
+Exp 2: Iteration 388: (477, 1) chosen. Took 640.5689 seconds.
+     0     0     0    47    86
+
+Exp 2: Iteration 389: (662, 1) chosen. Took 636.1547 seconds.
+     0     0     0    47    86
+
+Exp 2: Iteration 390: (210, 1) chosen. Took 638.2623 seconds.
+     0     0     0    48    86
+
+Exp 2: Iteration 391: (225, 1) chosen. Took 620.3099 seconds.
+     0     0     0    49    88
+
+Exp 2: Iteration 392: (102922, 4) chosen. Took 556.5158 seconds.
+     0     0     0     0   464
+
+Exp 2: Iteration 393: (100938, 5) chosen. Took 668.1896 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 394: (9, 1) chosen. Took 620.2730 seconds.
+     0     0     0    52    87
+
+Exp 2: Iteration 395: (314, 1) chosen. Took 607.0463 seconds.
+     0     0     0    53    84
+
+Exp 2: Iteration 396: (99, 1) chosen. Took 617.7406 seconds.
+     0     0     0    54    83
+
+Exp 2: Iteration 397: (455, 1) chosen. Took 593.7919 seconds.
+     0     0     0    53    84
+
+Exp 2: Iteration 398: (102662, 4) chosen. Took 513.7188 seconds.
+     0     0     0     0   465
+
+Exp 2: Iteration 399: (331, 1) chosen. Took 580.4870 seconds.
+     0     0     0    54    85
+
+Exp 2: Iteration 400: (366, 1) chosen. Took 569.3633 seconds.
+     0     0     0    54    85
+
+Exp 2: Iteration 401: (613, 1) chosen. Took 574.5945 seconds.
+     0     0     0    54    84
+
+Exp 2: Iteration 402: (135, 1) chosen. Took 564.0785 seconds.
+     0     0     0    54    85
+
+Exp 2: Iteration 403: (102491, 4) chosen. Took 494.6693 seconds.
+     0     0     0     0   455
+
+Exp 2: Iteration 404: (186, 1) chosen. Took 547.2292 seconds.
+     0     0     0    54    86
+
+Exp 2: Iteration 405: (594, 1) chosen. Took 551.5174 seconds.
+     0     0     0    55    83
+
+Exp 2: Iteration 406: (102022, 4) chosen. Took 475.3910 seconds.
+     0     0     0     0   476
+
+Exp 2: Iteration 407: (420, 1) chosen. Took 535.4387 seconds.
+     0     0     0    56    86
+
+Exp 2: Iteration 408: (22, 1) chosen. Took 522.5554 seconds.
+     0     0     0    56    88
+
+Exp 2: Iteration 409: (100922, 5) chosen. Took 571.4977 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 410: (102923, 4) chosen. Took 469.2203 seconds.
+     0     0     0     0   461
+
+Exp 2: Iteration 411: (406, 1) chosen. Took 521.8823 seconds.
+     0     0     0    56    88
+
+Exp 2: Iteration 412: (53, 1) chosen. Took 511.1162 seconds.
+     0     0     0    56    88
+
+Exp 2: Iteration 413: (102502, 4) chosen. Took 501.0423 seconds.
+     0     0     0     0   454
+
+Exp 2: Iteration 414: (100946, 5) chosen. Took 555.6312 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 415: (102917, 4) chosen. Took 428.4447 seconds.
+     0     0     0     0   482
+
+Exp 2: Iteration 416: (585, 1) chosen. Took 485.2238 seconds.
+     0     0     0    58    89
+
+Exp 2: Iteration 417: (174, 1) chosen. Took 479.1861 seconds.
+     0     0     0    58    89
+
+Exp 2: Iteration 418: (100940, 5) chosen. Took 514.1899 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 419: (102021, 4) chosen. Took 424.6463 seconds.
+     0     0     0     0   472
+
+Exp 2: Iteration 420: (673, 1) chosen. Took 460.2288 seconds.
+     0     0     0    58    89
+
+Exp 2: Iteration 421: (102785, 4) chosen. Took 404.6057 seconds.
+     0     0     0     0   465
+
+Exp 2: Iteration 422: (782, 1) chosen. Took 453.3299 seconds.
+     0     0     0    58    90
+
+Exp 2: Iteration 423: (102914, 4) chosen. Took 394.5121 seconds.
+     0     0     0     0   474
+
+Exp 2: Iteration 424: (100931, 5) chosen. Took 476.6923 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 425: (784, 1) chosen. Took 431.5618 seconds.
+     0     0     0    58    91
+
+Exp 2: Iteration 426: (102474, 4) chosen. Took 382.2931 seconds.
+     0     0     0     0   456
+
+Exp 2: Iteration 427: (102034, 4) chosen. Took 377.4371 seconds.
+     0     0     0     0   467
+
+Exp 2: Iteration 428: (100942, 5) chosen. Took 459.9908 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 429: (569, 1) chosen. Took 410.7328 seconds.
+     0     0     0    59    92
+
+Exp 2: Iteration 430: (102927, 4) chosen. Took 362.3050 seconds.
+     0     0     0     0   455
+
+Exp 2: Iteration 431: (101174, 5) chosen. Took 433.1040 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 432: (102480, 4) chosen. Took 354.3586 seconds.
+     0     0     0     0   447
+
+Exp 2: Iteration 433: (102003, 4) chosen. Took 354.2819 seconds.
+     0     0     0     0   456
+
+Exp 2: Iteration 434: (101144, 5) chosen. Took 430.2807 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 435: (101852, 4) chosen. Took 340.1025 seconds.
+     0     0     0     0   453
+
+Exp 2: Iteration 436: (102371, 4) chosen. Took 390.0205 seconds.
+     0     0     0     0   143
+
+Exp 2: Iteration 437: (101317, 5) chosen. Took 407.4140 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 438: (101849, 4) chosen. Took 323.0327 seconds.
+     0     0     0     0   453
+
+Exp 2: Iteration 439: (102775, 4) chosen. Took 355.3509 seconds.
+     0     0     0     0   250
+
+Exp 2: Iteration 440: (100451, 5) chosen. Took 396.6113 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 441: (102918, 4) chosen. Took 325.2558 seconds.
+     0     0     0     0   447
+
+Exp 2: Iteration 442: (102050, 4) chosen. Took 350.6731 seconds.
+     0     0     0     0   215
+
+Exp 2: Iteration 443: (102044, 4) chosen. Took 364.6588 seconds.
+     0     0     0     0    80
+
+Exp 2: Iteration 444: (100944, 5) chosen. Took 362.1727 seconds.
+     0     0     0     0     0
+
+Exp 2: Iteration 445: (102045, 4) chosen. Took 323.4309 seconds.
+     0     0     0     0   287
+
+Exp 2: Iteration 446: (102043, 4) chosen. Took 331.6409 seconds.
+     0     0     0     0   144
+
+Exp 2: Iteration 447: (102600, 4) chosen. Took 340.4620 seconds.
+     0     0     0     0    71
+
+Exp 2: Iteration 448: (102049, 4) chosen. Took 342.8688 seconds.
+     0     0     0     0    40
+
+Exp 2: Iteration 449: (102926, 4) chosen. Took 334.1518 seconds.
+     0     0     0     0    37
+
+Exp 2: Iteration 450: (102010, 4) chosen. Took 330.2029 seconds.
+     0     0     0     0    27
+
+Exp 2: Iteration 451: (102048, 4) chosen. Took 335.3419 seconds.
+     0     0     0     0    15
+
+Exp 2: Iteration 452: (102719, 4) chosen. Took 338.7234 seconds.
+     0     0     0     0    10
+
+Exp 2: Iteration 453: (100917, 5) chosen. Took 313.0357 seconds.
+     0     0     0     0     4
+
+Exp 2: Iteration 454: (30356, 1) chosen. Took 292.8190 seconds.
+     0     0     0     0   116
+
+Exp 2: Iteration 455: (102650, 4) chosen. Took 286.2860 seconds.
+     0     0     0     0   147
+
+Exp 2: Iteration 456: (102774, 4) chosen. Took 280.1216 seconds.
+     0     0     0     0   127
+
+Exp 2: Iteration 457: (102925, 4) chosen. Took 290.9126 seconds.
+     0     0     0     0   112
+
+Exp 2: Iteration 458: (100921, 5) chosen. Took 295.1410 seconds.
+     0     0     0     0   104
+
+Exp 2: Iteration 459: (102721, 4) chosen. Took 265.1964 seconds.
+     0     0     0     0   162
+
+Exp 2: Iteration 460: (102782, 4) chosen. Took 253.4990 seconds.
+     0     0     0     0   154
+
+Exp 2: Iteration 461: (100947, 5) chosen. Took 254.0939 seconds.
+     0     0     0     0   142
+
+Exp 2: Iteration 462: (102042, 4) chosen. Took 251.3570 seconds.
+     0     0     0     0   187
+
+Exp 2: Iteration 463: (102648, 4) chosen. Took 245.0511 seconds.
+     0     0     0     0   181
+
+Exp 2: Iteration 464: (102016, 4) chosen. Took 239.8699 seconds.
+     0     0     0     0   172
+
+Exp 2: Iteration 465: (102439, 4) chosen. Took 232.3575 seconds.
+     0     0     0     0   165
+
+Exp 2: Iteration 466: (102002, 4) chosen. Took 228.6472 seconds.
+     0     0     0     0   151
+
+Exp 2: Iteration 467: (102716, 4) chosen. Took 225.0534 seconds.
+     0     0     0     0   139
+
+Exp 2: Iteration 468: (101996, 4) chosen. Took 220.3734 seconds.
+     0     0     0     0   125
+
+Exp 2: Iteration 469: (100918, 5) chosen. Took 210.0544 seconds.
+     0     0     0     0   120
+
+Exp 2: Iteration 470: (102025, 4) chosen. Took 198.8740 seconds.
+     0     0     0     0   166
+
+Exp 2: Iteration 471: (101194, 5) chosen. Took 204.9566 seconds.
+     0     0     0     0   156
+
+Exp 2: Iteration 472: (102621, 4) chosen. Took 190.2927 seconds.
+     0     0     0     0   189
+
+Exp 2: Iteration 473: (101998, 4) chosen. Took 178.1595 seconds.
+     0     0     0     0   181
+
+Exp 2: Iteration 474: (102041, 4) chosen. Took 175.5187 seconds.
+     0     0     0     0   174
+
+Exp 2: Iteration 475: (102488, 4) chosen. Took 179.4729 seconds.
+     0     0     0     0   172
+
+Exp 2: Iteration 476: (100920, 5) chosen. Took 174.3513 seconds.
+     0     0     0     0   161
+
+Exp 2: Iteration 477: (102715, 4) chosen. Took 155.2530 seconds.
+     0     0     0     0   205
+
+Exp 2: Iteration 478: (102768, 4) chosen. Took 152.6639 seconds.
+     0     0     0     0   200
+
+Exp 2: Iteration 479: (102047, 4) chosen. Took 148.9192 seconds.
+     0     0     0     0   187
+
+Exp 2: Iteration 480: (102325, 4) chosen. Took 150.1732 seconds.
+     0     0     0     0   176
+
+Exp 2: Iteration 481: (100939, 5) chosen. Took 141.7325 seconds.
+     0     0     0     0   168
+
+Exp 2: Iteration 482: (100936, 5) chosen. Took 137.9404 seconds.
+     0     0     0     0   194
+
+Exp 2: Iteration 483: (102717, 4) chosen. Took 124.1463 seconds.
+     0     0     0     0   220
+
+Exp 2: Iteration 484: (102766, 4) chosen. Took 118.6742 seconds.
+     0     0     0     0   209
+
+Exp 2: Iteration 485: (102599, 4) chosen. Took 114.9104 seconds.
+     0     0     0     0   200
+
+Exp 2: Iteration 486: (102722, 4) chosen. Took 107.6015 seconds.
+     0     0     0     0   196
+
+Exp 2: Iteration 487: (102026, 4) chosen. Took 102.8675 seconds.
+     0     0     0     0   184
+
+Exp 2: Iteration 488: (102770, 4) chosen. Took 97.8840 seconds.
+     0     0     0     0   172
+
+Exp 2: Iteration 489: (101179, 5) chosen. Took 92.7297 seconds.
+     0     0     0     0   162
+
+Exp 2: Iteration 490: (100933, 5) chosen. Took 85.4889 seconds.
+     0     0     0     0   192
+
+Exp 2: Iteration 491: (102769, 4) chosen. Took 83.6214 seconds.
+     0     0     0     0   209
+
+Exp 2: Iteration 492: (101178, 5) chosen. Took 77.9560 seconds.
+     0     0     0     0   202
+
+Exp 2: Iteration 493: (102780, 4) chosen. Took 69.9918 seconds.
+     0     0     0     0   216
+
+Exp 2: Iteration 494: (100927, 5) chosen. Took 64.5846 seconds.
+     0     0     0     0   209
+
+Exp 2: Iteration 495: (101293, 5) chosen. Took 58.3538 seconds.
+     0     0     0     0   218
+
+Exp 2: Iteration 496: (101297, 5) chosen. Took 51.8009 seconds.
+     0     0     0     0   234
+
+Exp 2: Iteration 497: (101239, 5) chosen. Took 46.2171 seconds.
+     0     0     0     0   250
+
+Exp 2: Iteration 498: (101320, 5) chosen. Took 40.1621 seconds.
+     0     0     0     0   260
+
+Exp 2: Iteration 499: (101286, 5) chosen. Took 32.8998 seconds.
+     0     0     0     0   267
+
+Exp 2: Iteration 500: (100941, 5) chosen. Took 2.9190 seconds.
+     0     0     0     0     0
+
+{Error using mkdir
+Permission denied
+
+Error in run (line 94)
+if ~isdir(result_dir), mkdir(result_dir); end
+} 
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@mangosteen.engr.wustl.edu>
+Subject: Job 1402319: <run2> in cluster <SEAS-COMPUTE> Exited
+
+Job <run2> was submitted from host <ssh8-2.engr.wustl.edu> by user <quan> in cluster <SEAS-COMPUTE> at Mon Sep 27 09:28:18 2021
+Job was executed on host(s) <mangosteen.engr.wustl.edu>, in queue <normal>, as user <quan> in cluster <SEAS-COMPUTE> at Mon Sep 27 09:28:20 2021
+</home/research/quan> was used as the home directory.
+</home/research/quan/diverse_as/diverse_as> was used as the working directory.
+Started at Mon Sep 27 09:28:20 2021
+Terminated at Fri Oct  8 17:40:32 2021
+Results reported at Fri Oct  8 17:40:32 2021
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+matlab -nodesktop -nosplash -nodisplay -r "exp=2; group_size=4; data='ecfp1'; run; exit;"
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time :                                   4810816.00 sec.
+    Max Memory :                                 1 GB
+    Average Memory :                             1.00 GB
+    Total Requested Memory :                     20.00 GB
+    Delta Memory :                               19.00 GB
+    Max Swap :                                   -
+    Max Processes :                              7
+    Max Threads :                                152
+    Run time :                                   979922 sec.
+    Turnaround time :                            979934 sec.
+
+The output (if any) is above this job summary.
+

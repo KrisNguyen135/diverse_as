@@ -65,6 +65,9 @@ case 'greedy'
     policy = get_policy(@greedy, model, utility_function);
 case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
+case 'round robin ucb'
+    beta = 0.1;
+    policy = get_policy(@round_robin_ucb, model, beta);
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
 case 'classical ens'
