@@ -16,7 +16,8 @@ export exp=2
 for group in {6..10}
 do
   bsub -q "normal" -R "rusage[mem=20]" \
-  -o bjob_output/run.%J -J "run$group" -R "hname!=node01.engr.wustl.edu" \
+  -o bjob_output/run.%J -J "run$group" \
+  -R "hname!=rambutan.engr.wustl.edu && hname!=soursop.engr.wustl.edu && hname!=kumquat.engr.wustl.edu && hname!=mangosteen.engr.wustl.edu && hname!=node01.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
