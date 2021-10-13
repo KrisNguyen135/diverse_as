@@ -2,7 +2,7 @@ if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 4; end
 if ~exist('data',       'var'), data       = 'ecfp3'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
-if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
+if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
