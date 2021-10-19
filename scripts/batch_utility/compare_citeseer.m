@@ -1,10 +1,10 @@
 train_size  = 50;
-batch_size  = 300
+batch_size  = 3
 num_exps    = 10;
-num_samples = [2^10, 2^15];
+num_samples = [2^5, 2^10, 2^15];
 
 utility    = 'log';
-run_full   = false;
+run_full   = true;
 
 addpath(genpath('../../'));
 addpath(genpath('../../active_learning'));
