@@ -4,7 +4,7 @@ if ~exist('exp',     'var'), exp     =     1; end
 if ~exist('utility', 'var'), utility = 'log'; end
 if ~exist('verbose', 'var'), verbose =  true; end
 
-if ~exist('policy', 'var'), policy = 'round robin ucb'; end
+if ~exist('policy', 'var'), policy = 'classical ens'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -75,8 +75,10 @@ case 'round robin ucb'
     beta = 50;
     policy = get_policy(@round_robin_ucb, model, beta);
 case 'classical ens'
-    limit  = 10;
-    policy = get_policy(@classical_ens, model, model_update, [], limit);
+    compute_limit = 500;
+    sample_limit  = 500;
+    policy = get_policy(@classical_ens, model, model_update, [], false, ...
+                        compute_limit, sample_limit);
 case 'ens jensen greedy'
     batch_utility_function = get_batch_utility_function(@jensen, model);
     batch_policy = get_batch_policy(@jensen_greedy, model);

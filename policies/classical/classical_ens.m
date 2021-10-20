@@ -1,6 +1,6 @@
 function [chosen_ind, chosen_prob, num_computed, num_pruned] = classical_ens(...
     problem, train_ind, train_labels, ~, model, model_update, ...
-    probability_bound, limit)
+    utility_upperbound_function, pruning, compute_limit, sample_limit)
 
 function [tmp_utility, tmp_pruned] = compute_score(i, this_test_ind)
     this_reverse_ind   = reverse_ind(this_test_ind);
@@ -25,10 +25,15 @@ function [tmp_utility, tmp_pruned] = compute_score(i, this_test_ind)
     tmp_utility = p * fake_utilities + sum(p(2:end));
 end
 
-if ~exist('limit', 'var'), limit = Inf; end
+% don't apply computational tricks unless everything is fully specified
+if ~exist('utility_upperbound_function', 'var') || ~exist('pruning', 'var')
+    pruning = false;
+end
+if ~exist('compute_limit', 'var'), compute_limit = Inf; end
+if ~exist('sample_limit',  'var'), sample_limit  =   0; end
 
 num_computed = 0;
-num_pruned   = [0 0];
+num_pruned   = zeros(1, problem.num_classes);  % # points pruned before being conditioned on a class label
 
 remain_budget = problem.num_queries - (numel(train_ind) - problem.num_initial) - 1;
 
@@ -44,7 +49,6 @@ if remain_budget <= 0
     chosen_ind   = test_ind(1);
     chosen_prob  = probs(top_ind(1), :);
     num_computed = num_test;
-    num_pruned   = 0;
     return;
 end
 
@@ -73,12 +77,12 @@ pruned = false(num_test, 1);
 score  = -1;
 
 for i = 1:num_test
-    if pruned(i)
+    if pruning && pruned(i)
         num_pruned(1) = num_pruned(1) + 1;
         continue;
     end
 
-    if i > limit, break; end
+    if i > compute_limit, break; end
 
     this_test_ind = test_ind(i);
     [tmp_utility, tmp_pruned] = compute_score(i, this_test_ind);
@@ -96,8 +100,44 @@ for i = 1:num_test
 
     num_computed = num_computed + 1;
 
-    fprintf('%d / %d, limit: %d\n', i, num_test, limit);
-    fprintf('%d computed, utility: %.4f\n', this_test_ind, tmp_utility);
+    % fprintf('%d / %d, compute limit: %d\n', i, num_test, compute_limit);
+    % fprintf('%d computed, utility: %.4f\n', this_test_ind, tmp_utility);
+end
+
+if i < num_test && sample_limit > 0
+    candidates = (i:numel(test_ind));
+    candidates = candidates(~pruned(candidates));
+    if sample_limit < numel(candidates)
+        candidates = sort(randsample(candidates, sample_limit));
+    end
+
+    for j = 1:numel(candidates)
+        i = candidates(j);
+
+        if pruned(i)
+            num_pruned(1) = num_pruned(1) + 1;
+            continue;
+        end
+
+        this_test_ind = test_ind(i);
+        [tmp_utility, tmp_pruned] = compute_score(i, this_test_ind);
+
+        if tmp_pruned
+            num_pruned(2) = num_pruned(2) + 1;
+            continue;
+        end
+
+        if tmp_utility > score
+            score      = tmp_utility;
+            chosen_ind = this_test_ind;
+            % pruned(score_upper_bound <= score) = true;
+        end
+
+        num_computed = num_computed + 1;
+
+        % fprintf('%d / %d, sample limit: %d\n', j, num_test, sample_limit);
+        % fprintf('%d computed, utility: %.4f\n', this_test_ind, tmp_utility);
+    end
 end
 
 chosen_prob = probs(reverse_ind(chosen_ind), :);

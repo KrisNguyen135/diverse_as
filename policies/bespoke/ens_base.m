@@ -43,8 +43,9 @@ if pruning
     % reverse_ind = zeros(problem.num_points, 1);
     % reverse_ind(test_ind) = 1:numel(test_ind);
 
+    % row vector of length problem.num_classes
     bounds = utility_upperbound_function(problem, train_ind, train_labels, test_ind, ...
-        probs, n, d, remain_budget);  % row vector of length problem.num_classes
+                                         probs, n, d, remain_budget);
 
     upperbounds = sum(probs .* bounds, 2);  % column vector of length test size
 
