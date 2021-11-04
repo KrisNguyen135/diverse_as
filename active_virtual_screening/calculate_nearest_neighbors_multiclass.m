@@ -1,6 +1,6 @@
 num_inactive = 100000;  % number of inactive proteins to randomly subselect
 k            = 500;     % number of nearest neighbors to compute
-group_size   = 4;       % number of positive classes in a problem
+group_size   = 120;       % number of positive classes in a problem
 
 rng(group_size);
 
