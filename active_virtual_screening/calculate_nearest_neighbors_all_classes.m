@@ -25,7 +25,7 @@ to_keep = [inactive_ind(randperm(numel(inactive_ind), num_inactive)); ...
 
 labels = labels(to_keep);
 labels = labels + 1;
-labels(labels > 120) = 1;
+labels(labels > 121) = 1;
 
 num_proteins = max(labels) - 1;
 

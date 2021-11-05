@@ -23,6 +23,12 @@ case 'square'
     problem.points      = x;
     problem.num_points  = num_points;
 
+    if group_size == 1
+        labels(labels > 1) = 2;
+        alpha = [0.6 0.4];
+        problem.num_classes = 2;
+    end
+
 case 'square_small'
     load(fullfile(data_dir, 'square_small/square_small_nearest_neighbors.mat'));
     k     = size(similarities, 2);

@@ -4,7 +4,7 @@ for i = 1:num_exps
     exp = i;
     % verbose = false;
     fprintf('running experiment %d...\n', i);
-    policy = '';
-    run;
-    % run_square;
+    policy = 'greedy';
+    % run;
+    run_square;
 end

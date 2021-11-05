@@ -1,8 +1,9 @@
 data = 'square';
 
-if ~exist('exp',     'var'), exp     =     1; end
-if ~exist('utility', 'var'), utility = 'log'; end
-if ~exist('verbose', 'var'), verbose =  true; end
+if ~exist('exp',        'var'), exp        = 1; end
+if ~exist('group_size', 'var'), group_size = 1; end
+if ~exist('utility',    'var'), utility    = 'log'; end
+if ~exist('verbose',    'var'), verbose    = true; end
 
 if ~exist('policy', 'var'), policy = 'classical ens'; end
 
@@ -11,13 +12,13 @@ addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
 
 %%% high-level settings
-budget   = 100;
+budget   = 50;
 data_dir = '../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
 
-[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp);
+[problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp, group_size);
 rng(exp);
 
 % randomly select a positive
@@ -81,7 +82,13 @@ case 'classical ens'
                         compute_limit, sample_limit);
 case 'ens jensen greedy'
     batch_utility_function = get_batch_utility_function(@jensen, model);
-    batch_policy = get_batch_policy(@jensen_greedy, model);
+
+    if group_size == 1
+        batch_policy = get_batch_policy(@classical, model);
+    else
+        batch_policy = get_batch_policy(@jensen_greedy, model);
+    end
+
     utility_upperbound_function = get_utility_upperbound_function( ...
         @jensen_upperbound, weights, nns', sims');
     policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
@@ -102,7 +109,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
 
-result_dir = fullfile(data_dir, 'results', data, name);
+result_dir = fullfile(data_dir, 'results', data, int2str(group_size), name);
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...
