@@ -42,8 +42,11 @@ case 'square_small'
     problem.num_points  = num_points;
 
 case 'citeseer'
-    targets = [3 6 22 35];  % NeurIPS, ICML, UAI, JMLR
-    % targets = [3 6];  % NeurIPS, ICML
+    if group_size == 4
+        targets = [3 6 22 35];  % NeurIPS, ICML, UAI, JMLR
+    elseif group_size == 1
+        targets = [6];          % ICML
+    end
 
     data_dir  = fullfile(data_dir, 'citeseer');
     data_path = fullfile(data_dir, 'citeseer_data');

@@ -132,7 +132,6 @@ for i = 1:numel(test_ind)
     end
 
     if ~pruning || ~pruned_on_the_fly
-        % running_utility = probs(i, :) * fake_utilities;
         % fprintf('\tavg utility: %.4f\n', running_utility);
 
         if pruning

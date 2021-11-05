@@ -1,8 +1,8 @@
-for exp in {1..2}
+for exp in {1..1}
 do
-  bsub -q "centos8" -G SEAS-Lab-Garnett -R "rusage[mem=20]" \
+  bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=20]" \
   -o bjob_output/run_citeseer.%J -J "citeseer$exp" \
-  -m "node13.engr.wustl.edu" \
+  -m "node03.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
-  "policy='classical ens'; exp=$exp; data='citeseer'; run; exit;"
+  "exp=$exp; data='citeseer'; run; exit;"
 done

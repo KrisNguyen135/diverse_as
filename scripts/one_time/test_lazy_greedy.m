@@ -1,12 +1,12 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 1; end
-if ~exist('data',       'var'), data       = 'citeseer'; end
+if ~exist('group_size', 'var'), group_size = 4; end
+if ~exist('data',       'var'), data       = 'ecfp1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 
-addpath(genpath('../'));
-addpath(genpath('../active_learning'));
-addpath(genpath('../active_search'));
+addpath(genpath('../../'));
+addpath(genpath('../../active_learning'));
+addpath(genpath('../../active_search'));
 
 %%% high-level settings
 exp
@@ -16,7 +16,7 @@ policy
 
 budget   = 500
 verbose  = true;
-data_dir = '../data/';
+data_dir = '../../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
@@ -27,15 +27,6 @@ rng(exp);
 % randomly select a positive
 train_ind    = [randsample(find(labels > 1), 1)];
 train_labels = labels(train_ind);
-
-% randomly select a positive for each class
-% train_ind    = [];
-% train_labels = [];
-% for i = 2:problem.num_classes
-%     pos_ind      = find(labels == i);
-%     train_ind    = [train_ind; randsample(pos_ind, 1)];
-%     train_labels = [train_labels; i];
-% end
 
 %%% experiment details
 problem.verbose     = verbose;
@@ -61,31 +52,12 @@ problem.utility = utility;
 
 name = policy;
 switch name
-case 'greedy'
-    policy = get_policy(@greedy, model, utility_function);
-case 'round robin greedy'
-    policy = get_policy(@round_robin_greedy, model);
-case 'round robin ucb'
-    beta = 0.1;
-    policy = get_policy(@round_robin_ucb, model, beta);
-case 'classical greedy'
-    policy = get_policy(@classical_greedy, model);
-case 'classical ens'
-    compute_limit = 500;
-    sample_limit  = 500;
-    policy = get_policy(@classical_ens, model, model_update, [], false, ...
-                        compute_limit, sample_limit);
 case 'ens jensen greedy'
     compute_limit = 500;
     sample_limit  = 500;
     batch_utility_function = get_batch_utility_function(@jensen, model);
-
-    if group_size == 1
-        batch_policy = get_batch_policy(@classical, model);
-    else
-        batch_policy = get_batch_policy(@jensen_greedy, model);
-    end
-
+    % batch_policy = get_batch_policy(@jensen_greedy, model);
+    batch_policy = get_batch_policy(@jensen_lazy_greedy, model);
     utility_upperbound_function = get_utility_upperbound_function( ...
         @jensen_upperbound, weights, nns', sims');
     policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
@@ -105,17 +77,3 @@ message_prefix = sprintf('Exp %d: ', exp);
 [train_ind, train_labels, queried_probs, computed, pruned] = diverse_active_search(...
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
-
-result_dir = fullfile(data_dir, 'results', data, group_size, name);
-if ~isdir(result_dir), mkdir(result_dir); end
-
-writematrix(train_ind, ...
-    fullfile(result_dir, sprintf('%s__ind__%d.csv',      name, exp)));
-writematrix(train_labels, ...
-    fullfile(result_dir, sprintf('%s__labels__%d.csv',   name, exp)));
-writematrix(queried_probs, ...
-    fullfile(result_dir, sprintf('%s__probs__%d.csv',    name, exp)));
-writematrix(computed, ...
-    fullfile(result_dir, sprintf('%s__computed__%d.csv', name, exp)));
-writematrix(pruned, ...
-    fullfile(result_dir, sprintf('%s__pruned__%d.csv',   name, exp)));

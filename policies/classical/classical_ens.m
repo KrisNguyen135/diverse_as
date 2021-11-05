@@ -55,24 +55,6 @@ end
 reverse_ind = zeros(problem.num_points, 1);
 reverse_ind(unlabeled_ind) = 1:num_test;
 
-% prob_upper_bound = probability_bound(...
-%     problem, train_ind, train_labels, test_ind, 1, remain_budget);
-%
-% future_utility_if_neg = sum(1 - failure_probs(top_ind(1:remain_budget)));
-% if problem.max_num_influence >= remain_budget
-%     future_utility_if_pos = sum(prob_upper_bound(1:remain_budget));
-% else
-%     tmp_ind = top_ind(1:(remain_budget - problem.max_num_influence));
-%     future_utility_if_pos = sum(1 - failure_probs(tmp_ind)) + ...
-%                             sum(prob_upper_bound((1:problem.max_num_influence)));
-% end
-%
-% future_utility = (1 - failure_probs) * future_utility_if_pos + ...
-%                       failure_probs  * future_utility_if_neg;
-%
-% score_upper_bound = (1 - failure_probs) + future_utility;
-% score_upper_bound = score_upper_bound(top_ind)
-
 pruned = false(num_test, 1);
 score  = -1;
 
@@ -95,13 +77,9 @@ for i = 1:num_test
     if tmp_utility > score
         score      = tmp_utility;
         chosen_ind = this_test_ind;
-        % pruned(score_upper_bound <= score) = true;
     end
 
     num_computed = num_computed + 1;
-
-    % fprintf('%d / %d, compute limit: %d\n', i, num_test, compute_limit);
-    % fprintf('%d computed, utility: %.4f\n', this_test_ind, tmp_utility);
 end
 
 if i < num_test && sample_limit > 0
@@ -130,13 +108,9 @@ if i < num_test && sample_limit > 0
         if tmp_utility > score
             score      = tmp_utility;
             chosen_ind = this_test_ind;
-            % pruned(score_upper_bound <= score) = true;
         end
 
         num_computed = num_computed + 1;
-
-        % fprintf('%d / %d, sample limit: %d\n', j, num_test, sample_limit);
-        % fprintf('%d computed, utility: %.4f\n', this_test_ind, tmp_utility);
     end
 end
 
