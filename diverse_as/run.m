@@ -106,7 +106,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
 
-result_dir = fullfile(data_dir, 'results', data, group_size, name);
+result_dir = fullfile(data_dir, 'results', data, int2str(group_size), name);
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...
