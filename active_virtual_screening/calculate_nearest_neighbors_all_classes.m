@@ -3,8 +3,12 @@ k            = 500;     % number of nearest neighbors to compute
 
 rng('default');
 
-data_directory        = './../data/drug/processed/';
-precomputed_directory = './../data/drug/precomputed/';
+data_dir = './../data/';
+if ~isdir(data_dir)
+    data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
+end
+processed_dir   = fullfile(data_dir, 'drug/processed/');
+precomputed_dir = fullfile(data_dir, 'drug/precomputed/')
 
 fingerprints = {'ecfp4', 'gpidaph3'};
 
@@ -27,7 +31,7 @@ num_proteins = max(labels) - 1;
 
 for fingerprint = fingerprints
     tic;
-    
+
     fprintf('processing fingerprint %s ...\n', fingerprint{:});
 
     load([data_directory fingerprint{:} '/features']);
