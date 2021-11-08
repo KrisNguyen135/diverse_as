@@ -101,33 +101,28 @@ case 'citeseer'
     end
 
     problem.num_classes = 1 + size(targets, 2);
-otherwise   % drug discovery
-    % this needs to be the same as in
-    % `../active_virtual_screening/calculate_nearest_neighbors_multiclass`
-    if ~exist('group_size', 'var'), group_size = 4; end
 
-    alpha        = [1 0.001 * ones(1, group_size)];
-    num_inactive = 100000;
+otherwise  % drug discovery with 160k points
+    if ~exist('group_size', 'var'), group_size = 4; end
+    alpha = [1 0.001 * ones(1, group_size)];
 
     if contains(data_name, 'ecfp')
-        filename = sprintf('group_%s_ecfp4_nearest_neighbors_%d.mat', ...
-                           data_name(5:end), num_inactive);
+        filename    = 'ecfp4_nearest_neighbors_100000.mat';
         fingerprint = 'ecfp4';
+        group_ind   = str2num(data_name(5:end));
     elseif contains(data_name, 'gpidaph')
-        filename = sprintf('group_%s_gpidaph3_nearest_neighbors_%d.mat', ...
-                           data_name(8:end), num_inactive);
+        filename    = 'gpidaph3_nearest_neighbors_100000.mat';
         fingerprint = 'gpidaph3';
+        group_ind   = str2num(data_name(8:end));
     else
         error(sprintf('unrecognized data name %s\n', data_name));
     end
 
-    data_dir  = fullfile(data_dir, 'drug/precomputed', sprintf('%d', group_size));
+    data_dir  = fullfile(data_dir, 'drug/precomputed');
     data_path = fullfile(data_dir, filename);
     load(data_path);
 
-    labels     = this_labels;
-    num_points = numel(labels);
-
+    num_points          = numel(labels);
     problem.num_points  = num_points;
     problem.points      = (1:num_points)';
     problem.num_classes = group_size + 1;
@@ -141,6 +136,79 @@ otherwise   % drug discovery
     row_index = kron((1:num_points)', ones(k, 1));
     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
                      num_points, num_points);
+
+    % relabel
+    if group_size == 1
+        pos_mask         = (labels == group_ind + 1);
+        labels(:)        = 1;
+        labels(pos_mask) = 2;
+    else
+        rng(exp);
+
+        selected_classes = randperm(120, group_size);
+        selected_classes
+
+        % pos_mask         = [];
+        % for class_ind = 1:group_size
+        %     pos_mask = [pos_mask, (labels == selected_classes(class_ind) + 1)];
+        % end
+        %
+        % size(pos_mask)
+        %
+        % labels(:) = 1;
+        % for class_ind = 1:group_size
+        %     labels(pos_mask(:, class_ind)) = class_ind + 1;
+        % end
+
+        old_labels = labels;
+
+        labels(:) = 1;
+        for class_ind = 1:group_size
+            pos_mask         = (old_labels == selected_classes(class_ind) + 1);
+            labels(pos_mask) = class_ind + 1;
+        end
+    end
+
+% otherwise   % drug discovery
+%     % this needs to be the same as in
+%     % `../active_virtual_screening/calculate_nearest_neighbors_multiclass`
+%     if ~exist('group_size', 'var'), group_size = 4; end
+%
+%     alpha        = [1 0.001 * ones(1, group_size)];
+%     num_inactive = 100000;
+%
+%     if contains(data_name, 'ecfp')
+%         filename = sprintf('group_%s_ecfp4_nearest_neighbors_%d.mat', ...
+%                            data_name(5:end), num_inactive);
+%         fingerprint = 'ecfp4';
+%     elseif contains(data_name, 'gpidaph')
+%         filename = sprintf('group_%s_gpidaph3_nearest_neighbors_%d.mat', ...
+%                            data_name(8:end), num_inactive);
+%         fingerprint = 'gpidaph3';
+%     else
+%         error(sprintf('unrecognized data name %s\n', data_name));
+%     end
+%
+%     data_dir  = fullfile(data_dir, 'drug/precomputed', sprintf('%d', group_size));
+%     data_path = fullfile(data_dir, filename);
+%     load(data_path);
+%
+%     labels     = this_labels;
+%     num_points = numel(labels);
+%
+%     problem.num_points  = num_points;
+%     problem.points      = (1:num_points)';
+%     problem.num_classes = group_size + 1;
+%
+%     % limit to k-nearest neighbors
+%     k = 100;
+%     nearest_neighbors = nearest_neighbors(:, 1:k)';
+%     similarities      = similarities(:, 1:k)';
+%
+%     % precompute sparse weight matrix
+%     row_index = kron((1:num_points)', ones(k, 1));
+%     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+%                      num_points, num_points);
 
 end
 
