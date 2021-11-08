@@ -1,5 +1,5 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 4; end
+if ~exist('group_size', 'var'), group_size = 2; end
 if ~exist('data',       'var'), data       = 'ecfp1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
@@ -14,7 +14,7 @@ group_size
 data
 policy
 
-budget   = 500
+budget   = 42
 verbose  = true;
 data_dir = '../../data/';
 if ~isdir(data_dir)
@@ -25,7 +25,7 @@ end
 rng(exp);
 
 % randomly select a positive
-train_ind    = [randsample(find(labels > 1), 1)];
+train_ind    = [144712; 122626; 36077; 136747; 88751; 49991; 60790; 85510; 87501];
 train_labels = labels(train_ind);
 
 %%% experiment details
@@ -52,12 +52,32 @@ problem.utility = utility;
 
 name = policy;
 switch name
+case 'greedy'
+    policy = get_policy(@greedy, model, utility_function);
+case 'round robin greedy'
+    policy = get_policy(@round_robin_greedy, model);
+case 'round robin ucb'
+    beta = 0.1;
+    policy = get_policy(@round_robin_ucb, model, beta);
+case 'classical greedy'
+    policy = get_policy(@classical_greedy, model);
+case 'classical ens'
+    compute_limit = 500;
+    sample_limit  = 500;
+    policy = get_policy(@classical_ens, model, model_update, [], false, ...
+                        compute_limit, sample_limit);
 case 'ens jensen greedy'
     compute_limit = 500;
     sample_limit  = 500;
     batch_utility_function = get_batch_utility_function(@jensen, model);
-    % batch_policy = get_batch_policy(@jensen_greedy, model);
-    batch_policy = get_batch_policy(@jensen_lazy_greedy, model);
+
+    if group_size == 1
+        batch_policy = get_batch_policy(@classical, model);
+    else
+        batch_policy = get_batch_policy(@jensen_greedy, model);
+        % batch_policy = get_batch_policy(@jensen_lazy_greedy, model);
+    end
+
     utility_upperbound_function = get_utility_upperbound_function( ...
         @jensen_upperbound, weights, nns', sims');
     policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
