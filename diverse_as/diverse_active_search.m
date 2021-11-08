@@ -23,10 +23,8 @@ for i = 1:problem.num_queries
         return;
     end
 
-    profile on
     [chosen_ind, chosen_prob, num_computed, num_pruned] = ...
         policy(problem, train_ind, train_labels, test_ind);
-    profsave
 
     chosen_label = labels(chosen_ind);
     train_ind    = [train_ind;      chosen_ind];

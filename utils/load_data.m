@@ -138,27 +138,15 @@ otherwise  % drug discovery with 160k points
                      num_points, num_points);
 
     % relabel
-    if group_size == 1
+    if group_size == 1  % just use the same class in the single-class case
         pos_mask         = (labels == group_ind + 1);
         labels(:)        = 1;
         labels(pos_mask) = 2;
-    else
+    else  % randomly pick out `group_size` classes
         rng(exp);
 
         selected_classes = randperm(120, group_size);
         selected_classes
-
-        % pos_mask         = [];
-        % for class_ind = 1:group_size
-        %     pos_mask = [pos_mask, (labels == selected_classes(class_ind) + 1)];
-        % end
-        %
-        % size(pos_mask)
-        %
-        % labels(:) = 1;
-        % for class_ind = 1:group_size
-        %     labels(pos_mask(:, class_ind)) = class_ind + 1;
-        % end
 
         old_labels = labels;
 

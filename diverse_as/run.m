@@ -14,7 +14,7 @@ group_size
 data
 policy
 
-budget   = 500
+budget   = 500;
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
