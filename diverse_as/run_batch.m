@@ -4,7 +4,11 @@ for i = 1:num_exps
     exp = i;
     % verbose = false;
     fprintf('running experiment %d...\n', i);
-    policy = 'greedy';
-    % run;
-    run_square;
+
+    data       = 'citeseer';
+    policy     = 'greedy';
+    group_size = 1;
+
+    run;
+    % run_square;
 end
