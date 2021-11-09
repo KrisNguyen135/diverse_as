@@ -23,6 +23,9 @@ end
 
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp, group_size);
 rng(exp);
+if contains(data, 'gpidaph')
+    rng(exp + 1);  % to get different init data than ecfp experiments
+end
 
 % randomly select a positive
 train_ind    = [randsample(find(labels > 1), 1)];
