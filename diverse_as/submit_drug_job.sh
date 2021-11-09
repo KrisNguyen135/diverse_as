@@ -16,11 +16,11 @@ export data=ecfp
 export group_size=1
 export exp=1
 
-for group in {76..76}
+for group in {24..25}
 do
   bsub -q "normal" -R "rusage[mem=20]" \
   -o bjob_output/run.%J -J "run$group" \
-  -R "hname!=rambutan.engr.wustl.edu && hname!=soursop.engr.wustl.edu && hname!=kumquat.engr.wustl.edu && hname!=mangosteen.engr.wustl.edu && hname!=node03.engr.wustl.edu" \
+  -m "mangosteen.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
