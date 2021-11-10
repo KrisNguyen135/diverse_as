@@ -143,7 +143,7 @@ otherwise  % drug discovery with 160k points
         labels(:)        = 1;
         labels(pos_mask) = 2;
     else  % randomly pick out `group_size` classes
-        rng(exp);
+        rng(group_ind);
 
         selected_classes = randperm(120, group_size);
         selected_classes
