@@ -1,6 +1,6 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 10; end
-if ~exist('data',       'var'), data       = 'ecfp1'; end
+if ~exist('group_size', 'var'), group_size = 1; end
+if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 
@@ -14,7 +14,7 @@ group_size
 data
 policy
 
-budget   = 500;
+budget   = 500
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)

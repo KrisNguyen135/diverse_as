@@ -102,21 +102,14 @@ case 'citeseer'
 
     problem.num_classes = 1 + size(targets, 2);
 
-otherwise  % drug discovery with 160k points
-    if ~exist('group_size', 'var'), group_size = 4; end
-    alpha = [1 0.001 * ones(1, group_size)];
+otherwise  % drug discovery with pruned data
+    if ~exist('group_size', 'var'), group_size = 1; end
+        alpha = [1 0.001 * ones(1, group_size)];
 
-    if contains(data_name, 'ecfp')
-        filename    = 'ecfp4_nearest_neighbors_100000.mat';
-        fingerprint = 'ecfp4';
-        group_ind   = str2num(data_name(5:end));
-    elseif contains(data_name, 'gpidaph')
-        filename    = 'gpidaph3_nearest_neighbors_100000.mat';
-        fingerprint = 'gpidaph3';
-        group_ind   = str2num(data_name(8:end));
-    else
-        error(sprintf('unrecognized data name %s\n', data_name));
-    end
+    assert(contains(data_name, 'morgan'), 'only morgan fingerprint is currently supported');
+
+    filename  = 'morgan_nearest_neighbors_100000.mat';
+    group_ind = str2num(data_name(7:end));
 
     data_dir  = fullfile(data_dir, 'drug/precomputed');
     data_path = fullfile(data_dir, filename);
@@ -145,7 +138,7 @@ otherwise  % drug discovery with 160k points
     else  % randomly pick out `group_size` classes
         rng(group_ind);
 
-        selected_classes = randperm(120, group_size);
+        selected_classes = randperm(64, group_size);
         selected_classes
 
         old_labels = labels;
@@ -156,6 +149,61 @@ otherwise  % drug discovery with 160k points
             labels(pos_mask) = class_ind + 1;
         end
     end
+
+% otherwise  % drug discovery with 160k points
+%     if ~exist('group_size', 'var'), group_size = 4; end
+%     alpha = [1 0.001 * ones(1, group_size)];
+%
+%     if contains(data_name, 'ecfp')
+%         filename    = 'ecfp4_nearest_neighbors_100000.mat';
+%         fingerprint = 'ecfp4';
+%         group_ind   = str2num(data_name(5:end));
+%     elseif contains(data_name, 'gpidaph')
+%         filename    = 'gpidaph3_nearest_neighbors_100000.mat';
+%         fingerprint = 'gpidaph3';
+%         group_ind   = str2num(data_name(8:end));
+%     else
+%         error(sprintf('unrecognized data name %s\n', data_name));
+%     end
+%
+%     data_dir  = fullfile(data_dir, 'drug/precomputed');
+%     data_path = fullfile(data_dir, filename);
+%     load(data_path);
+%
+%     num_points          = numel(labels);
+%     problem.num_points  = num_points;
+%     problem.points      = (1:num_points)';
+%     problem.num_classes = group_size + 1;
+%
+%     % limit to k-nearest neighbors
+%     k = 100;
+%     nearest_neighbors = nearest_neighbors(:, 1:k)';
+%     similarities      = similarities(:, 1:k)';
+%
+%     % precompute sparse weight matrix
+%     row_index = kron((1:num_points)', ones(k, 1));
+%     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+%                      num_points, num_points);
+%
+%     % relabel
+%     if group_size == 1  % just use the same class in the single-class case
+%         pos_mask         = (labels == group_ind + 1);
+%         labels(:)        = 1;
+%         labels(pos_mask) = 2;
+%     else  % randomly pick out `group_size` classes
+%         rng(group_ind);
+%
+%         selected_classes = randperm(120, group_size);
+%         selected_classes
+%
+%         old_labels = labels;
+%
+%         labels(:) = 1;
+%         for class_ind = 1:group_size
+%             pos_mask         = (old_labels == selected_classes(class_ind) + 1);
+%             labels(pos_mask) = class_ind + 1;
+%         end
+%     end
 
 % otherwise   % drug discovery
 %     % this needs to be the same as in
