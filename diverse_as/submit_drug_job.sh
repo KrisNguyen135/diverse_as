@@ -9,8 +9,8 @@
 #   "exp=$exp; group_size=$group_size; data='$data'; run; exit;"
 # done
 
-# -R "hname!=rambutan.engr.wustl.edu && hname!=soursop.engr.wustl.edu && hname!=kumquat.engr.wustl.edu && hname!=mangosteen.engr.wustl.edu && hname!=node01.engr.wustl.edu" \
-# -m "mangosteen.engr.wustl.edu"
+# -R "hname!=rambutan.engr.wustl.edu" \
+# -m "mangosteen.engr.wustl.edu" \
 
 export data=morgan
 export group_size=1
@@ -20,25 +20,7 @@ for group in {38..38}
 do
   bsub -q "normal" -R "rusage[mem=20]" \
   -o bjob_output/run.%J -J "run$group" \
-  -R "hname!=rambutan.engr.wustl.edu" \
-  -R "hname!=soursop.engr.wustl.edu" \
-  -R "hname!=mangosteen.engr.wustl.edu" \
-  -R "hname!=node02.engr.wustl.edu" \
-  -R "hname!=gnode01.engr.wustl.edu" \
-  -R "hname!=gnode02.engr.wustl.edu" \
-  -R "hname!=gnode05.engr.wustl.edu" \
-  -R "hname!=lotus.engr.wustl.edu" \
-  -R "hname!=node01.engr.wustl.edu" \
-  -R "hname!=node13.engr.wustl.edu" \
-  -R "hname!=gnode01.engr.wustl.edu" \
-  -R "hname!=gnode02.engr.wustl.edu" \
-  -R "hname!=gnode05.engr.wustl.edu" \
-  -R "hname!=lotus.engr.wustl.edu" \
-  -R "hname!=node16.engr.wustl.edu" \
-  -R "hname!=node28.engr.wustl.edu" \
-  -R "hname!=node24.engr.wustl.edu" \
-  -R "hname!=node08.engr.wustl.edu" \
-  -R "hname!=node07.engr.wustl.edu" \
+  -m "mangosteen.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
