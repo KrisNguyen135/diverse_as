@@ -13,12 +13,12 @@
 # -m "mangosteen.engr.wustl.edu" \
 
 export data=morgan
-export group_size=1
+export group_size=9
 export exp=1
 
-for group in {38..38}
+for group in {1..20}
 do
-  bsub -q "normal" -R "rusage[mem=20]" -o bjob_output/run.%J -J "run$group" -g /quan/cpu_50 \
+  bsub -q "normal" -R "rusage[mem=20]" -o bjob_output/drug.%J -J "$group_size-$group" -g /quan/cpu \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
