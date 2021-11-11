@@ -16,11 +16,20 @@ export data=morgan
 export group_size=1
 export exp=1
 
-for group in {1..5}
+for group in {16..16}
 do
   bsub -q "normal" -R "rusage[mem=20]" \
   -o bjob_output/run.%J -J "run$group" \
-  -m "mangosteen.engr.wustl.edu" \
+  -R "hname!=rambutan.engr.wustl.edu" \
+  -R "hname!=soursop.engr.wustl.edu" \
+  -R "hname!=mangosteen.engr.wustl.edu" \
+  -R "hname!=node02.engr.wustl.edu" \
+  -R "hname!=gnode01.engr.wustl.edu" \
+  -R "hname!=gnode02.engr.wustl.edu" \
+  -R "hname!=gnode05.engr.wustl.edu" \
+  -R "hname!=lotus.engr.wustl.edu" \
+  -R "hname!=node01.engr.wustl.edu" \
+  -R "hname!=node13.engr.wustl.edu" \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
