@@ -163,6 +163,10 @@ otherwise  % drug discovery with 160k points
     elseif contains(data_name, 'morgan')
         filename  = 'morgan_nearest_neighbors_100000.mat';
         group_ind = str2num(data_name(7:end));
+    elseif contains(data_name, 'single')
+        assert(group_size == 1, 'group_size needs to be 1 for single-class cases');
+        group_ind = str2num(data_name(7:end));
+        filename  = sprintf('target_%i_single_nearest_neighbors_100000.mat', group_ind);
     else
         error(sprintf('unrecognized data name %s\n', data_name));
     end
@@ -186,23 +190,24 @@ otherwise  % drug discovery with 160k points
     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
                      num_points, num_points);
 
-    % relabel
-    if group_size == 1  % just use the same class in the single-class case
-        pos_mask         = (labels == group_ind + 1);
-        labels(:)        = 1;
-        labels(pos_mask) = 2;
-    else  % randomly pick out `group_size` classes
-        rng(group_ind);
+    if ~contains(data_name, 'single')  % relabel for non-single-class cases
+        if group_size == 1  % just use the same class in the single-class case
+            pos_mask         = (labels == group_ind + 1);
+            labels(:)        = 1;
+            labels(pos_mask) = 2;
+        else  % randomly pick out `group_size` classes
+            rng(group_ind);
 
-        selected_classes = randperm(120, group_size);
-        selected_classes
+            selected_classes = randperm(120, group_size);
+            selected_classes
 
-        old_labels = labels;
+            old_labels = labels;
 
-        labels(:) = 1;
-        for class_ind = 1:group_size
-            pos_mask         = (old_labels == selected_classes(class_ind) + 1);
-            labels(pos_mask) = class_ind + 1;
+            labels(:) = 1;
+            for class_ind = 1:group_size
+                pos_mask         = (old_labels == selected_classes(class_ind) + 1);
+                labels(pos_mask) = class_ind + 1;
+            end
         end
     end
 
