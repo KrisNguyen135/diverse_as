@@ -17,10 +17,11 @@ num_classes = 120;
 for i = 1:num_classes
     clearvars -except i;
 
-    data       = 'morgan'
+    data       = 'single'
     data       = sprintf('%s%d', data, i);
     policy     = 'greedy';
     group_size = 1;
+    exp        = 1;
 
     fprintf('running experiment %d...\n', i);
     run;

@@ -175,6 +175,11 @@ otherwise  % drug discovery with 160k points
     data_path = fullfile(data_dir, filename);
     load(data_path);
 
+    if contains(data_name, 'single')  % filter labels
+        this_ind = (labels ==  1) | (labels == group_ind + 1);
+        labels   = labels(this_ind);
+    end
+
     num_points          = numel(labels);
     problem.num_points  = num_points;
     problem.points      = (1:num_points)';

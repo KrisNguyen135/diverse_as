@@ -12,9 +12,9 @@
 # -R "hname!=rambutan.engr.wustl.edu" \
 # -m "mangosteen.engr.wustl.edu" \
 
-export data=morgan
+export data=single
 export group_size=1
-export exp=2
+export exp=1
 
 for group in {1..120}
 do
