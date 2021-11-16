@@ -18,7 +18,7 @@ export exp=1
 
 for group in {1..120}
 do
-  bsub -q "normal" -R "rusage[mem=20]" -o bjob_output/drug.%J -J "$group_size-$group" -g /quan/cpu \
+  bsub -q "normal" -R "rusage[mem=20]" -o bjob_output/drug.%J -J "d-$group_size-$group" -g /quan/cpu \
   matlab -nodesktop -nosplash -nodisplay -r \
   "exp=$exp; group_size=$group_size; data='$data$group'; run; exit;"
 done
