@@ -4,6 +4,7 @@ if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+% if ~exist('policy',     'var'), policy     = 'greedy'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));

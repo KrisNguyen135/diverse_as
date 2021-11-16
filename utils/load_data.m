@@ -178,6 +178,7 @@ otherwise  % drug discovery with 160k points
     if contains(data_name, 'single')  % filter labels
         this_ind = (labels ==  1) | (labels == group_ind + 1);
         labels   = labels(this_ind);
+        labels(labels > 1) = 2;
     end
 
     num_points          = numel(labels);
