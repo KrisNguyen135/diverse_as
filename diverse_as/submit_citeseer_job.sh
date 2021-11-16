@@ -1,8 +1,9 @@
-for exp in {1..1}
+export group_size=1
+
+for exp in {21..25}
 do
-  bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=20]" \
-  -o bjob_output/run_citeseer.%J -J "citeseer$exp" \
-  -m "node03.engr.wustl.edu" \
+  bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=20]" -g /quan/cpu \
+  -o bjob_output/citeseer.%J -J "citeseer$exp" \
   matlab -nodesktop -nosplash -nodisplay -r \
-  "exp=$exp; data='citeseer'; run; exit;"
+  "exp=$exp; group_size=$group_size; data='citeseer'; run; exit;"
 done
