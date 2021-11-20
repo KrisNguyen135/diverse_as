@@ -104,11 +104,14 @@ for i = 1:numel(test_ind)
         fake_train_labels          = [train_labels; fake_label];
         problem.counts(fake_label) = problem.counts(fake_label) + 1;
 
-        batch_ind = batch_policy(problem, fake_train_ind, fake_train_labels, ...
-                                 fake_unlabeled_ind, remain_budget);
+        % batch_ind = batch_policy(problem, fake_train_ind, fake_train_labels, ...
+        %                          fake_unlabeled_ind, remain_budget);
+        %
+        % batch_utility = batch_utility_function( ...
+        %     problem, fake_train_ind, fake_train_labels, batch_ind);
 
-        batch_utility = batch_utility_function( ...
-            problem, fake_train_ind, fake_train_labels, batch_ind);
+        batch_utility = batch_policy(problem, fake_train_ind, fake_train_labels, ...
+                                     fake_unlabeled_ind, remain_budget);
 
         % fake_utilities(fake_label) = batch_utility;
         % fprintf('\n\tfake label %d, utility %.4f\n\t', fake_label, batch_utility);
@@ -194,11 +197,14 @@ if i < numel(test_ind) && sample_limit > 0
             fake_train_labels          = [train_labels; fake_label];
             problem.counts(fake_label) = problem.counts(fake_label) + 1;
 
-            batch_ind = batch_policy(problem, fake_train_ind, fake_train_labels, ...
-                                     fake_unlabeled_ind, remain_budget);
+            % batch_ind = batch_policy(problem, fake_train_ind, fake_train_labels, ...
+            %                          fake_unlabeled_ind, remain_budget);
+            %
+            % batch_utility = batch_utility_function( ...
+            %     problem, fake_train_ind, fake_train_labels, batch_ind);
 
-            batch_utility = batch_utility_function( ...
-                problem, fake_train_ind, fake_train_labels, batch_ind);
+            batch_utility = batch_policy(problem, fake_train_ind, fake_train_labels, ...
+                                         fake_unlabeled_ind, remain_budget);
 
             % fake_utilities(fake_label) = batch_utility;
             % fprintf('\n\tfake label %d, utility %.4f\n\t', fake_label, batch_utility);

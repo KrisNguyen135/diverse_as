@@ -86,10 +86,11 @@ case 'ens jensen greedy'
     batch_utility_function = get_batch_utility_function(@jensen, model);
 
     if group_size == 1
-        batch_policy = get_batch_policy(@classical, model);
+        batch_policy = get_batch_policy(@classical, model, batch_utility_function);
     else
-        batch_policy = get_batch_policy(@jensen_greedy, model);
+        % batch_policy = get_batch_policy(@jensen_greedy, model);
         % batch_policy = get_batch_policy(@jensen_lazy_greedy, model);
+        batch_policy = get_batch_policy(@jensen_greedy_prior_duplicate, model, alpha);
     end
 
     utility_upperbound_function = get_utility_upperbound_function( ...

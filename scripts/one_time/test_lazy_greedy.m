@@ -1,6 +1,6 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 2; end
-if ~exist('data',       'var'), data       = 'ecfp1'; end
+if ~exist('group_size', 'var'), group_size = 3; end
+if ~exist('data',       'var'), data       = 'morgan4'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 
@@ -14,7 +14,7 @@ group_size
 data
 policy
 
-budget   = 42
+budget   = 500
 verbose  = true;
 data_dir = '../../data/';
 if ~isdir(data_dir)
@@ -25,7 +25,7 @@ end
 rng(exp);
 
 % randomly select a positive
-train_ind    = [144712; 122626; 36077; 136747; 88751; 49991; 60790; 85510; 87501];
+train_ind    = [randsample(find(labels > 1), 1)];
 train_labels = labels(train_ind);
 
 %%% experiment details

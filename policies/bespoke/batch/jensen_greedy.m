@@ -1,5 +1,5 @@
-function batch_ind = jensen_greedy(problem, train_ind, train_labels, test_ind, ...
-                                   batch_size, model)
+function batch_utility = jensen_greedy(problem, train_ind, train_labels, test_ind, ...
+                                       batch_size, model)
 
 assert(strcmp(problem.utility, 'log'), 'only log utility is currently supported');
 
@@ -28,3 +28,5 @@ for i = 1:batch_size
     probs(chosen_ind, :) = [];
     test_ind(chosen_ind) = [];
 end
+
+batch_utility = sum(log(loggend), 2);

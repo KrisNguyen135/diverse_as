@@ -12,11 +12,11 @@
 # -R "hname!=rambutan.engr.wustl.edu" \
 # -m "mangosteen.engr.wustl.edu" \
 
-export data=single
-export group_size=1
+export data=morgan
+export group_size=9
 export exp=1
 
-for group in {1..120}
+for group in {1..20}
 do
   bsub -q "normal" -R "rusage[mem=20]" -o bjob_output/drug.%J -J "d-$group_size-$group" -g /quan/cpu \
   matlab -nodesktop -nosplash -nodisplay -r \
