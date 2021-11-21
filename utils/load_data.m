@@ -102,6 +102,88 @@ case 'citeseer'
 
     problem.num_classes = 1 + size(targets, 2);
 
+case 'bmg'
+    assert(group_size == 1, 'bmg is only for single-class experiments');
+
+    if ~strcmp(data_dir, '../data/')
+        data_dir = '/storage1/garnett/Active/activelearning/datasets/';
+    end
+
+    data_dir  = fullfile(data_dir, 'bmg');
+    data_path = fullfile(data_dir, 'bmg_data');
+    load(data_path);
+    % remove labels from features
+    x = bmg_data(:, 1:(end - 1));
+
+    % create label vector
+    labels = ones(size(x, 1), 1);
+    labels(bmg_data(:, end) <= 1) = 2;
+
+    % remove rows with nans
+    ind    = (~any(isnan(x), 2));
+    x      = x(ind, :);
+    labels = labels(ind);
+
+    num_points = size(x, 1);
+
+    train_portion = 0.1;
+    rng('default');
+    train_ind = crossvalind('holdout', num_points, 1 - train_portion);
+
+    % can be reproduced above
+    ind = [1, 33, 39, 45, 46, 53, 111, 135, 141, 165, 185, 200, 201];
+
+    % limit features to those selected
+    x = x(~train_ind, ind);
+    %     x = x(:, ind);
+    num_points = size(x, 1);
+    labels     = labels(~train_ind);
+
+    % remove features with no variance
+    x = x(:, std(x) ~= 0);
+
+    % normalize data
+    x = bsxfun(@minus, x,     mean(x));
+    x = bsxfun(@times, x, 1 ./ std(x));
+
+    problem.points      = x;
+    problem.num_classes = 2;
+    problem.num_points  = num_points;
+
+    % filename = fullfile(data_dir, 'bmg_nearest_neighbors.mat');
+    % filename = fullfile(data_dir, 'bmg_nearest_neigbors.mat');
+    filename = fullfile(data_dir, 'new_bmg_nearest_neigbors.mat');
+
+    if exist(filename, 'file')
+      load(filename, 'nearest_neighbors', 'distances');
+    else
+      [nearest_neighbors, distances] = ...
+        knnsearch(problem.points, problem.points, ...
+        'k', max_k + 1);
+
+      % deal with a small number of ties in dataset
+      for i = 1:num_points
+        if (nearest_neighbors(i, 1) ~= i)
+          ind = find(nearest_neighbors(i, :) == i);
+          nearest_neighbors(i, ind) = nearest_neighbors(i, 1);
+          nearest_neighbors(i, 1)   = i;
+        end
+      end
+
+      save(filename, 'nearest_neighbors', 'distances');
+    end
+
+    % limit to only top k
+    k = 50;
+    nearest_neighbors = nearest_neighbors(:, 2:(k + 1))';
+    similarities = ones(size(nearest_neighbors));
+    % precompute sparse weight matrix
+    row_index = kron((1:num_points)', ones(k, 1));
+    weights = sparse(row_index, nearest_neighbors(:), 1, ...
+      num_points, num_points);
+
+    alpha = [1, 0.05];
+
 % otherwise  % drug discovery with pruned data
 %     if ~exist('group_size', 'var'), group_size = 1; end
 %         alpha = [1 0.001 * ones(1, group_size)];

@@ -114,8 +114,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     message_prefix);
 
 result_dir = './';
-result_dir = fullfile(result_dir, 'results_duplicate_prior', data, ...
-                      int2str(group_size), name);
+result_dir = fullfile(result_dir, 'results', data, int2str(group_size), name);
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...
