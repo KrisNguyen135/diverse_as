@@ -30,16 +30,10 @@ if contains(data, 'gpidaph')
     rng(exp + 1);  % to get different init data than ecfp experiments
 end
 
-% randomly select a positive
-% train_ind    = [randsample(find(labels > 1), 1)];
-
-% randomly select a positive for each class
-train_ind    = [];
-for i = 2:problem.num_classes
-    train_ind = [train_ind; randsample(find(labels == i), 1)];
-end
-
+% read in partial results
+train_ind    = load();
 train_labels = labels(train_ind);
+budget       = budget - numel(train_ind) + 1;
 
 %%% experiment details
 problem.verbose     = verbose;
@@ -113,7 +107,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     message_prefix);
 
 result_dir = './';
-result_dir = fullfile(result_dir, 'results_many_initial', data, int2str(group_size), name);
+result_dir = fullfile(result_dir, 'results', data, int2str(group_size), name);
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...

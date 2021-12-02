@@ -13,7 +13,7 @@
 # -m "mangosteen.engr.wustl.edu" \
 
 export data=morgan
-export group_size=915
+export group_size=5
 export exp=1
 
 for group in {1..20}
