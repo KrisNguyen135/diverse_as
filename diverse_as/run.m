@@ -17,7 +17,7 @@ group_size
 data
 policy
 
-budget   = 500
+budget   = 1000
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
@@ -31,13 +31,13 @@ if contains(data, 'gpidaph')
 end
 
 % randomly select a positive
-% train_ind    = [randsample(find(labels > 1), 1)];
+train_ind = [randsample(find(labels > 1), 1)];
 
 % randomly select a positive for each class
-train_ind    = [];
-for i = 2:problem.num_classes
-    train_ind = [train_ind; randsample(find(labels == i), 1)];
-end
+% train_ind = [];
+% for i = 2:problem.num_classes
+%     train_ind = [train_ind; randsample(find(labels == i), 1)];
+% end
 
 train_labels = labels(train_ind);
 
