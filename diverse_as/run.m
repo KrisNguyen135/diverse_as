@@ -10,6 +10,7 @@ if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
+result_dir = 'results';
 
 %%% high-level settings
 exp
@@ -18,6 +19,7 @@ data
 policy
 
 budget   = 1000
+result_dir = 'results_1000';
 verbose  = true;
 data_dir = '../data/';
 if ~isdir(data_dir)
@@ -103,6 +105,7 @@ if problem.verbose
     disp(train_labels);
     fprintf('utility function: %s\n', problem.utility);
     fprintf('policy: %s\n', name);
+    fprintf('result dir: %s\n', result_dir);
 end
 
 %%% run experiment
@@ -112,8 +115,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
 
-result_dir = './';
-result_dir = fullfile(result_dir, 'results_many_initial', data, int2str(group_size), name);
+result_dir = fullfile('./', result_dir, data, int2str(group_size), name);
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...
