@@ -1,6 +1,6 @@
-export group_size=1
+export group_size=6
 
-for exp in {21..25}
+for exp in {1..20}
 do
   bsub -q "normal" -G SEAS-Lab-Garnett -R "rusage[mem=20]" -g /quan/cpu \
   -o bjob_output/citeseer.%J -J "c-$group_size-$exp" \

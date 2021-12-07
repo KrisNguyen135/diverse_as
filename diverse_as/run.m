@@ -10,7 +10,6 @@ if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
 addpath(genpath('../active_search'));
-result_dir = 'results';
 
 %%% high-level settings
 exp
@@ -18,10 +17,10 @@ group_size
 data
 policy
 
-budget   = 1000
-result_dir = 'results_1000';
-verbose  = true;
-data_dir = '../data/';
+budget     = 500
+result_dir = sprintf('results_%d', budget);
+verbose    = true;
+data_dir   = '../data/';
 if ~isdir(data_dir)
     data_dir  = '/storage1/garnett/Active/activelearning/quan/diverse_as/data/';
 end
