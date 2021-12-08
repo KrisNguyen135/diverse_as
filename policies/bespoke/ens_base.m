@@ -49,9 +49,20 @@ if pruning
 
     upperbounds = sum(probs .* bounds, 2);  % column vector of length test size
 
+    prior       = model(problem, [], [], [1]);
+    prior_bound = sum(prior .* bounds, 2);
+    % sum(upperbounds == prior_bound)
+    % size(upperbounds)
+    % return;
+
     % sort candidates by upper bounds, so that no unnecessary computation
     % will be done
     [upperbounds, top_ind] = sort(upperbounds, 'descend');
+
+    idxc = cumsum([1 logical(diff(upperbounds'))]);
+    top_ind = cell2mat(...
+        accumarray(idxc', top_ind', [], ...
+                   @(upperbounds){upperbounds(randperm(numel(upperbounds)))}));
 
     test_ind = test_ind(top_ind);
     probs    = probs(top_ind, :);

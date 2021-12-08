@@ -1,3 +1,9 @@
+train_ind  = '../data/misc/train_ind';
+group_size = 10;
+data       = 'morgan1';
+
+assert(isfile(train_ind), sprintf('%s is not a file', train_ind));
+
 if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 1; end
 if ~exist('data',       'var'), data       = 'morgan1'; end
@@ -31,7 +37,7 @@ if contains(data, 'gpidaph')
 end
 
 % read in partial results
-train_ind    = load();
+train_ind    = load(train_ind);
 train_labels = labels(train_ind);
 budget       = budget - numel(train_ind) + 1;
 
@@ -106,17 +112,17 @@ message_prefix = sprintf('Exp %d: ', exp);
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
 
-result_dir = './';
-result_dir = fullfile(result_dir, 'results', data, int2str(group_size), name);
-if ~isdir(result_dir), mkdir(result_dir); end
-
-writematrix(train_ind, ...
-    fullfile(result_dir, sprintf('%s__ind__%d.csv',      name, exp)));
-writematrix(train_labels, ...
-    fullfile(result_dir, sprintf('%s__labels__%d.csv',   name, exp)));
-writematrix(queried_probs, ...
-    fullfile(result_dir, sprintf('%s__probs__%d.csv',    name, exp)));
-writematrix(computed, ...
-    fullfile(result_dir, sprintf('%s__computed__%d.csv', name, exp)));
-writematrix(pruned, ...
-    fullfile(result_dir, sprintf('%s__pruned__%d.csv',   name, exp)));
+% result_dir = './';
+% result_dir = fullfile(result_dir, 'results_cont', data, int2str(group_size), name);
+% if ~isdir(result_dir), mkdir(result_dir); end
+%
+% writematrix(train_ind, ...
+%     fullfile(result_dir, sprintf('%s__ind__%d.csv',      name, exp)));
+% writematrix(train_labels, ...
+%     fullfile(result_dir, sprintf('%s__labels__%d.csv',   name, exp)));
+% writematrix(queried_probs, ...
+%     fullfile(result_dir, sprintf('%s__probs__%d.csv',    name, exp)));
+% writematrix(computed, ...
+%     fullfile(result_dir, sprintf('%s__computed__%d.csv', name, exp)));
+% writematrix(pruned, ...
+%     fullfile(result_dir, sprintf('%s__pruned__%d.csv',   name, exp)));
