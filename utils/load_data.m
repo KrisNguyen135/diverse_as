@@ -236,7 +236,7 @@ case 'bmg'
 
 otherwise  % drug discovery with 160k points
     if ~exist('group_size', 'var'), group_size = 1; end
-    alpha = [1 0.001 * ones(1, group_size)];
+    alpha = [1 0.002 * ones(1, group_size)];
 
     if contains(data_name, 'ecfp')
         filename  = 'ecfp4_nearest_neighbors_100000.mat';

@@ -18,7 +18,8 @@ data
 policy
 
 budget     = 500
-result_dir = sprintf('results_%d', budget);
+% result_dir = sprintf('results_%d', budget);
+result_dir = 'results';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -26,6 +27,7 @@ if ~isdir(data_dir)
 end
 
 [problem, labels, weights, alpha, nns, sims] = load_data(data, data_dir, exp, group_size);
+result_dir = 'results_0002';
 rng(exp);
 if contains(data, 'gpidaph')
     rng(exp + 1);  % to get different init data than ecfp experiments
