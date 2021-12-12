@@ -49,8 +49,8 @@ if pruning
 
     upperbounds = sum(probs .* bounds, 2);  % column vector of length test size
 
-    prior       = model(problem, [], [], [1]);
-    prior_bound = sum(prior .* bounds, 2);
+    % prior       = model(problem, [], [], [1]);
+    % prior_bound = sum(prior .* bounds, 2);
     % sum(upperbounds == prior_bound)
     % size(upperbounds)
     % return;
