@@ -49,11 +49,17 @@ case 'square_small'
 
 case 'citeseer'
     if group_size == 1
-        targets = [6];          % ICML
+        % ICML
+        targets = [6];
     elseif group_size == 4
-        targets = [3 6 22 35];  % NeurIPS, ICML, UAI, JMLR
+        % NeurIPS, ICML, UAI, JMLR
+        targets = [3 6 22 35];
+    elseif group_size == 6
+        % AAAI, NeurIPS, ICML, UAI, JMLR, ML
+        targets = [2 3 6 22 35 39];
     else
-        targets = [2 3 6 22 35 39];  % AAAI, NeurIPS, ICML, UAI, JMLR, ML
+        % IJCAI, AAAI, NeurIPS, ICML, TPAMI, AI, UAI, JAIR, JMLR, ML
+        targets = [1 2 3 6 15 21 22 26 35 39];
     end
 
     data_dir  = fullfile(data_dir, 'citeseer');

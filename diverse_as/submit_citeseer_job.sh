@@ -1,4 +1,4 @@
-export group_size=6
+export group_size=10
 
 for exp in {1..20}
 do
