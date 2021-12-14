@@ -2,8 +2,8 @@ if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 1; end
 if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
-% if ~exist('policy',     'var'), policy     = 'classical ens'; end
-if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+if ~exist('policy',     'var'), policy     = 'classical ens'; end
+% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 
@@ -78,8 +78,8 @@ case 'round robin ucb'
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
 case 'classical ens'
-    compute_limit = 500;
-    sample_limit  = 500;
+    compute_limit = 2000;
+    sample_limit  = 2000;
     policy = get_policy(@classical_ens, model, model_update, [], false, ...
                         compute_limit, sample_limit);
 case 'ens jensen greedy'
