@@ -78,8 +78,8 @@ case 'round robin ucb'
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
 case 'classical ens'
-    compute_limit = 2000;
-    sample_limit  = 2000;
+    compute_limit = 500;
+    sample_limit  = 500;
     policy = get_policy(@classical_ens, model, model_update, [], false, ...
                         compute_limit, sample_limit);
 case 'ens jensen greedy'
