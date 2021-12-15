@@ -2,8 +2,8 @@ if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 1; end
 if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
-if ~exist('policy',     'var'), policy     = 'classical ens'; end
-% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+% if ~exist('policy',     'var'), policy     = 'classical ens'; end
+if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 
@@ -88,7 +88,7 @@ case 'ens jensen greedy'
     compute_limit = 500;
     sample_limit  = 500;
     name          = sprintf('%s_%d', name, compute_limit);
-    
+
     batch_utility_function = get_batch_utility_function(@jensen, model);
 
     if group_size == 1
