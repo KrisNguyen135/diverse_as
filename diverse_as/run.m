@@ -80,11 +80,15 @@ case 'classical greedy'
 case 'classical ens'
     compute_limit = 500;
     sample_limit  = 500;
+    name          = sprintf('%s_%d', name, compute_limit);
+
     policy = get_policy(@classical_ens, model, model_update, [], false, ...
                         compute_limit, sample_limit);
 case 'ens jensen greedy'
     compute_limit = 500;
     sample_limit  = 500;
+    name          = sprintf('%s_%d', name, compute_limit);
+    
     batch_utility_function = get_batch_utility_function(@jensen, model);
 
     if group_size == 1
