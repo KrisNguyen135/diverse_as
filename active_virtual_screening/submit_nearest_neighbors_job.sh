@@ -2,7 +2,6 @@
 #BSUB -G SEAS-Lab-Garnett
 #BSUB -o bjob_output/nn.%J
 #BSUB -J nn
-#BSUB -m "node13.engr.wustl.edu"
 #BSUB -R "rusage[mem=120G]"
 
 sleep 5

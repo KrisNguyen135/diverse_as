@@ -48,7 +48,7 @@ for i = 1:num_exps
         labels(:)        = 1;
         labels(pos_mask) = 2;
     else
-        rng(group_ind);
+        rng(i);
 
         selected_classes = randperm(120, group_size);
         selected_classes = sort(selected_classes);
