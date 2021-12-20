@@ -22,17 +22,6 @@ end
 data_directory        = fullfile(data_dir, 'drug/processed/');
 precomputed_directory = fullfile(data_dir, 'drug/precomputed/');
 
-load([data_directory fingerprint '/labels'])
-labels = labels + 1;  % zero-indexing to one-indexing
-
-%%% relabel the classes
-[label_counts, label_vals] = hist(labels, unique(labels, 'stable'));
-
-reverse_ind = zeros(max(label_vals), 1);
-reverse_ind(label_vals) = (1:numel(label_vals))';
-
-labels = reverse_ind(labels);
-
 for i = 1:num_exps
     tic;
     fprintf('processing exp %i of group size %i...\n', i, group_size);
@@ -42,6 +31,17 @@ for i = 1:num_exps
                        group_size, ...
                        i, ...
                        fingerprint);
+
+    load([data_directory fingerprint '/labels'])
+    labels = labels + 1;  % zero-indexing to one-indexing
+
+    %%% relabel the classes
+    [label_counts, label_vals] = hist(labels, unique(labels, 'stable'));
+
+    reverse_ind = zeros(max(label_vals), 1);
+    reverse_ind(label_vals) = (1:numel(label_vals))';
+
+    labels = reverse_ind(labels);
 
     if group_size == 1
         pos_mask         = (labels == i + 1);
