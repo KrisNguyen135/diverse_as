@@ -51,6 +51,7 @@ for i = 1:num_exps
         rng(group_ind);
 
         selected_classes = randperm(120, group_size);
+        selected_classes = sort(selected_classes);
         selected_classes
 
         old_labels = labels;

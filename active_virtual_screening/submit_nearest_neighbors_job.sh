@@ -9,4 +9,4 @@ sleep 5
 ls /storage1/garnett
 sleep 5
 
-matlab -nodesktop -nosplash -nodisplay -r "group_size = 1; calculate_nearest_neighbors_all_classes; exit;"
+matlab -nodesktop -nosplash -nodisplay -r "group_size = 4; calculate_nearest_neighbors_all_classes; exit;"
