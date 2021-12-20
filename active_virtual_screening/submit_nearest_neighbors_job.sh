@@ -9,4 +9,4 @@ sleep 5
 ls /storage1/garnett
 sleep 5
 
-matlab -nodesktop -nosplash -nodisplay -r "calculate_nearest_neighbors_single_class; exit;"
+matlab -nodesktop -nosplash -nodisplay -r "calculate_nearest_neighbors_custom; exit;"

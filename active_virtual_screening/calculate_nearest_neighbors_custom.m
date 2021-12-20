@@ -1,5 +1,5 @@
 num_inactive   = 100000;  % number of inactive proteins to randomly subselect
-k              = 500;     % number of nearest neighbors to compute
+k              = 10000;     % number of nearest neighbors to compute
 inactive_class = 0;       % the label of the negatives
 fingerprint    = 'morgan';
 
@@ -30,9 +30,10 @@ features = features(any(features, 2), :);  % remove features that are always zer
 
 [nearest_neighbors, similarities] = jaccard_nn(features, k);
 
-filename = sprintf('%s%s_nearest_neighbors_%i.mat', ...
+filename = sprintf('%s%s_nearest_neighbors_%i_%i.mat', ...
                    precomputed_directory, ...
                    fingerprint, ...
-                   num_inactive);
+                   num_inactive, ...
+                   k);
 
 save(filename, 'nearest_neighbors', 'similarities', 'labels');
