@@ -78,7 +78,7 @@ for i = 1:num_exps
 
     [nearest_neighbors, similarities] = jaccard_nn(features, k);
 
-    save(filename, 'nearest_neighbors', 'similarities');
+    save(filename, 'nearest_neighbors', 'similarities', 'labels');
 
     fprintf('took %0.1fm.\n', ceil(toc / 6) / 10);
 end
