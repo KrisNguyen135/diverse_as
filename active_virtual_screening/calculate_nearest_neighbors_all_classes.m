@@ -35,7 +35,7 @@ labels = reverse_ind(labels);
 
 for i = 1:num_exps
     tic;
-    fprintf('processing exp %i of group size %i...', i, group_size);
+    fprintf('processing exp %i of group size %i...\n', i, group_size);
 
     filename = sprintf('%smorgan_%i_%i_%s_nearest_neighbors.mat', ...
                        precomputed_directory, ...
@@ -72,6 +72,8 @@ for i = 1:num_exps
 
     labels            = labels(keep_ind);
 
+    fprintf('\t%i positives out of %i points...\n', numel(pos_ind), numel(labels));
+
     load([data_directory fingerprint '/features']);
     features = sparse(features(:, 2), features(:, 1), 1);
     features = features(any(features, 2), :);  % remove features that are always zero
@@ -80,5 +82,5 @@ for i = 1:num_exps
 
     save(filename, 'nearest_neighbors', 'similarities', 'labels');
 
-    fprintf('took %0.1fm.\n', ceil(toc / 6) / 10);
+    fprintf('\ttook %0.1fm.\n', ceil(toc / 6) / 10);
 end
