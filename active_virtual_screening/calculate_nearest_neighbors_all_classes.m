@@ -8,7 +8,7 @@ else
     num_exps = 20;
 end
 
-num_inactive   = 100000;
+num_negatives  = 100000;
 k              = 500;     % number of nearest neighbors to compute
 inactive_class = 0;       % the label of the negatives
 fingerprint    = 'morgan';
