@@ -280,7 +280,6 @@ otherwise  % drug discovery with 160k points
         rng(group_ind);
 
         selected_classes = randperm(120, group_size);
-        selected_classes = [1 3 6];
         selected_classes
 
         old_labels = labels;
