@@ -194,86 +194,135 @@ case 'bmg'
 
     alpha = [1, 0.05];
 
-% otherwise  % drug discovery with pruned data
-%     if ~exist('group_size', 'var'), group_size = 1; end
-%         alpha = [1 0.001 * ones(1, group_size)];
-%
-%     assert(contains(data_name, 'morgan'), 'only morgan fingerprint is currently supported');
-%
-%     filename  = 'morgan_nearest_neighbors_100000.mat';
-%     group_ind = str2num(data_name(7:end));
-%
-%     data_dir  = fullfile(data_dir, 'drug/precomputed');
-%     data_path = fullfile(data_dir, filename);
-%     load(data_path);
-%
-%     num_points          = numel(labels);
-%     problem.num_points  = num_points;
-%     problem.points      = (1:num_points)';
-%     problem.num_classes = group_size + 1;
-%
-%     % limit to k-nearest neighbors
-%     k = 100;
-%     nearest_neighbors = nearest_neighbors(:, 1:k)';
-%     similarities      = similarities(:, 1:k)';
-%
-%     % precompute sparse weight matrix
-%     row_index = kron((1:num_points)', ones(k, 1));
-%     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
-%                      num_points, num_points);
-%
-%     % relabel
-%     if group_size == 1  % just use the same class in the single-class case
-%         pos_mask         = (labels == group_ind + 1);
-%         labels(:)        = 1;
-%         labels(pos_mask) = 2;
-%     else  % randomly pick out `group_size` classes
-%         rng(group_ind);
-%
-%         selected_classes = randperm(64, group_size);
-%         selected_classes
-%
-%         old_labels = labels;
-%
-%         labels(:) = 1;
-%         for class_ind = 1:group_size
-%             pos_mask         = (old_labels == selected_classes(class_ind) + 1);
-%             labels(pos_mask) = class_ind + 1;
-%         end
-%     end
-
 otherwise  % drug discovery with 160k points
-    if ~exist('group_size', 'var'), group_size = 1; end
-    alpha = [1 0.001 * ones(1, group_size)];
+    % if ~exist('group_size', 'var'), group_size = 1; end
+    % alpha = [1 0.001 * ones(1, group_size)];
+    %
+    % if contains(data_name, 'ecfp')
+    %     filename  = 'ecfp4_nearest_neighbors_100000.mat';
+    %     group_ind = str2num(data_name(5:end));
+    % elseif contains(data_name, 'gpidaph')
+    %     filename  = 'gpidaph3_nearest_neighbors_100000.mat';
+    %     group_ind = str2num(data_name(8:end));
+    % elseif contains(data_name, 'morgan')
+    %     filename  = 'morgan_nearest_neighbors_100000.mat';
+    %     group_ind = str2num(data_name(7:end));
+    % elseif contains(data_name, 'single')
+    %     assert(group_size == 1, 'group_size needs to be 1 for single-class cases');
+    %     group_ind = str2num(data_name(7:end));
+    %     filename  = sprintf('target_%i_single_nearest_neighbors_100000.mat', group_ind);
+    % else
+    %     error(sprintf('unrecognized data name %s\n', data_name));
+    % end
+    %
+    % data_dir  = fullfile(data_dir, 'drug/precomputed');
+    % data_path = fullfile(data_dir, filename);
+    % load(data_path);
+    %
+    % if contains(data_name, 'single')  % filter labels
+    %     this_ind = (labels ==  1) | (labels == group_ind + 1);
+    %     labels   = labels(this_ind);
+    %     labels(labels > 1) = 2;
+    % end
+    %
+    % num_points          = numel(labels);
+    % problem.num_points  = num_points;
+    % problem.points      = (1:num_points)';
+    % problem.num_classes = group_size + 1;
+    %
+    % % limit to k-nearest neighbors
+    % k = 100;
+    % nearest_neighbors = nearest_neighbors(:, 1:k)';
+    % similarities      = similarities(:, 1:k)';
+    %
+    % % precompute sparse weight matrix
+    % row_index = kron((1:num_points)', ones(k, 1));
+    % weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+    %                  num_points, num_points);
+    %
+    % if ~contains(data_name, 'single')  % relabel for non-single-class cases
+    %     if group_size == 1  % just use the same class in the single-class case
+    %         pos_mask         = (labels == group_ind + 1);
+    %         labels(:)        = 1;
+    %         labels(pos_mask) = 2;
+    %     else  % randomly pick out `group_size` classes
+    %         rng(group_ind);
+    %
+    %         selected_classes = randperm(120, group_size);
+    %         selected_classes
+    %
+    %         old_labels = labels;
+    %
+    %         labels(:) = 1;
+    %         for class_ind = 1:group_size
+    %             pos_mask         = (old_labels == selected_classes(class_ind) + 1);
+    %             labels(pos_mask) = class_ind + 1;
+    %         end
+    %     end
+    % end
 
-    if contains(data_name, 'ecfp')
-        filename  = 'ecfp4_nearest_neighbors_100000.mat';
-        group_ind = str2num(data_name(5:end));
-    elseif contains(data_name, 'gpidaph')
-        filename  = 'gpidaph3_nearest_neighbors_100000.mat';
-        group_ind = str2num(data_name(8:end));
-    elseif contains(data_name, 'morgan')
-        filename  = 'morgan_nearest_neighbors_100000.mat';
-        group_ind = str2num(data_name(7:end));
-    elseif contains(data_name, 'single')
-        assert(group_size == 1, 'group_size needs to be 1 for single-class cases');
-        group_ind = str2num(data_name(7:end));
-        filename  = sprintf('target_%i_single_nearest_neighbors_100000.mat', group_ind);
-    else
-        error(sprintf('unrecognized data name %s\n', data_name));
-    end
+    if ~exist('group_size', 'var'), group_size = 1; end
+    alpha         = [1 0.001 * ones(1, group_size)];
+    num_negatives = 100000;
+
+    filename  = sprintf('morgan_nearest_neighbors_%i_10000.mat', num_negatives);
+    group_ind = str2num(data_name(7:end));
 
     data_dir  = fullfile(data_dir, 'drug/precomputed');
     data_path = fullfile(data_dir, filename);
     load(data_path);
 
-    if contains(data_name, 'single')  % filter labels
-        this_ind = (labels ==  1) | (labels == group_ind + 1);
-        labels   = labels(this_ind);
-        labels(labels > 1) = 2;
+    if group_size == 1  % just use the same class in the single-class case
+        pos_mask         = (labels == group_ind + 1);
+        labels(:)        = 1;
+        labels(pos_mask) = 2;
+    else  % randomly pick out `group_size` classes
+        rng(group_ind);
+
+        selected_classes = randperm(120, group_size);
+        selected_classes = [1 3 6];
+        selected_classes
+
+        old_labels = labels;
+
+        labels(:) = 1;
+        for class_ind = 1:group_size
+            pos_mask         = (old_labels == selected_classes(class_ind) + 1);
+            labels(pos_mask) = class_ind + 1;
+        end
     end
 
-    num_points          = numel(labels);
+    % remove points from untargeted classes
+    keep_ind = false(numel(labels), 1);
+    keep_ind(1:num_negatives) = true;
+
+    pos_ind           = find(labels > 1);
+    num_positives     = numel(pos_ind);
+    keep_ind(pos_ind) = true;
+
+    labels            = labels(keep_ind);
+    nearest_neighbors = nearest_neighbors(keep_ind, :);
+    similarities      = similarities(keep_ind, :);
+
+    for i = 1:num_positives
+        old_pos_ind = pos_ind(i);
+        new_pos_ind = num_negatives + i;
+
+        nearest_neighbors(nearest_neighbors == old_pos_ind) = new_pos_ind;
+    end
+
+    num_points = numel(labels);
+
+    remove_ind = nearest_neighbors > num_points;
+    nearest_neighbors(remove_ind) = 0;
+    similarities(remove_ind) = 0;
+
+    for i = 1:num_points
+        [row_sorted_vals, row_sorted_ind] = sort(similarities(i, :), 2, 'descend');
+        similarities(i, :) = row_sorted_vals;
+        nearest_neighbors(i, :) = nearest_neighbors(i, row_sorted_ind);
+    end
+
     problem.num_points  = num_points;
     problem.points      = (1:num_points)';
     problem.num_classes = group_size + 1;
@@ -287,67 +336,6 @@ otherwise  % drug discovery with 160k points
     row_index = kron((1:num_points)', ones(k, 1));
     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
                      num_points, num_points);
-
-    if ~contains(data_name, 'single')  % relabel for non-single-class cases
-        if group_size == 1  % just use the same class in the single-class case
-            pos_mask         = (labels == group_ind + 1);
-            labels(:)        = 1;
-            labels(pos_mask) = 2;
-        else  % randomly pick out `group_size` classes
-            rng(group_ind);
-
-            selected_classes = randperm(120, group_size);
-            selected_classes
-
-            old_labels = labels;
-
-            labels(:) = 1;
-            for class_ind = 1:group_size
-                pos_mask         = (old_labels == selected_classes(class_ind) + 1);
-                labels(pos_mask) = class_ind + 1;
-            end
-        end
-    end
-
-% otherwise   % drug discovery
-%     % this needs to be the same as in
-%     % `../active_virtual_screening/calculate_nearest_neighbors_multiclass`
-%     if ~exist('group_size', 'var'), group_size = 4; end
-%
-%     alpha        = [1 0.001 * ones(1, group_size)];
-%     num_inactive = 100000;
-%
-%     if contains(data_name, 'ecfp')
-%         filename = sprintf('group_%s_ecfp4_nearest_neighbors_%d.mat', ...
-%                            data_name(5:end), num_inactive);
-%     elseif contains(data_name, 'gpidaph')
-%         filename = sprintf('group_%s_gpidaph3_nearest_neighbors_%d.mat', ...
-%                            data_name(8:end), num_inactive);
-%     else
-%         error(sprintf('unrecognized data name %s\n', data_name));
-%     end
-%
-%     data_dir  = fullfile(data_dir, 'drug/precomputed', sprintf('%d', group_size));
-%     data_path = fullfile(data_dir, filename);
-%     load(data_path);
-%
-%     labels     = this_labels;
-%     num_points = numel(labels);
-%
-%     problem.num_points  = num_points;
-%     problem.points      = (1:num_points)';
-%     problem.num_classes = group_size + 1;
-%
-%     % limit to k-nearest neighbors
-%     k = 100;
-%     nearest_neighbors = nearest_neighbors(:, 1:k)';
-%     similarities      = similarities(:, 1:k)';
-%
-%     % precompute sparse weight matrix
-%     row_index = kron((1:num_points)', ones(k, 1));
-%     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
-%                      num_points, num_points);
-
 end
 
 problem.max_num_influence = max(sum(weights > 0, 1));  % used for pruning
