@@ -41,7 +41,13 @@ unlabeled_ind = unlabeled_selector(problem, train_ind, []);
 [probs, n, d] = model(problem, train_ind, train_labels, unlabeled_ind);
 
 failure_probs = probs(:, 1);
-[~, top_ind]  = sort(failure_probs, 'ascend');
+% random upperbound tiebreaking
+[sorted_failure_probs, top_ind]  = sort(failure_probs, 'ascend');
+idxc = cumsum([1 logical(diff(sorted_failure_probs'))]);
+top_ind = cell2mat(...
+    accumarray(idxc', top_ind', [], ...
+               @(sorted_failure_probs){sorted_failure_probs(randperm(numel(sorted_failure_probs)))}));
+
 test_ind      = unlabeled_ind(top_ind);
 num_test      = numel(test_ind);
 
