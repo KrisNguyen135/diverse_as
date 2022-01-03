@@ -3,9 +3,10 @@ if ~exist('group_size', 'var'), group_size = 1; end
 if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
+if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -74,6 +75,10 @@ case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
 case 'round robin ucb'
     beta = 0.1;
+
+    name       = sprintf('%s_%.1f', name, beta);
+    result_dir = 'results_ucb';
+
     policy = get_policy(@round_robin_ucb, model, beta);
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
