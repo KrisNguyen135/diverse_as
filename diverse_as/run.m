@@ -19,7 +19,7 @@ group_size
 data
 policy
 
-budget     = 50
+budget     = 500
 % result_dir = sprintf('results_%d', budget);
 result_dir = 'results';
 verbose    = true;
