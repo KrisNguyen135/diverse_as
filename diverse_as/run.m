@@ -6,7 +6,8 @@ if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
-if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
+% if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
+if ~exist('policy',     'var'), policy     = 'round robin ens'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -18,7 +19,7 @@ group_size
 data
 policy
 
-budget     = 500
+budget     = 50
 % result_dir = sprintf('results_%d', budget);
 result_dir = 'results';
 verbose    = true;
@@ -80,6 +81,13 @@ case 'round robin ucb'
     result_dir = 'results_ucb';
 
     policy = get_policy(@round_robin_ucb, model, beta);
+case 'round robin ens'
+    compute_limit = 500;
+    sample_limit  = 500;
+    name          = sprintf('%s_%d', name, compute_limit);
+
+    policy = get_policy(@round_robin_ens, model, model_update, [], false, ...
+                        compute_limit, sample_limit);
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
 case 'classical ens'

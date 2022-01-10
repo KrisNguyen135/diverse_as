@@ -1,16 +1,17 @@
+group_size  = 9
 train_size  = 50;
-batch_size  = 3
+batch_size  = 300
 num_exps    = 10;
 num_samples = [2^5, 2^10, 2^15];
 
 utility    = 'log';
-run_full   = true;
+run_full   = false;
 
 addpath(genpath('../../'));
 addpath(genpath('../../active_learning'));
 addpath(genpath('../../active_search'));
 
-[problem, labels, weights, alpha, nns, sims] = load_data('citeseer', '../../data/');
+[problem, labels, weights, alpha, nns, sims] = load_data('citeseer', '../../data/', 1, group_size);
 train_size = train_size * ones(1, problem.num_classes);
 
 problem

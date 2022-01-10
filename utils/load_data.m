@@ -50,9 +50,9 @@ case 'square_small'
 case 'citeseer'
     if group_size == 1
         % % ICML
-        % targets = [6];
+        targets = [6];
         % NeurIPS
-        targets = [3];
+        % targets = [3];
     elseif group_size == 4
         % NeurIPS, ICML, UAI, JMLR
         targets = [3 6 22 35];
