@@ -85,6 +85,7 @@ case 'round robin ens'
     compute_limit = 500;
     sample_limit  = 500;
     name          = sprintf('%s_%d', name, compute_limit);
+    result_dir    = 'results_rr_ens';
 
     policy = get_policy(@round_robin_ens, model, model_update, [], false, ...
                         compute_limit, sample_limit);
