@@ -37,7 +37,10 @@ target_class = mod(size(train_ind, 1), problem.num_classes - 1) + 2;
 num_computed = 0;
 num_pruned   = zeros(1, problem.num_classes);  % # points pruned before being conditioned on a class label
 
-remain_budget = problem.num_queries - (numel(train_ind) - problem.num_initial) - 1;
+% budget for each positive class
+remain_budget = fix(...
+    (problem.num_queries - (numel(train_ind) - problem.num_initial) - 1) ...
+    / (problem.num_classes - 1));
 
 unlabeled_ind = unlabeled_selector(problem, train_ind, []);
 [probs, n, d] = model(problem, train_ind, train_labels, unlabeled_ind);
