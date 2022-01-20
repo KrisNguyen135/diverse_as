@@ -7,22 +7,38 @@ function [tmp_utility, tmp_pruned] = compute_score(i, this_test_ind)
     fake_unlabeled_ind = unlabeled_ind;
     fake_unlabeled_ind(this_reverse_ind) = [];
 
-    tmp_n = n;
-    tmp_d = d;
-    tmp_n(this_reverse_ind, :) = [];
-    tmp_d(this_reverse_ind, :) = [];
+    fake_train_ind = [train_ind; this_test_ind];
 
+    % for regular model
+    % tmp_n = n;
+    % tmp_d = d;
+    % tmp_n(this_reverse_ind, :) = [];
+    % tmp_d(this_reverse_ind, :) = [];
+    %
+    % fake_utilities = zeros(problem.num_classes, 1);
+    % tmp_pruned     = false;
+    % for fake_label = 1:problem.num_classes
+    %     [new_probs, new_n, new_d] = model_update(...
+    %         problem, tmp_n, tmp_d, this_test_ind, fake_label, fake_unlabeled_ind);
+    %
+    %     fake_utilities(fake_label) = sum(maxk(new_probs(:, target_class), remain_budget));
+    % end
+    %
+    % p = probs(this_reverse_ind, :);
+    % tmp_utility = p * fake_utilities + p(target_class);
+
+    % for Fatemah's model
     fake_utilities = zeros(problem.num_classes, 1);
     tmp_pruned     = false;
     for fake_label = 1:problem.num_classes
-        [new_probs, new_n, new_d] = model_update(...
-            problem, tmp_n, tmp_d, this_test_ind, fake_label, fake_unlabeled_ind);
+        [new_probs, new_n, new_d] = model(...
+            problem, fake_train_ind, [train_labels; fake_label], fake_unlabeled_ind);
 
         fake_utilities(fake_label) = sum(maxk(new_probs(:, target_class), remain_budget));
     end
 
     p = probs(this_reverse_ind, :);
-    tmp_utility = p * fake_utilities + sum(p(2:end));
+    tmp_utility = p * fake_utilities + p(target_class);
 end
 
 % don't apply computational tricks unless everything is fully specified

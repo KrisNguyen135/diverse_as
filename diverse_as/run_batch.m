@@ -7,11 +7,12 @@ for i = a:b
     fprintf('running experiment %d...\n', i);
 
     % data       = 'citeseer';
-    policy     = 'round robin ucb';
+    policy     = 'round robin ens';
     group_size = 5;
 
     % run;
-    run_square;
+    % run_square;
+    run_fatemah;
 end
 
 % a = 1;
