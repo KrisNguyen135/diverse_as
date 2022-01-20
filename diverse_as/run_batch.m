@@ -6,12 +6,12 @@ for i = a:b
     % verbose = false;
     fprintf('running experiment %d...\n', i);
 
-    data       = 'citeseer';
-    policy     = 'greedy';
-    group_size = 1;
+    % data       = 'citeseer';
+    policy     = 'round robin ucb';
+    group_size = 5;
 
-    run;
-    % run_square;
+    % run;
+    run_square;
 end
 
 % a = 1;

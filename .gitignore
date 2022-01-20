@@ -4,3 +4,4 @@ __pycache__/
 .ipynb_checkpoints/
 bjob_output/
 diverse_as/results
+*.tex

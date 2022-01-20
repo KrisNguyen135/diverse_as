@@ -194,6 +194,38 @@ case 'bmg'
 
     alpha = [1, 0.05];
 
+case 'fatemah'
+    k         = 20;
+    threshold = 450;
+    alpha     = [0.87 0.13];
+
+    filename = 'nearest_neighbors_100.mat';
+    data_dir  = fullfile(data_dir, 'fatemah');
+    data_path = fullfile(data_dir, filename);
+    load(data_path);
+
+    core       = load(fullfile(data_dir, 'core.txt'));
+    nm         = load(fullfile(data_dir, 'nm.txt'));
+    num_points = numel(core);
+
+    positive_mask         = nm >= threshold;
+    labels                = ones(num_points, 1);
+    core_mask             = bsxfun(@eq, core(:), 1:max(core));
+    [~, positive_ind]     = max(core_mask(positive_mask, :), [], 2);
+    labels(positive_mask) = positive_ind + 1;
+
+    problem.num_points  = num_points;
+    problem.points      = (1:num_points)';
+    problem.num_classes = numel(unique(core)) + 1;
+
+    nearest_neighbors = nearest_neighbors(:, 1:k)';
+    similarities      = similarities(:, 1:k)';
+
+    % precompute sparse weight matrix
+    row_index = kron((1:num_points)', ones(k, 1));
+    weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+                     num_points, num_points);
+
 otherwise  % drug discovery with 160k points
     % if ~exist('group_size', 'var'), group_size = 1; end
     % alpha = [1 0.001 * ones(1, group_size)];
