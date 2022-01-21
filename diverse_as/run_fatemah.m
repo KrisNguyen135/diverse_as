@@ -2,8 +2,8 @@ data = 'fatemah';
 
 if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('utility',    'var'), utility    = 'log'; end
-if ~exist('policy',     'var'), policy     = 'classical ens'; end
-% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+% if ~exist('policy',     'var'), policy     = 'classical ens'; end
+if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
@@ -17,7 +17,7 @@ addpath(genpath('../active_search'));
 exp
 policy
 
-budget = 100
+budget = 58
 
 result_dir = 'results_fatemah';
 verbose    = true;
