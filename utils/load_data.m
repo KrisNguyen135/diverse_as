@@ -359,7 +359,7 @@ otherwise  % drug discovery with 160k points
     problem.num_classes = group_size + 1;
 
     % limit to k-nearest neighbors
-    k = 100;
+    k = 200;
     nearest_neighbors = nearest_neighbors(:, 1:k)';
     similarities      = similarities(:, 1:k)';
 

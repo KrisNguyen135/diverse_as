@@ -1,6 +1,6 @@
 if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 4; end
-if ~exist('data',       'var'), data       = 'citeseer'; end
+if ~exist('data',       'var'), data       = 'morgan1'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 % if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
@@ -8,7 +8,8 @@ if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ens'; end
-if ~exist('policy',     'var'), policy     = 'malkomes'; end
+% if ~exist('policy',     'var'), policy     = 'malkomes'; end
+if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -123,6 +124,10 @@ case 'malkomes'
     sim_threshold = 0.5;
     name          = sprintf('%s_%.1f', name, sim_threshold);
     policy        = get_policy(@malkomes, model, nns', sims', sim_threshold);
+case 'he-carbonell'
+    result_dir = 'results_he_carbonell';
+    name       = 'he_cabornell';
+    policy     = get_he_carbonell_policy(nns', sims');
 end
 
 if problem.verbose
