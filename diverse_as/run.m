@@ -8,8 +8,8 @@ if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ens'; end
-% if ~exist('policy',     'var'), policy     = 'malkomes'; end
-if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
+if ~exist('policy',     'var'), policy     = 'malkomes'; end
+% if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -121,8 +121,8 @@ case 'ens jensen greedy'
         utility_upperbound_function, true, compute_limit, sample_limit);
 case 'malkomes'
     result_dir    = 'results_malkomes';
-    sim_threshold = 0.5;
-    name          = sprintf('%s_%.1f', name, sim_threshold);
+    sim_threshold = 0.25;
+    name          = sprintf('%s_%.2f', name, sim_threshold);
     policy        = get_policy(@malkomes, model, nns', sims', sim_threshold);
 case 'he-carbonell'
     result_dir = 'results_he_carbonell';
