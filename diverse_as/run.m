@@ -8,8 +8,8 @@ if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ens'; end
-if ~exist('policy',     'var'), policy     = 'malkomes'; end
-% if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
+% if ~exist('policy',     'var'), policy     = 'malkomes'; end
+if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
