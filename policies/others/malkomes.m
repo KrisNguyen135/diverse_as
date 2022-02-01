@@ -19,12 +19,14 @@ for i = 1:numel(train_ind)
     if numel(cutoff) > 0
         cutoff                 = cutoff - 1;
         this_nearest_neighbors = nearest_neighbors(this_ind, 1:cutoff);
-
-        % make the unlabeled probabilities zero if the point is close to a labeled point
-        this_nearest_neighbors_ind = reverse_ind(this_nearest_neighbors);
-        this_nearest_neighbors_ind = this_nearest_neighbors_ind(this_nearest_neighbors_ind ~= 0);
-        probs(this_nearest_neighbors_ind, :) = 0;
+    else
+        this_nearest_neighbors = nearest_neighbors(this_ind, :);
     end
+
+    % make the unlabeled probabilities zero if the point is close to a labeled point
+    this_nearest_neighbors_ind = reverse_ind(this_nearest_neighbors);
+    this_nearest_neighbors_ind = this_nearest_neighbors_ind(this_nearest_neighbors_ind ~= 0);
+    probs(this_nearest_neighbors_ind, :) = 0;
 end
 
 best_score = 0;

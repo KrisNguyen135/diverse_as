@@ -18,9 +18,10 @@ reverse_ind(test_ind) = 1:numel(test_ind);
 %%% block out the points near labeled points
 for i = 1:numel(train_ind)
     this_ind = train_ind(i);
-    cutoff   = find(similarities(this_ind, :) <= recip_r_prime, 1) - 1;
+    cutoff   = find(similarities(this_ind, :) <= recip_r_prime, 1);
 
     if numel(cutoff) > 0
+        cutoff                 = cutoff - 1;
         this_nearest_neighbors = nearest_neighbors(this_ind, 1:cutoff);
 
         % leave out near-by points
