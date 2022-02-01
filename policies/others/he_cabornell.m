@@ -36,6 +36,6 @@ for i = 1:numel(test_ind)
         this_ind = test_ind(i);
         expanded_recip_r_prime = recip_r_prime ...
                                  * (numel(train_ind) - problem.num_initial + 1);
-        cutoff = find(similarities(this_ind, :) > expanded_recip_r_prime);
+        cutoff = find(similarities(this_ind, :) <= expanded_recip_r_prime, 1) - 1;
     end
 end
