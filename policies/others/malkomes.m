@@ -13,7 +13,7 @@ reverse_ind(test_ind) = 1:numel(test_ind);
 
 %%% block out the region covered by the labeled set
 for i = 1:numel(train_ind)
-    this_ind = test_ind(i);
+    this_ind = train_ind(i);
     cutoff   = find(similarities(this_ind, :) > sim_threshold, 1);
 
     if numel(cutoff) > 0

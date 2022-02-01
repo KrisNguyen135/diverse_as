@@ -2,14 +2,19 @@
 % assumes the last columns in the `nearest_neighbors` and `similarities`
 % are for the K-th nearest neighbor
 function [chosen_ind, chosen_prob, num_computed, num_pruned] = he_cabornell( ...
-    problem, train_ind, train_labels, test_ind, alpha, nearest_neighbors, similarities)
+    problem, train_ind, train_labels, test_ind, ...
+    nearest_neighbors, similarities, recip_r_prime, n)
 
-nearest_neighbors = nearest_neighbors';
-similarities      = similarities';
+% target only uncovered classes
+% in this case, they are the classes with lower counts
+% than the most frequently observed class
+uncovered_mask = (problem.counts(2:end) == max(problem.counts(2:end)));
 
-% all the r' values are equal for the k-NN model
-% it's easier to keep track of (1 - r')
-recip_r_prime = min(similarities(:, end));
+%%% block out the points near labeled points
+for i = 1:numel(train_ind)
+    this_ind = train_ind(i);
+end
 
-% number of large-enough weights in each row
-n = sum(similarities >= recip_r_prime, 2);
+for i = 1:numel(test_ind)
+    this_ind = test_ind(i);
+end

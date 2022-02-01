@@ -6,3 +6,4 @@ bjob_output/
 diverse_as/results
 *.tex
 results*/
+*.png
