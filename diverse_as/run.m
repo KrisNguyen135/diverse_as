@@ -1,13 +1,14 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 1; end
-if ~exist('data',       'var'), data       = 'morgan1'; end
+if ~exist('group_size', 'var'), group_size = 4; end
+if ~exist('data',       'var'), data       = 'citeseer'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 % if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
-if ~exist('policy',     'var'), policy     = 'round robin ens'; end
+% if ~exist('policy',     'var'), policy     = 'round robin ens'; end
+if ~exist('policy',     'var'), policy     = 'malkomes'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -117,6 +118,11 @@ case 'ens jensen greedy'
         @jensen_upperbound, weights, nns', sims');
     policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
         utility_upperbound_function, true, compute_limit, sample_limit);
+case 'malkomes'
+    result_dir    = 'results_malkomes';
+    sim_threshold = 0.5;
+    name          = sprintf('%s_%.1f', name, sim_threshold);
+    policy        = get_policy(@malkomes, model, nns', sims', sim_threshold);
 end
 
 if problem.verbose
