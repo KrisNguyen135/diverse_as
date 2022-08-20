@@ -21,6 +21,9 @@ if remain_budget <= 0  % greedy
     case 'log'
         marginal_utility = probs(:, 2:end) * (log(problem.counts(2:end) + 2)' ...
                                               - log(problem.counts(2:end) + 1)');
+    case 'sqrt'
+        marginal_utility = probs(:, 2:end) * (sqrt(problem.counts(2:end) + 1)' ...
+                                              - sqrt(problem.counts(2:end))');
     end
 
     maxu    = max(marginal_utility);

@@ -6,11 +6,11 @@ if ~exist('utility',    'var'), utility    = 'log'; end
 if ~exist('verbose',    'var'), verbose    = true; end
 
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
-if ~exist('policy',     'var'), policy     = 'round robin ens'; end
+% if ~exist('policy',     'var'), policy     = 'round robin ens'; end
 
 addpath(genpath('../'));
 addpath(genpath('../active_learning'));
@@ -65,6 +65,8 @@ selector     = get_selector(@unlabeled_selector);
 switch utility
 case 'log'
     utility_function = @log_utility;
+case 'sqrt'
+    utility_function = @sqrt_utility;
 case 'threshold'
     threshold        = 2;
     utility_function = get_utility_function(@threshold_utility, threshold);
@@ -121,7 +123,7 @@ message_prefix = sprintf('Exp %d: ', exp);
     problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
     message_prefix);
 
-result_dir = fullfile(data_dir, 'results', data, int2str(group_size), name);
+result_dir = fullfile(data_dir, 'results', data, int2str(group_size), name)
 if ~isdir(result_dir), mkdir(result_dir); end
 
 writematrix(train_ind, ...

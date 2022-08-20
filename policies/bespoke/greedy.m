@@ -7,6 +7,9 @@ switch problem.utility
 case 'log'
     marginal_utility = probs(:, 2:end) * ...
                        (log(problem.counts(2:end) + 2)' - log(problem.counts(2:end) + 1)');
+case 'sqrt'
+    marginal_utility = probs(:, 2:end) * ...
+                       (sqrt(problem.counts(2:end) + 1)' - sqrt(problem.counts(2:end))');
 end
 
 % [~, chosen_ind] = max(marginal_utility);

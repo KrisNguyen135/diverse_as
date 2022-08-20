@@ -5,10 +5,10 @@ end
 if group_size == 1
     num_exps = 120;
 else
-    num_exps = 20;
+    num_exps = 1;
 end
 
-num_negatives  = 100000;
+num_negatives  = 50000;
 k              = 500;     % number of nearest neighbors to compute
 inactive_class = 0;       % the label of the negatives
 fingerprint    = 'morgan';
@@ -77,6 +77,7 @@ for i = 1:num_exps
 
     load([data_directory fingerprint '/features']);
     features = sparse(features(:, 2), features(:, 1), 1);
+    features = features(:, keep_ind)
     features = features(any(features, 2), :);  % remove features that are always zero
 
     [nearest_neighbors, similarities] = jaccard_nn(features, k);
