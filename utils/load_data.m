@@ -112,6 +112,24 @@ case 'citeseer'
 
     problem.num_classes = 1 + size(targets, 2);
 
+case 'vast'
+    load(fullfile(data_dir, sprintf('vast/vast_nearest_neighbors_100.mat')));
+
+    k     = size(similarities, 2);
+    alpha = [0.99 0.006 0.002 0.002];
+
+    nearest_neighbors = double(nearest_neighbors)';
+    similarities      = double(similarities)';
+
+    num_points = size(similarities, 2);
+    row_index  = kron((1:num_points)', ones(k, 1));
+    weights    = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+                        num_points, num_points);
+
+    problem.num_classes = 4;
+    problem.points      = (1:num_points)';
+    problem.num_points  = num_points;
+
 case 'bmg'
     assert(group_size == 1, 'bmg is only for single-class experiments');
 

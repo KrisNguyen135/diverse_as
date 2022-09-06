@@ -1,14 +1,14 @@
 if ~exist('exp',        'var'), exp        = 1; end
 if ~exist('group_size', 'var'), group_size = 4; end
-if ~exist('data',       'var'), data       = 'citeseer'; end
-if ~exist('utility',    'var'), utility    = 'sqrt'; end
+if ~exist('data',       'var'), data       = 'vast'; end
+if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ens'; end
-if ~exist('policy',     'var'), policy     = 'malkomes'; end
+% if ~exist('policy',     'var'), policy     = 'malkomes'; end
 % if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
 % if ~exist('policy',     'var'), policy     = 'van'; end
 
@@ -133,7 +133,7 @@ case 'he-carbonell'
     policy     = get_he_carbonell_policy(nns', sims');
 case 'van'
     result_dir     = 'results_van';
-    tradeoff_param = 0.75;
+    tradeoff_param = 0.25;
     beta           = 3;
     name           = sprintf('%s_%.2f_%.2f', name, tradeoff_param, beta);
     policy         = get_policy(@van, model, tradeoff_param, beta);
