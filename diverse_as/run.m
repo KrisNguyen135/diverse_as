@@ -3,12 +3,12 @@ if ~exist('group_size', 'var'), group_size = 4; end
 if ~exist('data',       'var'), data       = 'citeseer'; end
 if ~exist('utility',    'var'), utility    = 'sqrt'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+% if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ens'; end
-% if ~exist('policy',     'var'), policy     = 'malkomes'; end
+if ~exist('policy',     'var'), policy     = 'malkomes'; end
 % if ~exist('policy',     'var'), policy     = 'he-carbonell'; end
 % if ~exist('policy',     'var'), policy     = 'van'; end
 
