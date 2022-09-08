@@ -1,6 +1,6 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 4; end
-if ~exist('data',       'var'), data       = 'vast'; end
+if ~exist('group_size', 'var'), group_size = 9; end
+if ~exist('data',       'var'), data       = 'citeseer'; end
 if ~exist('utility',    'var'), utility    = 'log'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 % if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
@@ -150,20 +150,14 @@ end
 %%% run experiment
 message_prefix = sprintf('Exp %d: ', exp);
 
-[train_ind, train_labels, queried_probs, computed, pruned] = diverse_active_search(...
-    problem, train_ind, train_labels, labels, selector, utility_function, policy, ...
-    message_prefix);
-
 result_dir = fullfile('./', result_dir, data, int2str(group_size), name)
-if ~isdir(result_dir), mkdir(result_dir); end
 
-writematrix(train_ind, ...
+train_ind    = load( ...
     fullfile(result_dir, sprintf('%s__ind__%d.csv',      name, exp)));
-writematrix(train_labels, ...
+train_labels = load( ...
     fullfile(result_dir, sprintf('%s__labels__%d.csv',   name, exp)));
-writematrix(queried_probs, ...
-    fullfile(result_dir, sprintf('%s__probs__%d.csv',    name, exp)));
-writematrix(computed, ...
-    fullfile(result_dir, sprintf('%s__computed__%d.csv', name, exp)));
-writematrix(pruned, ...
-    fullfile(result_dir, sprintf('%s__pruned__%d.csv',   name, exp)));
+
+test_ind    = setdiff((1:problem.num_points)', train_ind);
+test_labels = labels(test_ind);
+
+[probs, n, d] = model(problem, train_ind, train_labels, test_ind);

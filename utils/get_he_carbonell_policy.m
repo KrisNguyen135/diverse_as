@@ -1,6 +1,6 @@
 function policy = get_he_carbonell_policy(nearest_neighbors, similarities, K)
 
-if ~exist('K', 'var'), K = 100; end
+if ~exist('K', 'var'), K =min([size(similarities, 2) 100]); end
 
 % all the r' values are equal for the k-NN model
 % it's easier to keep track of (1 - r')

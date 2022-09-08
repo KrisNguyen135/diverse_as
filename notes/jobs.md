@@ -1,5 +1,24 @@
 1741818 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-1     Aug 20 14:50
 1741819 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-2     Aug 20 14:50
+1741822 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-5     Aug 20 14:50
+1741823 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-6     Aug 20 14:50
+1741824 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-7     Aug 20 14:50
+1741825 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-8     Aug 20 14:50
+1741826 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-9     Aug 20 14:50
+1741827 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-10    Aug 20 14:50
+1741828 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-11    Aug 20 14:50
+1741829 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-12    Aug 20 14:50
+1741830 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-13    Aug 20 14:50
+1741831 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-14    Aug 20 14:50
+1741832 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-15    Aug 20 14:50
+1741833 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-16    Aug 20 14:51
+1741834 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-17    Aug 20 14:51
+1741835 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-18    Aug 20 14:51
+1741836 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-19    Aug 20 14:51
+1741837 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-20    Aug 20 14:51
+
+1741818 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-1     Aug 20 14:50
+1741819 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-2     Aug 20 14:50
 1741821 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-4     Aug 20 14:50
 1741822 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-5     Aug 20 14:50
 1741823 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-6     Aug 20 14:50
@@ -37,6 +56,47 @@
 1765089 quan    RUN   normal     ssh8-2.engr kumquat.eng d-4-11     Sep  6 15:33
 1765090 quan    RUN   normal     ssh8-2.engr kumquat.eng d-4-13     Sep  6 15:33
 1765091 quan    RUN   normal     ssh8-2.engr mangosteen. d-4-15     Sep  6 15:33
+1765113 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-1      Sep  6 15:38
+1765114 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-2      Sep  6 15:38
+1765115 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-3      Sep  6 15:38
+1765116 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-4      Sep  6 15:38
+1765117 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-5      Sep  6 15:38
+1765118 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-6      Sep  6 15:38
+1765119 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-7      Sep  6 15:38
+1765120 quan    RUN   normal     ssh8-2.engr mangosteen. c-4-8      Sep  6 15:38
+1765121 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-9      Sep  6 15:38
+1765122 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-10     Sep  6 15:38
+1765123 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-11     Sep  6 15:38
+1765124 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-12     Sep  6 15:38
+1765125 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-13     Sep  6 15:38
+1765126 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-14     Sep  6 15:38
+1765127 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-15     Sep  6 15:38
+1765128 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-16     Sep  6 15:38
+1765129 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-17     Sep  6 15:38
+1765130 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-18     Sep  6 15:38
+1765131 quan    RUN   normal     ssh8-2.engr rambutan.en c-4-19     Sep  6 15:38
+1765132 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-20     Sep  6 15:38
+1765134 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-1      Sep  6 15:40
+1765135 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-2      Sep  6 15:40
+1765136 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-3      Sep  6 15:40
+1765137 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-4      Sep  6 15:40
+1765138 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-5      Sep  6 15:40
+1765139 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-6      Sep  6 15:40
+1765140 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-7      Sep  6 15:40
+1765141 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-8      Sep  6 15:40
+1765142 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-9      Sep  6 15:40
+1765143 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-10     Sep  6 15:40
+1765144 quan    RUN   normal     ssh8-2.engr soursop.eng c-4-11     Sep  6 15:40
+1765145 quan    PEND  normal     ssh8-2.engr             c-4-12     Sep  6 15:40
+1765146 quan    PEND  normal     ssh8-2.engr             c-4-13     Sep  6 15:40
+1765147 quan    PEND  normal     ssh8-2.engr             c-4-14     Sep  6 15:40
+1765148 quan    PEND  normal     ssh8-2.engr             c-4-15     Sep  6 15:40
+1765149 quan    PEND  normal     ssh8-2.engr             c-4-16     Sep  6 15:40
+1765150 quan    PEND  normal     ssh8-2.engr             c-4-17     Sep  6 15:40
+1765151 quan    PEND  normal     ssh8-2.engr             c-4-18     Sep  6 15:40
+1765152 quan    PEND  normal     ssh8-2.engr             c-4-19     Sep  6 15:40
+1765153 quan    PEND  normal     ssh8-2.engr             c-4-20     Sep  6 15:40
+
 
 1741818 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-1     Aug 20 14:50
 1741819 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-2     Aug 20 14:50

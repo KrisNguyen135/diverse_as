@@ -16,7 +16,7 @@ for i = 1:numel(train_ind)
     this_ind = train_ind(i);
     cutoff   = find(similarities(this_ind, :) <= sim_threshold, 1);
 
-    if numel(cutoff) > 0
+    if numel(cutoff) > 1
         cutoff                 = cutoff - 1;
         this_nearest_neighbors = nearest_neighbors(this_ind, 1:cutoff);
     else
@@ -36,7 +36,7 @@ for i = 1:numel(test_ind)
     this_ind = test_ind(i);
     cutoff   = find(similarities(this_ind, :) <= sim_threshold, 1);
 
-    if numel(cutoff) > 0
+    if numel(cutoff) > 1
         cutoff                     = cutoff - 1;
         this_nearest_neighbors     = nearest_neighbors(this_ind, 1:cutoff);
         this_nearest_neighbors_ind = reverse_ind(this_nearest_neighbors);
