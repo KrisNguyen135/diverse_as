@@ -24,7 +24,7 @@ policy
 
 budget     = 500
 % result_dir = sprintf('results_%d', budget);
-result_dir = 'results';
+result_dir = 'results_post_run';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -160,4 +160,9 @@ train_labels = load( ...
 test_ind    = setdiff((1:problem.num_points)', train_ind);
 test_labels = labels(test_ind);
 
-[probs, n, d] = model(problem, train_ind, train_labels, test_ind);
+[test_probs, n, d] = model(problem, train_ind, train_labels, test_ind);
+
+writematrix(test_probs, ...
+    fullfile(result_dir, sprintf('%s__test_probs__%d.csv',  name, exp)));
+writematrix(test_labels, ...
+    fullfile(result_dir, sprintf('%s__test_labels__%d.csv', name, exp)));
