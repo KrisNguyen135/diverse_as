@@ -244,6 +244,25 @@ case 'fatemah'
     weights = sparse(row_index, nearest_neighbors(:), similarities(:), ...
                      num_points, num_points);
 
+case 'fashion'
+    load(fullfile(data_dir, sprintf('fashion/fashion_tops_nearest_neighbors_500.mat')));
+    % load(fullfile(data_dir, sprintf('fashion/fashion_footwear_nearest_neighbors_500.mat')));
+
+    k     = size(similarities, 2);
+    alpha = [1 0.01 0.01 0.01];
+
+    nearest_neighbors = double(nearest_neighbors)';
+    similarities      = double(similarities)';
+
+    num_points = size(similarities, 2);
+    row_index  = kron((1:num_points)', ones(k, 1));
+    weights    = sparse(row_index, nearest_neighbors(:), similarities(:), ...
+                        num_points, num_points);
+
+    problem.num_classes = 4;
+    problem.points      = (1:num_points)';
+    problem.num_points  = num_points;
+
 otherwise  % drug discovery with 160k points
     % if ~exist('group_size', 'var'), group_size = 1; end
     % alpha = [1 0.001 * ones(1, group_size)];
