@@ -7,3 +7,4 @@ diverse_as/results
 *.tex
 results*/
 *.png
+notebooks/
