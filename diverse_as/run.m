@@ -24,7 +24,7 @@ policy
 
 budget     = 500
 % result_dir = sprintf('results_%d', budget);
-result_dir = 'results';
+result_dir = 'results_profile1';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -83,14 +83,14 @@ case 'round robin ucb'
     beta = 10.0;
 
     name       = sprintf('%s_%.1f', name, beta);
-    result_dir = 'results_ucb';
+    % result_dir = 'results_ucb';
 
     policy = get_policy(@round_robin_ucb, model, beta);
 case 'round robin ens'
     compute_limit = 500;
     sample_limit  = 500;
     name          = sprintf('%s_%d', name, compute_limit);
-    result_dir    = 'results_rr_ens';
+    % result_dir    = 'results_rr_ens';
 
     policy = get_policy(@round_robin_ens, model, model_update, [], false, ...
                         compute_limit, sample_limit);
@@ -123,16 +123,16 @@ case 'ens jensen greedy'
     policy = get_policy(@ens_base, model, batch_policy, batch_utility_function, ...
         utility_upperbound_function, true, compute_limit, sample_limit);
 case 'malkomes'
-    result_dir    = 'results_malkomes';
-    sim_threshold = 0.5;
+    % result_dir    = 'results_malkomes';
+    sim_threshold = 0.75;
     name          = sprintf('%s_%.2f', name, sim_threshold);
     policy        = get_policy(@malkomes, model, nns', sims', sim_threshold);
 case 'he-carbonell'
-    result_dir = 'results_he_carbonell';
+    % result_dir = 'results_he_carbonell';
     name       = 'he_cabornell';
     policy     = get_he_carbonell_policy(nns', sims');
 case 'van'
-    result_dir     = 'results_van';
+    % result_dir     = 'results_van';
     tradeoff_param = 0.75;
     beta           = 10;
     name           = sprintf('%s_%.2f_%.2f', name, tradeoff_param, beta);

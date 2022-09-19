@@ -1,12 +1,2 @@
 1741823 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-6     Aug 20 14:50
-1741824 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-7     Aug 20 14:50
-1741825 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-8     Aug 20 14:50
-1741826 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-9     Aug 20 14:50
 1741829 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-12    Aug 20 14:50
-1741833 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-16    Aug 20 14:51
-1741837 quan    RUN   normal     ssh8-2.engr mangosteen. d-14-20    Aug 20 14:51
-1767809 quan    RUN   normal     ssh8-2.engr rambutan.en f-14-1     Sep  9 10:39
-1767811 quan    RUN   normal     ssh8-2.engr rambutan.en f-14-3     Sep  9 10:39
-1767813 quan    RUN   normal     ssh8-2.engr rambutan.en f-14-5     Sep  9 10:39
-1767818 quan    RUN   normal     ssh8-2.engr rambutan.en f-14-10    Sep  9 10:39
-1771308 quan    RUN   normal     ssh8-2.engr kumquat.eng d-14-1     Sep 13 08:18
