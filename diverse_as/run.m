@@ -24,7 +24,7 @@ policy
 
 budget     = 500
 % result_dir = sprintf('results_%d', budget);
-result_dir = 'results_profile1';
+result_dir = 'results_rare_tops';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -80,7 +80,7 @@ case 'greedy'
 case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
 case 'round robin ucb'
-    beta = 10.0;
+    beta = 0.1;
 
     name       = sprintf('%s_%.1f', name, beta);
     % result_dir = 'results_ucb';

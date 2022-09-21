@@ -1,2 +1,64 @@
 1741823 quan    RUN   normal     ssh8-2.engr rambutan.en d-14-6     Aug 20 14:50
-1741829 quan    RUN   normal     ssh8-2.engr soursop.eng d-14-12    Aug 20 14:50
+
+Job <1782569> is submitted to queue <normal>.
+Job <1782570> is submitted to queue <normal>.
+Job <1782571> is submitted to queue <normal>.
+Job <1782572> is submitted to queue <normal>.
+Job <1782573> is submitted to queue <normal>.
+Job <1782574> is submitted to queue <normal>.
+Job <1782575> is submitted to queue <normal>.
+Job <1782576> is submitted to queue <normal>.
+Job <1782577> is submitted to queue <normal>.
+Job <1782578> is submitted to queue <normal>.
+Job <1782579> is submitted to queue <normal>.
+Job <1782580> is submitted to queue <normal>.
+Job <1782581> is submitted to queue <normal>.
+Job <1782582> is submitted to queue <normal>.
+Job <1782583> is submitted to queue <normal>.
+Job <1782584> is submitted to queue <normal>.
+Job <1782585> is submitted to queue <normal>.
+Job <1782586> is submitted to queue <normal>.
+Job <1782587> is submitted to queue <normal>.
+Job <1782588> is submitted to queue <normal>.
+
+Job <1782592> is submitted to queue <normal>.
+Job <1782593> is submitted to queue <normal>.
+Job <1782594> is submitted to queue <normal>.
+Job <1782595> is submitted to queue <normal>.
+Job <1782596> is submitted to queue <normal>.
+Job <1782597> is submitted to queue <normal>.
+Job <1782598> is submitted to queue <normal>.
+Job <1782599> is submitted to queue <normal>.
+Job <1782600> is submitted to queue <normal>.
+Job <1782601> is submitted to queue <normal>.
+Job <1782602> is submitted to queue <normal>.
+Job <1782603> is submitted to queue <normal>.
+Job <1782604> is submitted to queue <normal>.
+Job <1782605> is submitted to queue <normal>.
+Job <1782606> is submitted to queue <normal>.
+Job <1782607> is submitted to queue <normal>.
+Job <1782608> is submitted to queue <normal>.
+Job <1782609> is submitted to queue <normal>.
+Job <1782610> is submitted to queue <normal>.
+Job <1782611> is submitted to queue <normal>.
+
+Job <1782613> is submitted to queue <normal>.
+Job <1782614> is submitted to queue <normal>.
+Job <1782615> is submitted to queue <normal>.
+Job <1782616> is submitted to queue <normal>.
+Job <1782617> is submitted to queue <normal>.
+Job <1782618> is submitted to queue <normal>.
+Job <1782619> is submitted to queue <normal>.
+Job <1782620> is submitted to queue <normal>.
+Job <1782621> is submitted to queue <normal>.
+Job <1782622> is submitted to queue <normal>.
+Job <1782623> is submitted to queue <normal>.
+Job <1782624> is submitted to queue <normal>.
+Job <1782625> is submitted to queue <normal>.
+Job <1782626> is submitted to queue <normal>.
+Job <1782627> is submitted to queue <normal>.
+Job <1782628> is submitted to queue <normal>.
+Job <1782629> is submitted to queue <normal>.
+Job <1782630> is submitted to queue <normal>.
+Job <1782631> is submitted to queue <normal>.
+Job <1782632> is submitted to queue <normal>.

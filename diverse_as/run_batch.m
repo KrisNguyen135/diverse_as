@@ -7,12 +7,14 @@ for i = a:b
     fprintf('running experiment %d...\n', i);
 
     % data       = 'citeseer';
-    policy     = 'greedy';
+    policy     = 'he-carbonell';
     % group_size = 9;
 
     run;
     % run_square;
     % run_fatemah;
+
+    clear
 end
 
 % a = 1;

@@ -245,10 +245,10 @@ case 'fatemah'
                      num_points, num_points);
 
 case 'fashion'
-    % load(fullfile(data_dir, sprintf('fashion/fashion_tops_nearest_neighbors_500.mat')));
-    % load(fullfile(data_dir, sprintf('fashion/fashion_footwear_nearest_neighbors_500.mat')));
+    load(fullfile(data_dir, sprintf('fashion/fashion_rare_tops_nearest_neighbors_200.mat')));
+    % load(fullfile(data_dir, sprintf('fashion/fashion_rare_footwear_nearest_neighbors_200.mat')));
 
-    load(fullfile(data_dir, sprintf('fashion/fashion_profile1_sup_nearest_neighbors_50.mat')));
+    % load(fullfile(data_dir, sprintf('fashion/fashion_profile1_sup_nearest_neighbors_50.mat')));
     % load(fullfile(data_dir, sprintf('fashion/fashion_profile2_sup_nearest_neighbors_50.mat')));
 
     k     = size(similarities, 2);
