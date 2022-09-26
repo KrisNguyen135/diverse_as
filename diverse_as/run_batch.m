@@ -7,7 +7,7 @@ for i = a:b
     fprintf('running experiment %d...\n', i);
 
     % data       = 'citeseer';
-    policy     = 'greedy';
+    policy     = 'malkomes';
     % group_size = 9;
 
     run;

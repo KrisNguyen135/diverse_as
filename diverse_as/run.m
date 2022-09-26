@@ -24,7 +24,7 @@ policy
 
 budget     = 500
 % result_dir = sprintf('results_%d', budget);
-result_dir = 'results_squeeze_profile1';
+result_dir = 'results_unsqueeze_profile1';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -124,7 +124,7 @@ case 'ens jensen greedy'
         utility_upperbound_function, true, compute_limit, sample_limit);
 case 'malkomes'
     % result_dir    = 'results_malkomes';
-    sim_threshold = 0.75;
+    sim_threshold = 0.5;
     name          = sprintf('%s_%.2f', name, sim_threshold);
     policy        = get_policy(@malkomes, model, nns', sims', sim_threshold);
 case 'he-carbonell'
