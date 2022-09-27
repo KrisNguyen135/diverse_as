@@ -7,7 +7,7 @@ for i = a:b
     fprintf('running experiment %d...\n', i);
 
     % data       = 'citeseer';
-    policy     = 'malkomes';
+    policy     = 'round robin ens';
     % group_size = 9;
 
     run;

@@ -248,8 +248,11 @@ case 'fashion'
     % load(fullfile(data_dir, sprintf('fashion/fashion_rare_tops_nearest_neighbors_200.mat')));
     % load(fullfile(data_dir, sprintf('fashion/fashion_rare_footwear_nearest_neighbors_200.mat')));
 
-    load(fullfile(data_dir, sprintf('fashion/fashion_unsqueeze_profile1_nearest_neighbors_100.mat')));
+    % load(fullfile(data_dir, sprintf('fashion/fashion_unsqueeze_profile1_nearest_neighbors_100.mat')));
     % load(fullfile(data_dir, sprintf('fashion/fashion_squeeze_profile2_nearest_neighbors_100.mat')));
+
+    load(fullfile(data_dir, sprintf('fashion/fashion_hard_nearest_neighbors_100.mat')));
+    % load(fullfile(data_dir, sprintf('fashion/fashion_easy_nearest_neighbors_100.mat')));
 
     k     = size(similarities, 2);
     alpha = [1 0.01 0.01 0.01];
