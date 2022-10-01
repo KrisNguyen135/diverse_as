@@ -49,4 +49,11 @@ elseif strcmp(problem.utility, 'sqrt')
         bounds(i) = sqrt(problem.counts(i) + 1 + updated_sigma_primes(i - 1)) ...
                     + bounds(1) - sqrt(problem.counts(i) + sigma_primes(i - 1));
     end
+elseif strcmp(problem.utility, 'weighted')
+    bounds(1) = log(problem.counts(2:end) + 1 + sigma_primes) * problem.weights;
+    for i = 2:problem.num_classes
+        bounds(i) = log(problem.counts(i) + 2 + updated_sigma_primes(i - 1)) ...
+                    + bounds(1) - log(problem.counts(i) + 1 + sigma_primes(i - 1));
+        bounds(i) = bounds(i) * problem.weights(i - 1);
+    end
 end

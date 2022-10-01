@@ -1,7 +1,7 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 4; end
-if ~exist('data',       'var'), data       = 'fashion'; end
-if ~exist('utility',    'var'), utility    = 'log'; end
+if ~exist('group_size', 'var'), group_size = 9; end
+if ~exist('data',       'var'), data       = 'citeseer'; end
+if ~exist('utility',    'var'), utility    = 'weighted'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
@@ -24,7 +24,7 @@ policy
 
 budget     = 500
 % result_dir = sprintf('results_%d', budget);
-result_dir = 'results_hard';
+result_dir = 'results';
 verbose    = true;
 data_dir   = '../data/';
 if ~isdir(data_dir)
@@ -67,6 +67,14 @@ case 'log'
     utility_function = @log_utility;
 case 'sqrt'
     utility_function = @sqrt_utility;
+case 'weighted'
+    % weight the last class with 5 and the second-to-last with 3
+    weights          = ones(problem.num_classes - 1, 1);
+    weights(end    ) = 5;
+    weights(end - 1) = 3;
+
+    problem.weights  = weights
+    utility_function = @weighted_utility;
 case 'threshold'
     threshold        = 2;
     utility_function = get_utility_function(@threshold_utility, threshold);
@@ -80,7 +88,7 @@ case 'greedy'
 case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
 case 'round robin ucb'
-    beta = 10.0;
+    beta = 3.0;
 
     name       = sprintf('%s_%.1f', name, beta);
     % result_dir = 'results_ucb';
@@ -134,7 +142,7 @@ case 'he-carbonell'
 case 'van'
     % result_dir     = 'results_van';
     tradeoff_param = 0.75;
-    beta           = 10;
+    beta           = 1.0;
     name           = sprintf('%s_%.2f_%.2f', name, tradeoff_param, beta);
     policy         = get_policy(@van, model, tradeoff_param, beta);
 end

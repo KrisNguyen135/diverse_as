@@ -24,6 +24,10 @@ if remain_budget <= 0  % greedy
     case 'sqrt'
         marginal_utility = probs(:, 2:end) * (sqrt(problem.counts(2:end) + 1)' ...
                                               - sqrt(problem.counts(2:end))');
+    case 'weighted'
+        marginal_utility = probs(:, 2:end) * ...
+                           ((log(problem.counts(2:end) + 2) ...
+                             - log(problem.counts(2:end) + 1)) .* problem.weights')';
     end
 
     maxu    = max(marginal_utility);

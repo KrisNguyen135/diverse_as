@@ -10,6 +10,10 @@ case 'log'
 case 'sqrt'
     marginal_utility = probs(:, 2:end) * ...
                        (sqrt(problem.counts(2:end) + 1)' - sqrt(problem.counts(2:end))');
+case 'weighted'
+    marginal_utility = probs(:, 2:end) * ...
+                       ((log(problem.counts(2:end) + 2) ...
+                         - log(problem.counts(2:end) + 1)) .* problem.weights')';
 end
 
 % [~, chosen_ind] = max(marginal_utility);

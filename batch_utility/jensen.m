@@ -9,4 +9,7 @@ if strcmp(problem.utility, 'log')
     utility = sum(log(problem.counts(2:end) + 1 + sum(probs(:, 2:end), 1)));
 elseif strcmp(problem.utility, 'sqrt')
     utility = sum(sqrt(problem.counts(2:end) + sum(probs(:, 2:end), 1)));
+elseif strcmp(problem.utility, 'weighted')
+    utility = log(problem.counts(2:end) + 1 + sum(probs(:, 2:end), 1)) ...
+              * problem.weights;
 end

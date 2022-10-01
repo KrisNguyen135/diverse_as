@@ -25,6 +25,8 @@ for i = 1:batch_size
         marginal_utility = sum(log(count_sums + 1 + pruned_probs), 2);
     elseif strcmp(problem.utility, 'sqrt')
         marginal_utility = sum(sqrt(count_sums + pruned_probs), 2);
+    elseif strcmp(problem.utility, 'weighted')
+        marginal_utility = log(count_sums + 1 + pruned_probs) * problem.weights;
     end
 
     % find the candidate that leads to the biggest immediate marginal gain
@@ -49,4 +51,6 @@ if strcmp(problem.utility, 'log')
     batch_utility = sum(log(count_sums + 1), 2);
 elseif strcmp(problem.utility, 'sqrt')
     batch_utility = sum(sqrt(count_sums), 2);
+elseif strcmp(problem.utility, 'weighted')
+    batch_utility = log(count_sums + 1) * problem.weights;
 end
