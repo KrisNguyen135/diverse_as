@@ -3,7 +3,7 @@ if ~exist('group_size', 'var'), group_size = 9; end
 if ~exist('data',       'var'), data       = 'citeseer'; end
 if ~exist('utility',    'var'), utility    = 'weighted'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-if ~exist('policy',     'var'), policy     = 'ens jensen greedy'; end
+if ~exist('policy',     'var'), policy     = 'round robin ens'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
@@ -22,7 +22,7 @@ group_size
 data
 policy
 
-budget     = 500
+budget     = 50
 % result_dir = sprintf('results_%d', budget);
 result_dir = 'results';
 verbose    = true;

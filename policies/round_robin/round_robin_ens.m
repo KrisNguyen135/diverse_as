@@ -58,6 +58,16 @@ remain_budget = fix(...
     (problem.num_queries - (numel(train_ind) - problem.num_initial) - 1) ...
     / (problem.num_classes - 1));
 
+if strcmp(problem.utility, 'weighted')
+    remainder          = mod(size(train_ind, 1), sum(problem.weights));
+    cumulative_weights = cumsum(problem.weights);
+    target_class       = find(remainder < cumulative_weights, 1) + 1;
+
+    remain_budget = fix(...
+        (problem.num_queries - (numel(train_ind) - problem.num_initial) - 1) ...
+        / sum(problem.weights) * problem.weights(target_class - 1));
+end
+
 unlabeled_ind = unlabeled_selector(problem, train_ind, []);
 [probs, n, d] = model(problem, train_ind, train_labels, unlabeled_ind);
 

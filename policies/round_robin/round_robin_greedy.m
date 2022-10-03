@@ -7,6 +7,12 @@ function [chosen_ind, chosen_prob, num_computed, num_pruned] = round_robin_greed
 % the class to be targeted this round, between 2 and problem.num_classes
 target_class = mod(size(train_ind, 1), problem.num_classes - 1) + 2;
 
+if strcmp(problem.utility, 'weighted')
+    remainder          = mod(size(train_ind, 1), sum(problem.weights));
+    cumulative_weights = cumsum(problem.weights);
+    target_class       = find(remainder < cumulative_weights, 1) + 1;
+end
+
 % [~, chosen_ind] = max(probs(:, target_class));
 maxprob = max(probs(:, target_class));
 indices = find(probs(:, target_class) == maxprob);
