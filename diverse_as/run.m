@@ -1,7 +1,8 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 9; end
+if ~exist('group_size', 'var'), group_size = 4; end
 if ~exist('data',       'var'), data       = 'citeseer'; end
 if ~exist('utility',    'var'), utility    = 'weighted'; end
+% if ~exist('policy',     'var'), policy     = 'classical greedy'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
 if ~exist('policy',     'var'), policy     = 'round robin ens'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
@@ -85,10 +86,12 @@ name = policy;
 switch name
 case 'greedy'
     policy = get_policy(@greedy, model, utility_function);
+case 'classical greedy'
+    policy = get_policy(@classical_greedy, model);
 case 'round robin greedy'
     policy = get_policy(@round_robin_greedy, model);
 case 'round robin ucb'
-    beta = 3.0;
+    beta = 10.0;
 
     name       = sprintf('%s_%.1f', name, beta);
     % result_dir = 'results_ucb';
