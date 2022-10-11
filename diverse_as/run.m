@@ -1,10 +1,10 @@
 if ~exist('exp',        'var'), exp        = 1; end
-if ~exist('group_size', 'var'), group_size = 4; end
+if ~exist('group_size', 'var'), group_size = 9; end
 if ~exist('data',       'var'), data       = 'citeseer'; end
-if ~exist('utility',    'var'), utility    = 'weighted'; end
-% if ~exist('policy',     'var'), policy     = 'classical greedy'; end
+if ~exist('utility',    'var'), utility    = 'log'; end
+if ~exist('policy',     'var'), policy     = 'coverage greedy'; end
 % if ~exist('policy',     'var'), policy     = 'classical ens'; end
-if ~exist('policy',     'var'), policy     = 'round robin ens'; end
+% if ~exist('policy',     'var'), policy     = 'round robin ens'; end
 % if ~exist('policy',     'var'), policy     = 'greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin greedy'; end
 % if ~exist('policy',     'var'), policy     = 'round robin ucb'; end
@@ -23,7 +23,7 @@ group_size
 data
 policy
 
-budget     = 50
+budget     = 500
 % result_dir = sprintf('results_%d', budget);
 result_dir = 'results';
 verbose    = true;
@@ -107,6 +107,8 @@ case 'round robin ens'
                         compute_limit, sample_limit);
 case 'classical greedy'
     policy = get_policy(@classical_greedy, model);
+case 'coverage greedy'
+    policy = get_policy(@coverage_greedy, model);
 case 'classical ens'
     compute_limit = 500;
     sample_limit  = 500;
