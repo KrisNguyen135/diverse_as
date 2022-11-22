@@ -8,3 +8,4 @@ diverse_as/results
 results*/
 *.png
 notebooks/
+.vscode/
